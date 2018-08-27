@@ -12,10 +12,11 @@
                 {{ with .Site.Params.aboutSm.description }}
                     <p>{{ . | markdownify }}</p>
                 {{ end }}
-                
             </div>
         </div>
     </div>
 </section>
 {{ "<!-- End About section -->" | safeHTML }}
 {{ end }}
+
+<h1 class="h2">{{ .Site.Title }} </h1>
