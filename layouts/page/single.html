@@ -1,0 +1,33 @@
+{{ partial "header.html" . }}
+
+{{ partial "preloader.html" . }}
+
+{{ partial "navigation.html" . }}
+
+
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>{{ .Title }}</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>By</span>
+                            {{ .Params.author }}
+                        </li>
+                        <li class="list-inline-item">
+                            <span>at</span>
+                            <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                        </li>
+                    </ul>
+                </div>
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ partial "cta.html" . }}
+{{ partial "footer.html" . }}
