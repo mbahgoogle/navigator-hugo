@@ -13,7 +13,9 @@
                 <div class="block">
                     {{ with .Site.Params.hero.heading }}
                         <h1 class="h2">{{ . }}</h1>
+                        
                     {{ end }}
+                    <h1 class="h2">{{ .Title }}</h1>
                     {{ with .Site.Params.hero.description }}
                         <p>{{ . }}</p>
                     {{ end }}
