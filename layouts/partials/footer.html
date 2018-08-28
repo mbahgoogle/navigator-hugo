@@ -10,19 +10,42 @@
                 <div class="col-sm-3 col-md-3 col-lg-3">
                     <h3>Our Services</h3>
                     
-                        <p> Perangkat Apple yang didukung: iPhone 7, 7 Plus, 6, 6 Plus, 5, 5s, 5c, 4s, 4, 3g. iPad (semua versi)</p>
+                        <p>
+                        Perangkat Apple yang didukung: 
+                        <a href="https://www.apple.com/lae/iphone-x/" title="iPhone X" target="_blank">iPhone X,</a> 
+                        <a href="https://www.gsmarena.com/apple_iphone_8-8573.php" title="iPhone 8 " target="_blank">iPhone 8, </a>
+                        <a href="https://www.sprint.com/en/shop/cell-phones/apple-iphone-8-plus.html" title="iPhone 8 Plus" target="_blank">8 Plus, 
+                        <a href="https://www.apple.com/lae/iphone-7/specs/" title="iPhone 7" target="_blank">iPhone 7, </a>
+                        <a href="https://id.wikipedia.org/wiki/IPhone_7" title="iPhone 7 Plus" target="_blank">7 Plus, </a>
+                        <a href="https://id.wikipedia.org/wiki/IPhone_6" title="iPhone 6" target="_blank">iPhone 6, </a>
+                        <a href="https://gadgets.ndtv.com/apple-iphone-6-plus-1974" title="iPhone 6 Plus" target="_blank">6 Plus, </a>
+                        <a href="https://en.wikipedia.org/wiki/IPhone_5" title="iPhone 5" target="_blank">5, </a>
+                        <a href="https://www.gadgetsnow.com/mobile-phones/Apple-iPhone-5s" title="iPhone 5s" target="_blank">5s, </a>
+                        <a href="https://www.lifewire.com/iphone-5c-specs-features-2000693" title="iPhone 5c" target="_blank">5c, </a>
+                        <a href="https://igotoffer.com/apple/iphone-4s/" title="iPhone 4s" target="_blank">4s, </a>
+                        <a href="https://en.wikipedia.org/wiki/IPhone_4" title="iPhone 4" target="_blank">4, </a>
+                        <a href="https://www.cnet.com/news/iphone-3g-details-dimensions-weight-3g-chip-specs/" title="iPhone 3g" target="_blank">3g. </a>
+                        <a href="https://www.apple.com/lae/ipad/" title="iPad" target="_blank">iPad </a> (semua versi)</p>
                         
-                        <p> Perangkat monitoring smartphone kompatibel dengan semua versi OS Android.</p>
-                        
-                        
-                    </ul>
+                        <p> 
+                        Perangkat monitoring smartphone kompatibel 
+                        dengan versi 
+                        <a href="https://id.wikipedia.org/wiki/Daftar_versi_Android" target="_blank" title="OS Android. ">OS Android. </a>
+                        <a href="https://en.wikipedia.org/wiki/Android_Jelly_Bean" target="_blank" title="OS Android. Jelly Bean">Jelly Bean, </a>
+                        <a href="https://www.android.com/versions/kit-kat-4-4/" target="_blank" title="OS Android. KitKat">KitKat, </a>
+                        <a href="https://id.wikipedia.org/wiki/Android_Lollipop" target="_blank" title="OS Android. Lollipop">Lollipop, </a>
+                        <a href="https://www.android.com/versions/marshmallow-6-0/" target="_blank" title="OS Android. Marshmallow">Marshmallow, </a>
+                        <a href="https://en.wikipedia.org/wiki/Android_Nougat" target="_blank" title="OS Android. Nougat">Nougat, </a>
+                        <a href="https://en.wikipedia.org/wiki/Android_Oreo" target="_blank" title="OS Android. Oreo">Oreo, </a>
+                        <a href="https://www.android.com/versions/pie-9-0/" target="_blank" title="OS Android. Pie">Pie, </a>
+                        </p>                              
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
                     <h3>Quick Links</h3>
                     <ul>
                         {{ range .Site.Menus.quicklink }}
                         <li>
-                            <a href="{{ .URL }}">{{ .Name }}</a>
+                            <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
                         </li>
                         {{ end }}
                     </ul>
@@ -41,7 +64,7 @@
     </div>
     <div class="footer-bottom">
         <h5>Copyright 2018. All rights reserved.</h5>
-        <h6>Design and Developed by <a href="{{ .Site.BaseURL }}" target="_blank">{{ .Site.Title }}</a>
+        <h6>Design and Developed by <a href="{{ .Site.BaseURL }}" target="_blank" title="{{ .Title }}">{{ .Site.Title }}</a>
         </h6>
     </div>
 </footer>

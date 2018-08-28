@@ -20,7 +20,7 @@
                     </div>
                     <div class="post-title">
                         <h3 class="mt-0 h6">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
                         </h3>
                     </div>
                     <div class="post-meta">
@@ -38,7 +38,7 @@
                     <div class="post-content">
                         <p>{{ .Summary | truncate 200}}</p>
                     </div>
-                    <a class="btn btn-main" href="{{ .Permalink }}">Read more</a>
+                    <a class="btn btn-main" href="{{ .Permalink }}" title="{{ .Title }}">Read more</a>
                 </div>
             </article>
             {{ "<!-- /single blog post -->" | safeHTML }}
