@@ -8,12 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="Post-Image">
+                {{ if isset .Params "thumbnail" }}<img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="{{.Title}}">{{ end }}
                 <h2>{{ .Title }}</h2>
                 <div class="post-meta mb-5">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span>By</span>
+                            <span>By </span>
                             {{- if isset .Params "author" -}}{{- $author := index .Site.Data.authors .Params.author -}} {{- $author.name -}} {{- else -}}Admin{{- end -}} 
                         </li>
                         <li class="list-inline-item">
