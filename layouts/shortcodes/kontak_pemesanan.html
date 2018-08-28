@@ -1,9 +1,11 @@
-<blockquote>
+<div class="card">
+  <div class="card-body">
 <h3>Info Pemesanan</h3>
 <p>Bila Anda berminat dengan software ini silahkan hubungi kami :</p>
 
-<strong>CALL SEKARANG</strong> :  <a href="tel:{{ .Site.Params.nomer }}">{{ .Site.Params.nomer }}</a><br />
-<strong>WHATSAPP</strong> :  <a href="tel:{{ .Site.Params.nomer }}">{{ .Site.Params.nomer }}</a><br />
-<strong>BBM</strong> : <a href="bbmi://DACB6801">DACB6801</a><br />
+<strong>CALL SEKARANG</strong> :  <a href="tel:+{{.Site.Params.contact.whatsapp }}"> {{ with .Site.Params.contact.phone }} {{.}} {{ end }} </a><br />
+<strong>WHATSAPP</strong> :  {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=masukan_pesan_">{{ end }}{{ with .Site.Params.contact.phone }} {{.}} {{ end }}</a><br />
+<strong>BBM</strong> : <a href="bbmi://{{ with .Site.Params.contact.bbm }}{{ . }} {{ end }}">{{ with .Site.Params.contact.bbm }}{{ . }} {{ end }}</a><br />
 
-</blockquote>
+  </div>
+</div>
