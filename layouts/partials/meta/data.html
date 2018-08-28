@@ -21,7 +21,7 @@
 <meta property="og:locale" content="{{ .Site.LanguageCode | default "id"}}">
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
+<meta name="twitter:site" content="{{ with .Site.Params.contact.twitter }}{{ . }}{{end}}" />
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
 <meta name="twitter:description" content="{{ replaceRE "\n" "" (.Description | default .Summary | truncate 155) }}" />
 <meta name="twitter:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}" />

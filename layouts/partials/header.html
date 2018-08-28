@@ -30,4 +30,10 @@
 
 </head>
 
+{{ if not .Site.BuildDrafts }}
+{{ if .Site.GoogleAnalytics }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
+{{ end }}
+
 <body id="body">
