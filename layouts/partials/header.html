@@ -14,7 +14,7 @@
 {{ "<!-- fisher Icon font -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
 {{ "<!-- bootstrap.min css -->" | safeHTML}}
-<link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
+<link rel="preload" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}" as="style" onload="this.rel='stylesheet'">
 {{ "<!-- Lightbox.min css -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "plugins/lightbox2/dist/css/lightbox.min.css" | absURL }}">
 {{ "<!-- Slick Carousel -->" | safeHTML }}
