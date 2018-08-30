@@ -18,11 +18,9 @@
 
 {{"<!-- Stylesheets -->" | safeHTML}}
 {{ "<!-- fisher Icon font -->" | safeHTML }}
-<noscript id="deferred-styles">
 <link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
 {{ "<!-- bootstrap.min css -->" | safeHTML}}
 <link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
-</noscript>
 {{ "<!-- Lightbox.min css -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "plugins/lightbox2/dist/css/lightbox.min.css" | absURL }}">
 {{ "<!-- Slick Carousel -->" | safeHTML }}
@@ -35,20 +33,6 @@
 <style>
 #portfolio {padding-bottom: 0px;}
 </style>
-
-<script>
-      var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-      };
-      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-      else window.addEventListener('load', loadDeferredStyles);
-    </script>
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
