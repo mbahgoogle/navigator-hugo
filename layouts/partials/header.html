@@ -20,9 +20,11 @@
 {{ "<!-- fisher Icon font -->" | safeHTML }}
 <noscript id="deferred-styles">
 <link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
-
+</noscript>
 {{ "<!-- bootstrap.min css -->" | safeHTML}}
+<noscript id="deferred-styles">
 <link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
+</noscript>
 {{ "<!-- Lightbox.min css -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "plugins/lightbox2/dist/css/lightbox.min.css" | absURL }}">
 {{ "<!-- Slick Carousel -->" | safeHTML }}
@@ -30,7 +32,7 @@
 <link rel="stylesheet" href="{{ "plugins/slick-carousel/slick/slick-theme.min.css" | absURL }}">
 {{ "<!-- Main Stylesheet -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "css/style.min.css" | absURL }}">
-</noscript>
+
 
 <style>
 #portfolio {padding-bottom: 0px;}
