@@ -50,7 +50,7 @@
    <header id="#top" class="amp-wp-header">
       <div>
          <a href="{{ .Site.BaseURL }}">
-         <amp-img src="{{ "images/favicon.png" | absURL }}?w=32" width="32" height="32" class="amp-wp-site-icon"></amp-img>
+         <amp-img src="{{ "/apple-touch-icon.png" | absURL }}?w=32" width="32" height="32" class="amp-wp-site-icon"></amp-img>
          {{ .Site.Title }}</a>
       </div>
    </header>
@@ -58,7 +58,7 @@
       <header class="amp-wp-article-header">
          <h1 class="amp-wp-title">{{ .Title }}</h1>
          <div class="amp-wp-meta amp-wp-byline">
-            <amp-img src="{{ "images/favicon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
+            <amp-img src="{{ "/apple-touch-icon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
             <span class="amp-wp-author author vcard">{{ .Params.author | default "Site.Params.author" }}</span>
          </div>
          <div class="amp-wp-meta amp-wp-posted-on">
