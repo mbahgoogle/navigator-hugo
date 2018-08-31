@@ -43,12 +43,9 @@
      
   </head>
   
-  {{ partial "amp/auto-ads" . }}
+ 
   
 <body>
-   
-   
-   
    <header id="#top" class="amp-wp-header">
       <div>
          <a href="{{ .Site.BaseURL }}">
@@ -71,7 +68,7 @@
       <div class="amp-wp-article-content">
          {{ .Content }}
       </div>
-     
+    
      <footer class="amp-wp-article-footer">
       <div class="amp-wp-meta amp-wp-tax-category">
       Categories: 
@@ -119,11 +116,6 @@
       {{ end }}
       
       
-      
-      <footer class="amp-wp-article-footer">
-        
-      </footer>   
-    
    </article>
    <footer class="amp-wp-footer">
       <div>
@@ -134,6 +126,9 @@
          <a href="#top" class="back-to-top">Back to top</a>
       </div>
    </footer>
+   
+       {{ partial "amp/auto-ads" . }}
+       
 </body>
 
 </html>
