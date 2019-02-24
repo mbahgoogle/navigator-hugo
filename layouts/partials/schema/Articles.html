@@ -14,7 +14,7 @@
       "@context": "http://schema.org",
       "@type": "ImageObject",
       "author": "{{ if isset .Params "author" }} {{ $author := index .Site.Data.authors .Params.author }}{{ $author.name }} {{ else }}Unknown {{ end }}",
-      "url": "{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}",
+      "url": "https://ce880219c.cloudimg.io/width/2000/x/{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}",
       "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
       "name": "{{ .Title }}",
       "height" : 600,

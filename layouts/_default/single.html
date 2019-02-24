@@ -11,18 +11,8 @@
             <div class="col-md-8 mx-auto">
                 {{ if isset .Params "thumbnail" }}<img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="{{.Title}}">{{ end }}
                 <h2 class="h4">{{ .Description }}</h2>
-                <div class="post-meta mb-5">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <span>By </span>
-                            {{- if isset .Params "author" -}}{{- $author := index .Site.Data.authors .Params.author -}} {{- $author.name -}} {{- else -}}Admin{{- end -}} 
-                        </li>
-                        <li class="list-inline-item">
-                            <span>at</span>
-                            <span>{{ .Date.Format "Jan 2, 2006" }}</span>
-                        </li>
-                    </ul>
-                </div>
+                <br />
+                <br />
                 {{ .Content }}
                 
                 <ul id="tags-single">
@@ -35,6 +25,18 @@
                 <br /><hr><br />            
                 <div class="sharethis-inline-share-buttons"></div>
                 <br /><hr><br />  
+
+                 <nav aria-label="breadcrumb mx-auto" role="navigation">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ .Site.BaseURL }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{.Site.BaseURL}}{{.Section}}">Back to {{.Section}}</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
         </div>
     </div>
 </section>
