@@ -1579,3 +1579,7 @@ footer li {
 footer ul{
     padding: 1px;
 }
+
+.social-icons ul {
+    padding: 0px !important;
+}
