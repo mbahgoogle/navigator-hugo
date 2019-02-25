@@ -32,7 +32,7 @@
             {{ range .Site.Data.portfolio.item }}
                 <div class="col-6 col-md-4 padding-0 mix {{.category}}">
                     <div class="portfolio-block">
-                        <img class="img-fluid" src="{{ .image | absURL }}" alt="{{ .title }}">
+                        <img class="img-fluid" src="{{ .image | absURL }}" title="{{ .title }}">
                         <div class="caption">
                             <a class="search-icon" href="{{ .image | absURL }}" data-lightbox="image-1" title="{{ .title }} - {{.Site.Title}}">
                                 <i class="tf-ion-ios-search-strong"></i>
