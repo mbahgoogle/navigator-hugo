@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row">
-            {{ range first 6 (where .Pages "Section" "blog").ByTitle }}
+            {{ range first 6 .Site.Taxonomies.categories.penyadap }}
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
                 <div class="post-item">
