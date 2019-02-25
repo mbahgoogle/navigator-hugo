@@ -16,7 +16,7 @@
                 {{ .Content }}
                 
                 <ul id="tags-single">
-  <li>Tags:</li>
+  Tags:
   {{ range .Params.tags }}
     <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
   {{ end }}
@@ -32,7 +32,7 @@
                             <a href="{{ .Site.BaseURL }}">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{.Site.BaseURL}}{{.Section}}">Back to {{.Section}}</a>
+                            <a href="{{.Site.BaseURL}}{{.Section}}">{{.Section}}</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
                     </ol>

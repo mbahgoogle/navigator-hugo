@@ -65,7 +65,7 @@ h6 {
 
 ol,
 ul {
-    padding: 0;
+    padding:23px;
     
 }
 
@@ -1573,9 +1573,9 @@ a:hover {
     font-size: 200px
 }
 
-.footer li {
+footer li {
     list-style: none;
 }
-img {
-    margin: 30px 0 30px 0;
+footer ul{
+    padding: 1px;
 }
