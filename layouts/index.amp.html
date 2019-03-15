@@ -35,8 +35,9 @@
     
 	
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>{{ .Title }} - {{ .Site.Title }}</title><script async src="https://cdn.ampproject.org/v0.js"></script>
-	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
 	<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
@@ -535,71 +536,24 @@ Panggilan untuk setiap panggilan yang maasuk atau panggilan keluar.</p>
 
 
 <div class="col-md-6 col-centered">
-<amp-carousel width="400"
-  height="300"
-  layout="responsive"
-  type="slides" type="carousel" autoplay delay="5000">
-				
-				  
 
+<amp-img src="/images/portfolio/penyadap-pesan-imassages-iphone.webp" width="400" height="300" layout="responsive" alt="penyadap-pesan-imassages-iphone"></amp-img>
+<br />
 
-               <amp-img src="https://www.detektif.net/slider/penyadap-chat-whatsapp-bbm-viber-skype-hp-iphone-android-asd8as.png" width="400" height="300" alt=""></amp-img>
-				
-				  
+<amp-img src="/images/portfolio/penyadap-riwayat-browser-situs-dewasa-anak-untuk-handphone-android-928h9.webp" width="400" height="300" layout="responsive" alt="penyadap-riwayat-browser-situs-dewasa-anak-untuk-handphone-android"></amp-img>
+<br />
 
+<amp-img src="/images/portfolio/penyadap-video-dan-foto-untuk-handphone-android-ad78as.webp" width="400" height="300" layout="responsive" alt="penyadap-video-dan-foto-untuk-handphone-android"></amp-img>
+<br />
 
-               <amp-img src="https://www.detektif.net/slider/penyadap-pesan-email-gmail-yahoo-untuk-handphone-android-iphone-blackberry-234edd.png" width="400" height="300" alt=""></amp-img>
-				
-				  
+<amp-img src="/images/portfolio/sadap-lacak-lokasi-hp-target-secara-jauh-hp-android-iphone-324oisoi.webp" width="400" height="300" layout="responsive" alt="sadap-lacak-lokasi-hp-target-secara-jauh-hp-android-iphone"></amp-img>
+<br />
 
+<amp-img src="/images/portfolio/sadap-panggilan-suara-android-iphone-blackberry-28347sgdh.webp" width="400" height="300" layout="responsive" alt="sadap-panggilan-suara-android-iphone-blackberry"></amp-img>
+<br />
 
-               <amp-img src="https://www.detektif.net/slider/penyadap-pesan-imassages-iphone.png" width="400" height="300" alt=""></amp-img>
-				
-				  
+<amp-img src="/images/portfolio/unintsall-aplikasi-handphone-tanpa-memegang-handphone-target-we8eud.webp" width="400" height="300" layout="responsive" alt="aplikasi-handphone-tanpa-memegang-handphone-target"></amp-img>
 
-
-               <amp-img src="https://www.detektif.net/slider/penyadap-pesan-sms-hp-android-iphone-nokia-iasduas876767.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/penyadap-phonebook-kontak-nama-hp-android-iphone-nokia-blackberry-asd3n4.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/penyadap-riwayat-browser-situs-dewasa-anak-untuk-handphone-android-928h9.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/penyadap-video-dan-foto-untuk-handphone-android-ad78as.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/remote-kamera-secara-jarak-jauh-hp-android-iphone-nokia-blackberry-298398jj.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/sadap-lacak-lokasi-hp-target-secara-jauh-hp-android-iphone-324oisoi.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/sadap-panggilan-suara-android-iphone-blackberry-28347sgdh.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/software-penyadap-handphone-android-blackberry-iphone-12io3.png" width="400" height="300" alt=""></amp-img>
-				
-				  
-
-
-               <amp-img src="https://www.detektif.net/slider/unintsall-aplikasi-handphone-tanpa-memegang-handphone-target-we8eud.png" width="400" height="300" alt=""></amp-img>
-</amp-carousel>
 </div>
 
     </div>
@@ -646,9 +600,8 @@ pengambil data komunikasi rahasia</p>
 
 <p>Beberapa kontak yang dapat dihubungi untuk pemesanan</p>
 
-<p><strong>CALL SEKARANG : </strong>{{ with .Site.Params.contact.phone }}<a href="tel:+62{{ . | safeHTML }}">+62{{ . | safeHTML }}</a>{{ end }}</p>
-<p><strong>WHATSAPP : </strong> {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=urlencodedtext">+62{{ . | safeHTML }}</a>{{ end }}</p>
-<p><strong>BBM : </strong> {{ with .Site.Params.contact.bbm }}<a href="bbmi://{{ . | safeHTML}}">DACB6801</a>{{ end }}</p>
+<p><strong>CALL SEKARANG : </strong>{{ with .Site.Params.contact.whatsapp }}<a href="tel:+{{ . | safeHTML }}">+{{ . | safeHTML }}</a>{{ end }}</p>
+<p><strong>WHATSAPP : </strong> {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=TanyaSoftwareSadap">{{ . | safeHTML }}</a>{{ end }}</p>
 
 <p><span class="disclaimer"><a href="/disclaimer/" target="_blank" title="halaman pemesanan">PERATURAN PENGGUNAAN</a></span> </div>
                     
