@@ -1,0 +1,101 @@
+{{ partial "header.html" . }}
+
+{{ partial "navigation.html" . }}
+
+{{ partial "page-title.html" . }}
+
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                {{ if isset .Params "thumbnail" }}<img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="{{.Title}}">{{ end }}
+                <h2 class="h4">{{ .Description }}</h2>
+                <br />
+                <br />
+                {{ .Content }}
+                
+                <ul id="tags-single">
+  Tags:
+  {{ range .Params.tags }}
+    <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
+  {{ end }}
+</ul>
+
+                <br /><hr><br />            
+                <div class="sharethis-inline-share-buttons"></div>
+                <br /><hr><br />  
+
+                 <nav aria-label="breadcrumb mx-auto" role="navigation">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ .Site.BaseURL }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{.Site.BaseURL}}{{.Section}}">{{.Section}}</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+        </div>
+    </div>
+</section>
+
+            
+<div class="container">
+   <div class="row">
+      <div class="col-md-8 mx-auto">
+         <div class="row">
+            {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+            {{ $.Scratch.Set "has_related" true }}
+            {{ end }}
+            {{ if $.Scratch.Get "has_related" }}
+            {{ $num_to_show := .Site.Params.related_content_limit | default 15 }}
+            {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+            {{ "<!-- single blog post -->" | safeHTML }}
+            <article class="col-12 col-md-6">
+               <div class="post-item">
+                  <div class="post-thumb">
+                     <img class="img-fluid shadow rounded" src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
+                  </div>
+                  <div class="post-title">
+                     <h3 class="mt-0 h6">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                     </h3>
+                  </div>
+                  <div class="post-meta">
+                     <ul class="list-inline">
+                        <li class="list-inline-item">
+                           <span>By</span>
+                           {{ .Params.author }}
+                        </li>
+                        <li class="list-inline-item">
+                           <span>at</span>
+                           <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="post-content">
+                     <p>{{ .Summary | truncate 200}}</p>
+                  </div>
+                  <a class="btn btn-main" href="{{ .Permalink }}">Read more</a>
+               </div>
+            </article>
+            {{ "<!-- /single blog post -->" | safeHTML }}
+            {{ end }}
+            {{ end }}
+         </div>
+      </div>
+   </div>
+</div>
+            
+{{ partial "footer.html" . }}
+
+<script src="//platform-api.sharethis.com/js/sharethis.js#property=5b8315f786d36a0011c14acb&product=inline-share-buttons"></script>
+
+{{ partial "schema/Articles.html" . }}
+
+
+</body>
+
+</html>
