@@ -1,4 +1,54 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+{{ partial "meta/data" . }}
+
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
+
+{{ "<!-- Favicon -->" | safeHTML }}
+<link rel="apple-touch-icon" sizes="152x152" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+<link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+{{"<!-- Stylesheets -->" | safeHTML}}
+{{ "<!-- fisher Icon font -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
+{{ "<!-- bootstrap.min css -->" | safeHTML}}
+<link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
+{{ "<!-- Lightbox.min css -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "plugins/lightbox2/dist/css/lightbox.min.css" | absURL }}">
+{{ "<!-- Slick Carousel -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "plugins/slick-carousel/slick/slick.min.css" | absURL }}">
+<link rel="stylesheet" href="{{ "plugins/slick-carousel/slick/slick-theme.min.css" | absURL }}">
+{{ "<!-- Main Stylesheet -->" | safeHTML }}
+<link rel="stylesheet" href="{{ "css/style.min.css" | absURL }}">
+
+
+<style>
+#portfolio {padding-bottom: 0px;}
+
+
+.blog-single img {
+    margin: 30px 0 30px 0 !important;
+}
+</style>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8751263644994394",
+          enable_page_level_ads: true
+     });
+</script>
+
+</head>
 
 {{ partial "preloader.html" . }}
 
@@ -31,7 +81,6 @@
 {{ partial "cta.html" . }}
 {{ partial "footer.html" . }}
 
-{{ partial "schema/WebPage.html" . }}
 
 </body>
 

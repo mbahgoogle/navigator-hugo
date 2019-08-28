@@ -2,7 +2,7 @@
 <html ⚡ >
 <head>
    {{ partial "meta/data" . }}
-   {{ partial "schema/Articles" . }}
+   
    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
    <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}">
    <link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}">
@@ -28,6 +28,8 @@
    <noscript>
       <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
    </noscript>
+   {{ partial "meta/schema/article.json" . }}
+   {{ partial "meta/schema/breadcrumbs.json" . }}
 </head>
 <body>
    <header id="#top" class="amp-wp-header">
