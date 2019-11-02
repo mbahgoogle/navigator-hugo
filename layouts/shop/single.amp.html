@@ -1670,8 +1670,8 @@
                                     <h2 class="heading">Rekomendasi untuk Kamu</h2></div>
                                 <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
                                  {{ range where .Site.Pages "Section" "blog" }}
-                                    <a href="{{.Permalink}}" role="listitem" data-vars-target-url="https://detektif.netp/elektronik/voice-recorder/1e5k2mr-jual-microphone-deluxe-3-5mm-clip-on-mikrofon-for-smartphone-hp-laptop-tablet" data-vars-product-id="1e5k2mr" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
-                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" alt="Microphone Deluxe 3.5mm Clip On Mikrofon For Smartphone Hp Laptop Tablet  "></amp-img>
+                                    <a href="{{.Permalink}}" role="listitem" data-vars-target-url="{{.Permalink}}" data-vars-product-id="1e5k2mr" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
+                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumb | default "/placeholder.png" }}{{ . | absURL }}{{ end }}" alt="{{.Title}}"></amp-img>
                                         <div class="product-info">
                                             <div class="product--name">{{.Title}} </div>
                                             <div class="price-wrapper"><span class="price--normal">Rp-</span>
@@ -1713,11 +1713,11 @@
                                  {{ $related := .Site.RegularPages.Related . | first 55 }}
 {{ with $related }}
 {{ range . }}
-                                    <a href="https://detektif.netp/komputer/laptop/2c72tv8-jual-mini-3-5mm-flexible-microphone-for-pc-laptop-msn-skype-voip" role="listitem" data-vars-target-url="https://detektif.netp/komputer/laptop/2c72tv8-jual-mini-3-5mm-flexible-microphone-for-pc-laptop-msn-skype-voip" data-vars-product-id="2c72tv8" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
+                                    <a href="{{.Permalink}}" role="listitem" data-vars-target-url="{{.Permalink}}" data-vars-product-id="2c72tv8" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
                                         <amp-img width="128" height="128" layout="responsive" src="{{.Params.thumbnail}}" alt="{{ .Title }}"></amp-img>
                                         <div class="product-info">
                                             <div class="product--name">{{ .Title }}</div>
-                                            <div class="price-wrapper"><span class="price--normal">Rp230.000</span>
+                                            <div class="price-wrapper"><span class="price--normal">Rp{{.Params.price}}</span>
                                                 <!---->
                                             </div>
                                             <!---->
