@@ -13,14 +13,47 @@
                 <h2 class="h4">{{ .Description }}</h2>
                 <br />
                 <br />
-                {{ .Content }}
+
+                <h4>HARGA: Rp.<strong>{{$.Params.price}}</strong></h4><br />
+                <hr>
+
+                <div class="btn-main"><a class="text-dark" href="{{$.Params.url_referral}}"><strong>Beli Sekarang</strong></a></div><br />
+                <hr>
+
+                <span>KODE PRODUK: <strong>{{$.Params.order_id}}</strong></span><br />
+                <hr>
+
+                <span>STOK BARANG: <strong>{{$.Params.id_number}}</strong></span><br />
+                <hr>
+
                 
-                <ul id="tags-single">
-  Tags:
-  {{ range .Params.tags }}
-    <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
-  {{ end }}
+
+                
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Detail produk</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Ketentuan Pembelian</a>
+  </li>
 </ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{{ .Content | safeHTML }}</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{ .Site.Data.ketentuan_shop.content | markdownify }}</div>
+</div>
+
+                <ul id="tags-single">
+                 Category:    <li class="badge badge-light"><a href="#{{ $.Site.BaseURL }}tags/{{$.Params.categories}}">{{$.Params.categories}}</a> </li>
+                </ul>
+
+                <ul id="tags-single">
+                 Tags:    <li class="badge badge-light"><a href="#{{ $.Site.BaseURL }}tags/{{$.Params.tags}}">{{$.Params.tags}}</a> </li>
+                </ul>
+
+                
+
 
                 <br /><hr><br />            
                 <div class="sharethis-inline-share-buttons"></div>
@@ -37,11 +70,51 @@
                         <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
                     </ol>
                 </nav>
+
+<!-- Related Product -->
+
+
+
+
+
+{{ $related := .Site.RegularPages.Related . | first 55 }}
+{{ with $related }}
+{{ range . }}
+
+<div class="card flex-row flex-wrap">
+    <div class="card-header border-0 col-md-4 text-center">
+        <img class="lazy img-fluid" src="/placeholder.png" data-src="{{.Params.thumbnail}}" alt="">
+    </div>
+    <div class="card-block px-2 col-md-8">
+        <h4 class="card-title">{{ .Title | truncate 31 }}</h4>
+        <p class="card-text">{{ .Summary | truncate 150 }}</p>
+        <a href="{{ .RelPermalink }}" class="btn btn-success">Lihat Produk</a>
+    </div>
+    <div class="w-100"></div>
+    <div class="card-footer w-100 text-muted">
+        <span class="badge badge-success">{{.Params.categories}}</span>
+    </div>
+</div>
+<br />
+
+
+{{ end }}
+
+{{ end }}
+
+
+
         </div>
     </div>
+
+    
+
+
 </section>
 
-            
+
+
+
 <div class="container">
    <div class="row">
       <div class="col-md-8 mx-auto">
@@ -76,7 +149,7 @@
                      </ul>
                   </div>
                   <div class="post-content">
-                     <p>{{ .Summary | truncate 200}}</p>
+                     <p>{{ .Summary | truncate 200 }}</p>
                   </div>
                   <a class="btn btn-main" href="{{ .Permalink }}">Read more</a>
                </div>
@@ -88,12 +161,19 @@
       </div>
    </div>
 </div>
-            
+       
+
+
+
+
+
 {{ partial "footer.html" . }}
 
 <script src="//platform-api.sharethis.com/js/sharethis.js#property=5b8315f786d36a0011c14acb&product=inline-share-buttons"></script>
 
-{{ partial "schema/Articles.html" . }}
+{{ partial "meta/schema/ProductDetails.json" . }}
+
+
 
 
 </body>

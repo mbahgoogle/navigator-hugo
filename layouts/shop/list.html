@@ -10,19 +10,19 @@
 <section class="blog section" id="blog">
     <div class="container">
         <div class="row">
-            {{ range (.Paginator 12).Pages }}
+            {{ range (.Paginator 99).Pages }}
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
                 <div class="post-item">
                     <div class="post-thumb">
-                        <img class="img-fluid shadow rounded" src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
+                        <img class="img-fluid shadow rounded" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
                     </div>
                     <div class="post-title">
                         <h3 class="mt-0">
                             <a href="{{ .Permalink }}">{{ .Title  | truncate 75 }}</a>
                         </h3>
                         <h4 class="h5 mt-0">
-                            IDR 150.000
+                            RP.<strong>{{.Params.price}}</strong>
                         </h4>
                     </div>
                     <div class="post-meta">
@@ -38,7 +38,7 @@
                         </ul>
                     </div>
                     <div class="post-content">
-                        <p>{{ .Summary  | truncate 100 }}</p>
+                        <p>{{ .Summary  | truncate 100 | safeHTML }}</p>
                     </div>
                     <a class="btn btn-main" href="{{ .Permalink }}">Lihat Produk</a>
                 </div>

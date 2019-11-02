@@ -6,7 +6,9 @@
 <meta name="description" content="{{ replaceRE "\n" "" (.Description | default .Summary | truncate 155) }}" />
 <meta name="news_keywords" content="{{ replaceRE "\n" "" ( .Summary | truncate 55) }}" />
 <meta name="original-source" content="{{ .Permalink }}" />
-<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
 
 
 <!-- Open Graph -->

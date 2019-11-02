@@ -37,16 +37,54 @@
 .blog-single img {
     margin: 30px 0 30px 0 !important;
 }
+
+.ellipsis {
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+
+  if ('IntersectionObserver' in window) {
+    let lazyImageObserver = new IntersectionObserver(
+      function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }
+  else {
+    // For browsers that don't support IntersectionObserver yet,
+    // load all the images now:
+    lazyImages.forEach(function(lazyImage) {
+      lazyImage.src = lazyImage.dataset.src;
+    });
+  }
+});
+</script>
+
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-8751263644994394",
           enable_page_level_ads: true
      });
 </script>
-
 </head>
 
 

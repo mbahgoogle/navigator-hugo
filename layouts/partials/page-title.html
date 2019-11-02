@@ -8,7 +8,7 @@
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <span>By </span>
-                            {{- if isset .Params "author" -}}{{- $author := index .Site.Data.authors .Params.author -}} {{- $author.name -}} {{- else -}}Admin{{- end -}} 
+                            {{- if isset .Params "author" -}}{{- .Params.author -}}{{- else -}}Admin{{- end -}} 
                         </li>
                         <li class="list-inline-item">
                             <span>at</span>

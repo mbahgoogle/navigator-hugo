@@ -4,19 +4,16 @@
 <head>
     
     {{ partial "meta/data" . }}
+   
+   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
+   <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}">
+   <link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}">
+   <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
+   <meta name="theme-color" content="#ffffff">
 
     <script data-n-head="true" src="https://cdn.ampproject.org/v0.js" async></script>
     <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async custom-element="amp-sidebar"></script>
     <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" async custom-element="amp-analytics"></script>
-
-    <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async custom-element="amp-carousel"></script>
-    <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async custom-element="amp-image-lightbox"></script>
-    <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async custom-element="amp-accordion"></script>
-    <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async custom-element="amp-selector"></script>
-    <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async custom-element="amp-bind"></script>
-    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-
-    {{ partial "meta/schema/ProductDetails.json" . }}
 
     <style amp-custom="" data-vue-ssr-id="6a7c6e08:0">
         body {
@@ -296,14 +293,14 @@
         
         .c-btn--red {
             color: #fff;
-            border: 1px solid #159957;
-            background-color: #159957
+            border: 1px solid #d71449;
+            background-color: #d71449
         }
         
         .c-btn--green {
-            background-color: #87cc62;
+            background-color: #cee605;
             color: #fff;
-            border: 1px solid #87cc62
+            border: 1px solid #c5dc00
         }
         
         .c-btn-cta--bottom {
@@ -589,8 +586,8 @@
         
         .btn--red {
             color: #fff;
-            border: 1px solid #159957;
-            background-color: #159957
+            border: 1px solid #d71449;
+            background-color: #d71449
         }
         
         .btn-cta--bottom {
@@ -922,7 +919,7 @@
         }
         
         .tab-button[selected] .tab-title {
-            border-bottom: 2px solid #159957;
+            border-bottom: 2px solid #d71449;
             padding-bottom: 17px;
             color: #159957
         }
@@ -1525,18 +1522,18 @@
             <li class="list-item"><a href="https://detektif.net" class="sidebar-list"><span class="sprite-icon sprite-icon--home"></span>
         Home
       </a></li>
+            
         </ul>
     </amp-sidebar>
     <div data-server-rendered="true" id="__nuxt">
         <div id="__layout">
             <div id="wrapper">
                 <div class="c-header">
-                    <div on="tap:sidebar.toggle" role="button" tabindex="0" class="c-header__menu"><span class="m-icon m-icon--menu"></span></div><a href="https://detektif.net" title="{{.Description}}" class="c-header__logo">
+                    <div on="tap:sidebar.toggle" role="button" tabindex="0" class="c-header__menu"><span class="m-icon m-icon--menu"></span></div><a href="https://detektif.net/" title="{{.Title}}" class="c-header__logo">
     Detektif.net
-  </a><a href="https://detektif.net?toggle-search=on" class="toggle-search"><span class="m-icon m-icon--search"></span></a></div>
+  </a></div>
                 <div class="content-wrapper">
                     <div>
-                        </div>
                         <div class="panel">
                             <div class="panel-content--breadcrumb">
                                 <div class="c-breadcrumb">
@@ -1553,180 +1550,71 @@
                                                 <meta content="2" itemprop="position">
                                             </a>
                                         </li>
-                                        <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
-                                            <a target="_blank" href="{{.Permalink}}" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
-                                                <!----><span itemprop="name">{{.Title}}</span>
-                                                <meta content="3" itemprop="position">
-                                            </a>
-                                        </li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                         <div class="panel border border--bottom">
-                            <div class="panel-content panel-content--bleed border border--bottom">
-                                <amp-carousel width="320" height="320" type="slides" layout="responsive" controls="controls">
-                                    <amp-img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" width="320" height="320" layout="responsive"></amp-img>
-                                </amp-carousel>
+                            <div class="panel-content panel-content--narrow border border--bottom">
+                                <h1 class="keyword-title"><a href="{{.Permalink}}">{{.Title}}</a></h1>
                             </div>
-                            <div id="mainPanel" class="panel-content border border--bottom">
-                                <!---->
-                                <h1>{{.Title}}</h1>
-                                <div id="priceContainer"><span class="price price--reduced text-bold">Rp{{$.Params.price}}</span>
-                                    <!---->
-                                </div>
-                                <div class="product-acc">
-                                    <!---->
-                                    <!---->
-                                </div>
-                                <div class="panel-narrow border border--top clearfix">
-                                    <div class="row">
-                                        <div class="col col-1of2"><span class="availability-text">tersedia</span></div>
-                                        <div class="col col-1of2"><span class="stock-text">
-              49 stok barang
-            </span></div>
-                                    </div>
-                                </div>
-                                <div class="panel-narrow border border--top clearfix">
-                                    <ul class="row">
-                                        <li class="col col-1of3"><span class="stat-key text-gray text-small">Terjual</span><span class="stat-value text-bold">1</span></li>
-                                        <li class="col col-1of3 align-center"><span class="stat-key text-gray text-small">Dilihat</span><span class="stat-value text-bold">{{$.Params.id_number}}</span></li>
-                                        <li class="col col-1of3 align-right"><span class="stat-key text-gray text-small">Difavorit</span><span class="stat-value text-bold">{{$.Params.id_number}}</span></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="panel border border--top border--bottom">
-                            <div class="panel-content row">
-                                <h2 class="heading">Pelapak</h2>
-                                <div id="sellerInfo" class="col col-1of2">
-                                    <p id="sellerName">
-                                        {{- if isset .Params "author" -}}{{- .Params.author -}}{{- else -}}Admin{{- end -}}
-                                    </p>
-                                    <div id="sellerLocation" class="text-small"><span class="m-icon m-icon--small m-icon--location"></span> Jakarta
-                                    </div>
-                                </div>
-                                <div class="feedback-wrapper col col-1of2">
-                                    <div class="text-small"><span class="text-green feedback-percentage">96%</span> Feedback Positif
-                                    </div>
-                                    <p class="text-small text-gray">Dari 962 Transaksi</p>
-                                </div>
-                            </div>
-                        </div>
-                     
 
-                        <div class="panel border border--top border--bottom">
-                            <amp-selector role="tablist" layout="container" class="amp-tab-container border border--bottom">
-                                <div role="tab" selected="selected" option="a" class="tab-button"><span class="tab-title">Detil</span></div>
-                                <div role="tabpanel panel-content" class="tab-content">
-                                    <h2 class="show-more panel-title heading">Spesifikasi</h2>
-                                    <div class="spesification-box border border--bottom">
-                                        <dl><dt>Kategori</dt>
-                                            <dd>{{.Params.Categories}}</dd><dt>Berat</dt>
-                                            <dd>150 gram</dd><dt>Brand</dt>
-                                            <dd>Lainnya</dd><dt>Screen_size</dt>
-                                            <dd>&gt;16</dd>
-                                        </dl>
-                                    </div>
-                                    <div class="secondary-panel border border--bottom">
-                                       <a href="#" class="btn btn--red"><span class="m-icon m-icon--small m-icon--cart"></span>
-        Hubungi Penjual
-      </a>
-                                    </div>
-                                    <div class="secondary-panel border border--bottom">
-                                        <amp-accordion disable-session-states="">
-                                            <section expanded="">
-                                                <h2 class="accordion-title"><span class="show-more panel-title heading">Deskripsi</span><span class="show-less panel-title heading">Deskripsi</span><span class="m-icon m-icon--down float-right show-more"></span><span class="m-icon m-icon--up float-right show-less"></span></h2>
-                                                <div class="accordion-content">
-                                                   {{.Content}}
-                                                </div>
-                                            </section>
-                                        </amp-accordion>
-                                    </div>
-                                    <div class="secondary-panel last-child">
-                                        <amp-accordion disable-session-states="">
-                                            <section>
-                                                <h2 class="accordion-title"><span class="show-more panel-title heading">Catatan Pelapak</span><span class="show-less panel-title heading">Catatan Pelapak</span><span class="m-icon m-icon--down float-right show-more"></span><span class="m-icon m-icon--up float-right show-less"></span></h2>
-                                                <div class="accordion-content">
-                                                    <div></div>
-                                                    <p>Catatan Pelapak tetap tunduk terhadap
-                                                        <a href="https://detektif.net/">Aturan penggunaan Detektif.net.</a></p>
-                                                </div>
-                                            </section>
-                                        </amp-accordion>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div role="tab" option="b" class="tab-button"><span class="tab-title">Ketentuan</span></div>
-                                <div role="tabpanel panel-content" class="tab-content">
-                                    {{ .Site.Data.ketentuan_shop.content | markdownify }}
-                                </div>
-                            </amp-selector>
-                        </div>
-                        <div class="panel border border--top border--bottom">
-                            <div class="panel-content panel-content--bleed-hor">
-                                <div class="panel-content__heading">
-                                    <h2 class="heading">Rekomendasi untuk Kamu</h2></div>
-                                <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
-                                 {{ range where .Site.Pages "Section" "blog" }}
-                                    <a href="{{.Permalink}}" role="listitem" data-vars-target-url="https://detektif.netp/elektronik/voice-recorder/1e5k2mr-jual-microphone-deluxe-3-5mm-clip-on-mikrofon-for-smartphone-hp-laptop-tablet" data-vars-product-id="1e5k2mr" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
-                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" alt="Microphone Deluxe 3.5mm Clip On Mikrofon For Smartphone Hp Laptop Tablet  "></amp-img>
+                            <div class="panel-content border border--bottom">
+                                <!--ss-->
+                                <div class="product-grid">
+
+                                    {{ range (.Paginator 99).Pages }}
+
+                                    <a href="{{.Permalink}}" role="listitem" data-vars-target-url="https://detektif.net/p/komputer/laptop/jr7fbq-jual-promo-laptop-hp" data-vars-product-id="jr7fbq" data-vars-section="" class="product-grid__item text-decoration-none product-item-wrapper product-bordered">
+                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" alt="PROMO LAPTOP HP "></amp-img>
                                         <div class="product-info">
-                                            <div class="product--name">{{.Title}} </div>
-                                            <div class="price-wrapper"><span class="price--normal">Rp-</span>
-                                                <!---->
-                                            </div>
+                                            <div class="product--name">{{ .Title | truncate 75 }}</div>
+                                            <div class="price-wrapper">
+                                                <span class="price--normal">Rp{{.Params.price}}</span>
+                                                <span class="price price--original text-gray">-</span></div>
                                             <div class="pull-left product--rating">
                                                 <!---->
                                                 <div class="rating">
-                                                    <div class="rating-bg">
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                   </div>
-                                                    <div class="rating-fg rating-fg--5">
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                      <span class="rating-star">&#x2605;</span>
-                                                   </div>
-                                                </div><span class="pull-right text-gray text-normal text-small">{{.WordCount}} <!----></span></div>
+                                                    <div class="rating-bg"><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span></div>
+                                                    <div class="rating-fg rating-fg--5"><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span><span class="rating-star">&#x2605;</span></div>
+                                                </div><span class="pull-right text-gray text-normal text-small">{{$.Params.id_number}} <!----></span></div>
                                         </div>
-                                        <!---->                                   
+                                        <button class="c-btn c-btn--block c-btn--green c-btn--small">Lihat Produk</button>
                                     </a>
-                                    {{end}}
-                                </amp-carousel>
-                            </div>
-                        </div>
-                        <div class="panel border border--top border--bottom u-pad-bottom--8">
-                            <div class="panel-content panel-content--bleed-hor">
-                                <div class="panel-content__heading">
-                                    <h2 class="heading pull-left">Barang Terkait</h2><a href="https://detektif.net/shop" class="pull-right text-normal">Selengkapnya</a>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
 
-                                 {{ $related := .Site.RegularPages.Related . | first 55 }}
-{{ with $related }}
-{{ range . }}
-                                    <a href="https://detektif.netp/komputer/laptop/2c72tv8-jual-mini-3-5mm-flexible-microphone-for-pc-laptop-msn-skype-voip" role="listitem" data-vars-target-url="https://detektif.netp/komputer/laptop/2c72tv8-jual-mini-3-5mm-flexible-microphone-for-pc-laptop-msn-skype-voip" data-vars-product-id="2c72tv8" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
-                                        <amp-img width="128" height="128" layout="responsive" src="{{.Params.thumbnail}}" alt="{{ .Title }}"></amp-img>
-                                        <div class="product-info">
-                                            <div class="product--name">{{ .Title }}</div>
-                                            <div class="price-wrapper"><span class="price--normal">Rp230.000</span>
-                                                <!---->
-                                            </div>
-                                            <!---->
-                                        </div>
-                                        <!---->
-                                    </a>
-{{end}}
-{{end}}
-                                </amp-carousel>
+                                    {{end}}
+                                </div>
+                            </div>
+
+                            
+
+                            {{ template "_internal/pagination.html" . }}
+                        </div>
+                       
+
+                        <div class="footer-desc">
+                            <h2 dir="ltr"><strong>Artikel Rekomendasi </strong></h2>
+
+                              
+                           {{ range where .Site.Pages "Section" "blog" }}
+    <h4><a href="{{ .Permalink | relURL }}" title="{{ .Title }}">{{ .Title }}</a></h4>
+    <p>{{.Summary}}</p>
+    <span><a href="{{ .Permalink | relURL }}" title="{{ .Title }}">[Selengkapnya...]</a></span>
+{{ end }}
+
+
+                        </div>
+                        <div class="panel border border--top u-pad-bottom--8">
+                            <div class="panel-content">
+                                <h2>Trending Terkait</h2>
+                                <div>
+
+                                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+          <a href="/tags/{{ $name | urlize }}" class="tags">{{ $name }}</a>
+           {{ end }}
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1734,10 +1622,6 @@
             </div>
         </div>
     </div>
-
-   {{ partial "amp/auto-ads" . }}
-   
-   {{ partial "amp/amp_analytics" . }}
 
 </body>
 
