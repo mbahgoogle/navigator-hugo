@@ -1,3 +1,5 @@
+{{ $section := "blog" }}
+
 {{ if .Site.Params.blog.enable }}
 {{ "<!-- Blog Section Start -->" | safeHTML }}
 <section class="blog section" id="blog">
@@ -11,11 +13,45 @@
             </div>
         </div>
         <div class="row">
-           
+		     <div class="col-md-8 mx-auto">
+         <div class="row">
+            {{ range (where .Site.RegularPages.ByTitle "Section" $section ) }}
+            <article class="col-12 col-md-6">
+               <div class="post-item">
+                  <div class="post-thumb">
+                     <img class="img-fluid shadow rounded lazy" src="/placeholder.svg" data-src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}"  data-srcset="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
+                  </div>
+                  <div class="post-title">
+                     <h3 class="mt-0 h6">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                     </h3>
+                  </div>
+                  <div class="post-meta">
+                     <ul class="list-inline">
+                        <li class="list-inline-item">
+                           <span>By</span>
+                           {{ .Params.author }}
+                        </li>
+                        <li class="list-inline-item">
+                           <span>at</span>
+                           <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="post-content">
+                     <p>{{ .Summary | truncate 200}}</p>
+                  </div>
+                  <a class="btn btn-main" href="{{ .Permalink }}">Read more</a>
+               </div>
+            </article>
             {{ "<!-- /single blog post -->" | safeHTML }}
+            {{ end }}
+         </div>
+      </div>
             
         </div>
     </div>
 </section>
 {{ "<!-- Blog Section End -->" | safeHTML }}
 {{ end }}
+

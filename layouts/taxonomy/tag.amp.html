@@ -1569,9 +1569,12 @@
                                         <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" alt="PROMO LAPTOP HP "></amp-img>
                                         <div class="product-info">
                                             <div class="product--name">{{ .Title | truncate 75 }}</div>
-                                            <div class="price-wrapper">
-                                                <span class="price--normal">Rp{{.Params.price}}</span>
-                                                <span class="price price--original text-gray">-</span></div>
+											{{ if $.Params.regular_price}}
+                                            <div class="price-wrapper">											
+                                                <span class="price--normal">Rp. {{.}}</span>
+                                                <span class="price price--original text-gray">-</span>
+											</div>
+											{{end}}
                                             <div class="pull-left product--rating">
                                                 <!---->
                                                 <div class="rating">
@@ -1588,6 +1591,7 @@
 
                             
 
+                      
                             {{ template "_internal/pagination.html" . }}
                         </div>
                        

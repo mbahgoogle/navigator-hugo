@@ -25,9 +25,11 @@
                         <h3 class="mt-0">
                             <a href="{{ .Permalink }}">{{ .Title  | truncate 75 }}</a>
                         </h3>
+						{{ if $.Params.regular_price}}
                         <h4 class="h5 mt-0">
-                            RP.<strong>{{.Params.regular_price}}</strong>
+                            RP.<strong>{{ . }}</strong>
                         </h4>
+						{{end}}
                     </div>
                     <div class="post-meta">
                         <ul class="list-inline">
