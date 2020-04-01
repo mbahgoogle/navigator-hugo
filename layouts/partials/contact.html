@@ -16,14 +16,14 @@
         </div>
         
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
                 <div class="address-block contact-meta-block">
                     <i class="tf-ion-social-whatsapp-outline"></i>
                     <h4>WhatsApp</h4>
                     {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=masukan_pesan_" class="btn btn-main-sm">Click!</a>{{ end }}
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
                 <div class="phone-block contact-meta-block">
                     <i class="tf-ion-ios-telephone"></i>
                     <h4>Call Us</h4>
@@ -76,6 +76,7 @@
                     </ul>
                 </div>
             </div>
+			
         </div>
     </div>
 </section>

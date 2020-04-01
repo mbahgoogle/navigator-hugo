@@ -25,7 +25,14 @@
                         <a href="https://igotoffer.com/apple/iphone-4s/" title="iPhone 4s" target="_blank">4s, </a>
                         <a href="https://en.wikipedia.org/wiki/IPhone_4" title="iPhone 4" target="_blank">4, </a>
                         <a href="https://www.cnet.com/news/iphone-3g-details-dimensions-weight-3g-chip-specs/" title="iPhone 3g" target="_blank">3g. </a>
-                        <a href="https://www.apple.com/lae/ipad/" title="iPad" target="_blank">iPad </a> (semua versi)</p>
+                        <a href="https://www.apple.com/lae/ipad/" title="iPad" target="_blank">iPad </a> 
+						<a href="https://www.theiphonewiki.com/wiki/N841AP" title="iPhone XR" target="_blank">iPhone XR, </a> 
+                        <a href="https://www.theiphonewiki.com/wiki/D321AP" title="iPhone XS" target="_blank">iPhone XS, </a> 
+                        <a href="https://www.theiphonewiki.com/wiki/IPhone_XS_Max" title="iPhone XS Max" target="_blank">iPhone XS Max , </a> 
+                        <a href="https://ibox.co.id/iphone-11.html" title="iPhone 11" target="_blank">iPhone 11, </a> 
+                        <a href="https://www.apple.com/id/iphone-11-pro/" title="iPhone 11 Pro" target="_blank">iPhone 11 Pro, </a> 
+                        <a href="https://www.phoneswiki.com/iphone-11-pro-price-specs-sale-date/" title="iPhone 11 Pro Max" target="_blank">iPhone 11 Pro Max</a> 
+						(semua versi)</p>
                         
                         <p> 
                         Perangkat monitoring smartphone kompatibel 
@@ -38,6 +45,8 @@
                         <a href="https://en.wikipedia.org/wiki/Android_Nougat" target="_blank" title="OS Android. Nougat">Nougat, </a>
                         <a href="https://en.wikipedia.org/wiki/Android_Oreo" target="_blank" title="OS Android. Oreo">Oreo, </a>
                         <a href="https://www.android.com/versions/pie-9-0/" target="_blank" title="OS Android. Pie">Pie, </a>
+                        <a href="https://en.wikipedia.org/wiki/Android_10" target="_blank" title="OS Android 10">Android 10, </a>
+                        <a href="https://en.wikipedia.org/wiki/Android_11" target="_blank" title="OS Android 11">Android 11</a>
                         </p>                              
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
@@ -58,6 +67,44 @@
                         </div>
                         <button type="submit" class="btn btn-main-sm">Subscribe Now</button>
                     </form>
+					
+                    <ul class="list-inline social-icon">
+                        {{ with .Site.Params.contact.facebook }}
+                        <li class="list-inline-item">
+                            <a href="{{.}}">
+                                <i class="tf-ion-social-facebook"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ with .Site.Params.contact.twitter }}
+                        <li class="list-inline-item">
+                            <a href="{{.}}">
+                                <i class="tf-ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ with .Site.Params.contact.linkedin }}
+                        <li class="list-inline-item">
+                            <a href="{{.}}">
+                                <i class="tf-ion-social-linkedin"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ with .Site.Params.contact.dribbble }}
+                        <li class="list-inline-item">
+                            <a href="{{.}}">
+                                <i class="tf-ion-social-dribbble"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                        {{ with .Site.Params.contact.instagram }}
+                        <li class="list-inline-item">
+                            <a href="{{.}}">
+                                <i class="tf-ion-social-instagram"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
                 </div>
             </div>
         </div>
