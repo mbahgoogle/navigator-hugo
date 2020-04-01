@@ -59,7 +59,7 @@
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <span>By</span>
-                            {{ .Params.author }}
+                            {{ .Params.author | default "Admin" }}
                         </li>
                         <li class="list-inline-item">
                             <span>at</span>

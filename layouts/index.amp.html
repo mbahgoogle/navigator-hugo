@@ -27,9 +27,12 @@
     <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
     <meta name="twitter:description" content="{{ .Description }}">
     <meta name="twitter:image" content="https://www.detektif.net/content/detektif_banner.jpg">
-	<link href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,italic%7CProduct&#43;Sans:400&amp;lang=id" rel="stylesheet">
-    <link rel="alternate" type="application/rss" href="https://www.detektif.net/index.xml">
-    
+	<link rel="alternate" type="application/rss" href="https://www.detektif.net/index.xml">
+	
+    <link rel="preload" href="https://amp.dev/static/fonts/noto-sans-v7-latin-regular.woff2" as="font" crossorigin>
+	<link rel="preload" href="https://amp.dev/static/fonts/noto-sans-v7-latin-700.woff2" as="font" crossorigin>
+	<link rel="preload" href="https://amp.dev/static/fonts/poppins-v5-latin-700.woff2" as="font" crossorigin>
+	<link rel="preload" href="https://amp.dev/static/fonts/fira-mono-v7-latin-500.woff2" as="font" crossorigin>
 	
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
@@ -55,8 +58,51 @@
     margin: 0 auto;
     text-align: center;
 }
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Noto Sans"), local("NotoSans"), url(https://amp.dev/static/fonts/noto-sans-v7-latin-regular.woff2) format("woff2"), url(https://amp.dev/static/fonts/noto-sans-v7-latin-regular.woff) format("woff")
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Noto Sans Bold"), local("NotoSans-Bold"), url(https://amp.dev/static/fonts/noto-sans-v7-latin-700.woff2) format("woff2"), url(https://amp.dev/static/fonts/noto-sans-v7-latin-700.woff) format("woff")
+}
+
+@font-face {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Poppins Bold"), local("Poppins-Bold"), url(https://amp.dev/static/fonts/poppins-v5-latin-700.woff2) format("woff2"), url(https://amp.dev/static/fonts/poppins-v5-latin-700.woff) format("woff")
+}
+
+@font-face {
+    font-family: 'Fira Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Fira Mono"), local("FiraMono"), url(https://amp.dev/static/fonts/fira-mono-v7-latin-500.woff2) format("woff2"), url(https://amp.dev/static/fonts/fira-mono-v7-latin-500.woff) format("woff")
+}
+
+
 body,
 html {
+    padding: 0;
+    margin: 0;
+    min-width: 240px;
+    color: #48525c;
+    font-size: 16px;
+    font-family: 'Noto Sans',sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     height: 100%;
 }
 
@@ -1253,15 +1299,6 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-    font-family: 'RobotoDraft', arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #606c71;
-}
-
 blockquote {
     font-size: 1.1em;
     width: 100%;
@@ -2074,10 +2111,6 @@ amp-accordion section {
         position: relative;
         height: 200px;
     }
-}
-
-body {
-    font-family: 'RobotoDraft', arial, sans-serif;
 }
 
 .h-logo {
