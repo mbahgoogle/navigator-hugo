@@ -1,5 +1,5 @@
 <figure{{ if .Get "class" }} class="{{ .Get "class" }}"{{ end }}>
-  <img class="img-fluid rounded shadow" src="{{ .Get "src" }}" alt="{{ .Get "caption" }}">
+  <img class="img-fluid rounded shadow lazy" src="/placeholder.svg" data-src="{{ .Get "src" }}" data-srcset="{{ .Get "src" }}" alt="{{ .Get "caption" }}">
   {{ if .Get "caption" }}
   <figcaption>
     {{ if .Get "href" }}

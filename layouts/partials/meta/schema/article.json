@@ -28,7 +28,7 @@
     "name" : "{{ $.Site.Title }}",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "{{ with $.Site.Params.siteLogo }}{{ . | absURL }}{{ end }}",
+        "url" : "{{ with $.Site.Params.logo }}{{ . | absURL }}{{ end }}",
         "height" : 60,
         "width" : 600
     }
