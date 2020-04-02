@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 {{ .Content }}
                 
                 <ul id="tags-single">
-  Tags:
-  {{ range .Params.tags }}
-    <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
-  {{ end }}
-</ul>
+                  Tags:
+                  {{ range .Params.tags }}
+                    <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
+                  {{ end }}
+                </ul>
 
                 <br /><hr><br />            
                 <div class="sharethis-inline-share-buttons"></div>
