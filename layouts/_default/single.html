@@ -494,36 +494,6 @@ svg:not(:root).svg-inline--fa {
 </style>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
-
-  if ('IntersectionObserver' in window) {
-    let lazyImageObserver = new IntersectionObserver(
-      function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            let lazyImage = entry.target;
-            lazyImage.src = lazyImage.dataset.src;
-            lazyImageObserver.unobserve(lazyImage);
-          }
-        });
-    });
-
-    lazyImages.forEach(function(lazyImage) {
-      lazyImageObserver.observe(lazyImage);
-    });
-  }
-  else {
-    
-    
-    lazyImages.forEach(function(lazyImage) {
-      lazyImage.src = lazyImage.dataset.src;
-    });
-  }
-});
-</script>
-
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -699,6 +669,16 @@ if (!doNotTrack) {
 {{ partial "meta/schema/article.json" . }}
 {{ partial "meta/schema/breadcrumbs.json" . }}
    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE=" crossorigin="anonymous"></script>
+
+<script>
+	$('.add-new').on('click', function(){
+		var $template = $('.template');
+		$template.after($template.html());
+	});
+</script>
+
 
 </body>
 
