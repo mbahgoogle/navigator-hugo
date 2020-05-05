@@ -571,7 +571,7 @@ if (!doNotTrack) {
 
   {{.Content}}
 
-</section>
+  
 
   
 
@@ -594,7 +594,7 @@ if (!doNotTrack) {
 			
 			{{ $num_to_show := .Site.Params.related_content_limit | default 7 }}
             {{ range first $num_to_show (where (where .Site.Pages ".Params.categories" "intersect" .Params.categories) "Permalink" "!=" .Permalink) }}
-			<article class="blog-post">
+			<article class="blog-post shadow">
               <header>
                 <h2 class="h4" dir="auto"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                 <p class="blog-post-meta"><time datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
@@ -637,7 +637,7 @@ if (!doNotTrack) {
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
     {{ $section := "blog" }}
-    {{ range (where .Site.RegularPages.ByTitle "Section" $section ) }}
+    {{ range first 5 (where .Site.RegularPages.ByTitle "Section" $section ) }}
     
     <li><a href="{{.Permalink}}">{{.Title}}</a></li>
     <hr>
