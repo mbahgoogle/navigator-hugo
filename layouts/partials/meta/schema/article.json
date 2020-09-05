@@ -18,11 +18,9 @@
       "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
       "name": "{{ .Title }}",
       "height" : 500,
-      "width" : 800,
-      "license" : "CC BY 2.0",
-      "isBasedOn" : "https://creativecommons.org/licenses/by/2.0/"
+      "width" : 800
     },
-  "mainEntityOfPage" : "{{ .Permalink | safeURL }}",
+  "mainEntityOfPage" : "{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}",
   "publisher" : {
     "@type": "Organization",
     "name" : "{{ $.Site.Title }}",

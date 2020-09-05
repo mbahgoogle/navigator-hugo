@@ -3,7 +3,7 @@
 { 
   "@context": "http://schema.org", 
   "@type": "WebSite", 
-  "url": "{{ .Permalink }}", 
+  "url": "{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}", 
   "name": "{{ .Title }}",
    "author": {
       "@type": "Person",

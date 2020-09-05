@@ -34,7 +34,7 @@
   },
   "offers": {
     "@type": "Offer",
-    "url": "{{.Permalink}}",
+    "url": "{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}",
     "priceCurrency": "IDR",
     "price": "{{ $.Params.regular_price }}",
     "priceValidUntil": "2020-11-05",
