@@ -1,24 +1,21 @@
 {{ if .Site.Params.hero.enable }}
-{{ "<!-- Hero Area -->" | safeHTML }}
+<!-- Hero Area -->
 <section class="hero-area">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="video-player">
-                    <img class="img-fluid rounded lazy" src="/placeholder.svg" data-src="{{ with .Site.Params.hero.videoThumb }}{{.}}{{ end }}" data-srcset="{{ with .Site.Params.hero.videoThumb }}{{.}}{{ end }}" title="{{ .Title }}{{ .Site.Title }}">
-                    
-                </div>
+            <div class="col-md-6">              
+                    <img class="rounded mx-auto d-block" src="{{ with .Site.Params.hero.videoThumb }}{{.}}{{ end }}" loading="lazy" title="{{ .Title }}{{ .Site.Title }}">
             </div>
             <div class="col-md-6">
                 <div class="block">
                     {{ with .Site.Params.hero.heading }}
-                        <h2 class="h3">{{ . }}</h2>
+                        <h1 class="h3">{{ . }}</h1>
                     {{ end }}
                     {{ with .Site.Params.hero.description }}
                         <p>{{ . }}</p>
                     {{ end }}
                     {{ if .Site.Params.hero.button }}
-                        <ul class="list-inline wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".7s">
+                        <ul class="list-inline">
                             <li class="list-inline-item">
                                 <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" target="_blank" class="btn btn-main" target="_blank" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>
                             </li>

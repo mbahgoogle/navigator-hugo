@@ -1,16 +1,16 @@
 {{ if .Site.Params.aboutSm.enable }}
-{{ "<!-- Start About Section -->" | safeHTML }}
+<!-- Start About Section -->
 <section class="about-2 section bg-gray" id="about">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-5">
                 {{ with .Site.Params.aboutSm.title }}
-                    <h1 class="h2">{{ . }}</h1>
+                    {{ . | markdownify }}
                 {{ end }}
             </div>
             <div class="col-12 col-md-7">
                 {{ with .Site.Params.aboutSm.description }}
-                    <p>{{ . | markdownify }}</p>
+                    {{ . | markdownify }}
                 {{ end }}
                 
                
@@ -29,5 +29,5 @@
         </div>
     </div>
 </section>
-{{ "<!-- End About section -->" | safeHTML }}
+<!-- End About section -->
 {{ end }}

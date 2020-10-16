@@ -1,8 +1,0 @@
-/*
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: origin-when-cross-origin
-*/
-  Link: <{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | relURL }}>; rel=preload; as=style
-  Link: <{{ "/plugins/fisher-font/style.min.css" | relURL }}>; rel=preload; as=style

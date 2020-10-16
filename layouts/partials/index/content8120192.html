@@ -1,5 +1,6 @@
+
 {{ if .Site.Data.content8120192.enable }}
-{{ "<!-- Team Section Start -->" | safeHTML }}
+<!-- Team Section Start -->
 <section class="section" id="team">
     <div class="container">
         <div class="row">
@@ -7,7 +8,7 @@
                 <div class="title text-center">
                     {{ with .Site.Data.content8120192.topTitle }}<h4>{{ . }}</h4>{{ end }}
                     {{ with .Site.Data.content8120192.title }}
-                        <h2>{{ . }}</h2>
+                        {{ . | markdownify }}
                         <span class="border"></span>
                     {{ end }}
                     {{ with .Site.Data.content8120192.subtitle }}<p>{{ . }}</p>{{ end }}
@@ -35,5 +36,5 @@
         </div>
     </div>
 </section>
-{{ "<!-- End section -->" | safeHTML }}
+<!-- End section -->
 {{ end }}

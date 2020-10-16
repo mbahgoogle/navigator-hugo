@@ -1,6 +1,105 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{- $.Page.Params.lang | default "ID" -}}">
 
-{{ partial "preloader.html" . }}
+<head>
+<title>{{ .Title }}</title>
+<link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+{{ partial "meta/data" . }}
+
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="152x152" href="{{ "apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
+<link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/css/shop.css">
+
+<link rel="stylesheet" href="/css/main.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+<style>
+{{ replaceRE " +" " " (replaceRE "\n" "" (partial "custom-global.css" .)) | safeCSS }}
+
+.single-page-header {
+    background: #1f2532;
+    padding: 85px 0;
+    text-align: center;
+    color: #fff;
+    position: relative
+}
+
+.single-page-header .breadcrumb {
+    background: 0 0;
+    display: inline-block
+}
+
+.single-page-header .breadcrumb li a {
+    color: #159957
+} 
+
+#portfolio {padding-bottom: 0px;}
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+
+  if ('IntersectionObserver' in window) {
+    let lazyImageObserver = new IntersectionObserver(
+      function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }
+  else {
+    // For browsers that don't support IntersectionObserver yet,
+    // load all the images now:
+    lazyImages.forEach(function(lazyImage) {
+      lazyImage.src = lazyImage.dataset.src;
+    });
+  }
+});
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8751263644994394",
+          enable_page_level_ads: true
+     });
+</script>
+</head>
+
+
+
+<body>
+
+
+
+
+
+
 
 {{ partial "navigation.html" . }}
 
@@ -8,14 +107,12 @@
 
 
 
-{{ "<!-- Blog Section Start -->" | safeHTML }}
+<!-- Blog Section Start -->
 <section class="blog section" id="blog">
     <div class="container">
         <div class="row">
             {{ range (.Paginator 99).Pages }}
-            {{ "<!-- single blog post -->" | safeHTML }}
-
-
+            <!-- single blog post -->
             <article class="col-12 col-md-4">
                 <div class="post-item">
                     <div class="post-thumb">
@@ -49,7 +146,7 @@
                     <a class="btn btn-main" href="{{ .Permalink }}">Lihat Produk</a>
                 </div>
             </article>
-            {{ "<!-- /single blog post -->" | safeHTML }}
+            <!-- /single blog post -->
             {{ end }}
             <div class="col-12 text-center">
                 {{ template "_internal/pagination.html" . }}
@@ -57,9 +154,13 @@
         </div>
     </div>
 </section>
-{{ "<!-- Blog Section End -->" | safeHTML }}
+<!-- Blog Section End -->
 
 {{ partial "footer.html" . }}
+
+{{ partial "js.html" . }}
+
+{{ partial "global_var.html" . }}
 
 </body>
 </html>

@@ -2,29 +2,20 @@
 <section class="testimonial section" id="testimonial">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                {{ "<!-- testimonial wrapper -->" | safeHTML }}
-                <div class="testimonial-slider">
+            
                     {{ range .Site.Data.testimonial.item }}
-                    {{ "<!-- testimonial single -->" | safeHTML }}
-                    <div class="item text-center">
-                        <i class="tf-ion-quote"></i>
-                        {{ "<!-- client quote -->" | safeHTML }}
-                        <div class="client-details">
+                    <!-- testimonial single -->
+                    <div class="col-12 col-md-6">
+                <div class="shadow testimonial-meta-block">
                             <p>{{ .quote }}</p>
-                        </div>
-                        {{ "<!-- client photo -->" | safeHTML }}
                         
-                        <div class="client-meta">
-                            <h4>{{ .clientName }}</h4>
+                            <p class="h4">{{ .clientName }}</p>
                             <span>{{ .clientDesignation }}</span>
-                        </div>
-                    </div>
+                      </div>
+                  </div>
                     {{ end }}
-                </div>
-            </div>
         </div>
     </div>
 </section>
-{{ "<!-- End Section -->" | safeHTML }}
+<!-- End Section -->
 {{ end }}

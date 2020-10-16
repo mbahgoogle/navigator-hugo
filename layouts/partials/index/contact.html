@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col">
                 <div class="title text-center">
-                    {{ with .Site.Params.contact.topTitle }}<h4>{{.}}</h4>{{ end }}
+                    {{ with .Site.Params.contact.topTitle }}<p>{{.}}</p>{{ end }}
                     {{ with .Site.Params.contact.title }}
-                    <h2>{{.}}</h2>
+                    {{. | markdownify }}
                     <span class="border"></span>
                     {{ end }}
                     {{ with .Site.Params.contact.subtitle }}<p>{{.}}</p>{{ end }}
@@ -18,15 +18,15 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="address-block contact-meta-block">
-                    <i class="tf-ion-social-whatsapp-outline"></i>
-                    <h4>WhatsApp</h4>
-                    {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=Pantau%20anak-anak%2C%20pasangan%20dan%20karyawan%20Anda%20secara%20aman%20dengan%20solusi%20pemantauan%20ponsel%20pintar.%20dan%20dapatkan%20informasi%20semua%20kegiatan%20dari%20ponsel%20target%20Anda.%0A%0A**Ketentuan%20penggunaan%20berlaku%20selengkapnya...**%0A%0Ahttps%3A%2F%2Fwww.detektif.net%2Fdisclaimer" class="btn btn-main-sm" title="WhatsApp Chat">Click!</a>{{ end }}
+                    <i class="icon-whatsapp"></i>
+                    <p class="h4">WhatsApp</p>
+                    {{ with .Site.Params.contact.whatsapp }}<a href="https://wa.link/1w15gd" class="btn btn-main-sm" title="WhatsApp Chat" rel="noopener">Click!</a>{{ end }}
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="phone-block contact-meta-block">
-                    <i class="tf-ion-ios-telephone"></i>
-                    <h4>Call Us</h4>
+                    <i class="icon-phone"></i>
+                    <p class="h4">Call Us</p>
                     {{ if .Site.Params.hero.button }}
                     <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" class="btn btn-main-sm" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>
                     {{ end }}

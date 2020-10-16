@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="{{- $.Page.Params.lang | default "ID" -}}">
 
 <head>
-{{ partial "meta/data" . }}
+<title>{{ .Title }}</title>
+<link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+{{ partial "meta/data-terms" . }}
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
-{{ "<!-- Favicon -->" | safeHTML }}
+<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="152x152" href="{{ "apple-touch-icon.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
@@ -16,21 +18,17 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-{{"<!-- Stylesheets -->" | safeHTML}}
-{{ "<!-- fisher Icon font -->" | safeHTML }}
-<!--
-<link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
--->
-{{ "<!-- bootstrap.min css -->" | safeHTML}}
-
-<!--
-<link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
--->
 <link rel="stylesheet" href="/css/blog.min.css">
 
 
 <style>
-
+a:hover {
+    color: #0056b3;
+    text-decoration: underline !important;
+}
+.nav-link {
+background-color: #00000017
+}
 #portfolio {padding-bottom: 0px;}
 
 
@@ -538,18 +536,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 </head>
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','{{ "/js/analytics.js" | absURL }}','ga');
-	ga('create', '{{ .Site.Params.google_analystics }}', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 <body>
 
     <div class="blog-masthead">
@@ -566,45 +552,33 @@ if (!doNotTrack) {
         </div>
     </header>
 	
-
     <div class="container mb-5 mt-5 pb-5">
         <div class="row mb-5 pb-5">
            
 			
                 {{ range (.Paginator 99).Pages }} 
-				{{ "<!-- Blog Section Start -->" | safeHTML }}
+                <!-- Blog Section Start -->
                 <div class="col-6 col-md-4 mb-3 mt-3">
-                    <header>
+                    <div class="card">
+                    <div class="card-body">
                         <h2 class="h4" dir="auto"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                         <p class="blog-post-meta">
                             <time datetime="{{ .Date.Format " 2006-01-02T15:04:05 " }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-
                         </p>
-                    </header>
                     <p>{{.Summary | truncate 200}}</p>
-                    <a href="{{ .RelPermalink }}">Read more →</a>
                 </div>
-                {{ "<!-- Blog Section Start -->" | safeHTML }} 
+                </div>
+                </div>
+                <!-- Blog Section Start --> 
+                {{ end }} 
 				
-				{{ end }} 
-				
-				
-			
-				
-				<div class="col-12 text-center">
+				        <div class="col-12 text-center">
                 {{ template "_internal/pagination.html" . }}
                 </div>
-				
-				
 
                 <hr>
 
-               
-
-
             <!-- /.blog-main -->
-
-
         </div>
         <!-- /.row -->
     </div>
@@ -621,7 +595,7 @@ if (!doNotTrack) {
         </p>
     </footer>
 
-
+{{ partial "global_var.html" . }}
 
 </body>
 

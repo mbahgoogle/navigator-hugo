@@ -1,15 +1,15 @@
 {{ if .Site.Data.portfolio.enable }}
-{{ "<!-- Start Portfolio Section -->" | safeHTML }}
+<!-- Start Portfolio Section -->
 <section class="portfolio section" id="portfolio">
     <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <div class="title text-center">
                     {{ with .Site.Data.portfolio.topTitle }}
-                        <h4>{{ . }}</h4>
+                         <p>{{ . }}</p>
                     {{ end }}
                     {{ with .Site.Data.portfolio.title }}
-                        <h2>{{ . }}</h2>
+                            {{ . | markdownify }}
                         <span class="border"></span>
                     {{ end }}
                     {{ with .Site.Data.portfolio.subtitle }}
@@ -18,28 +18,14 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-lg-12">
-                <div class="portfolio-filter">
-                    <button type="button" data-filter="all">All</button>
-                    {{ range .Site.Data.portfolio.filtermenu }}
-                        <button type="button" data-filter=".{{ .category }}">{{ .name }}</button>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-        <div class="row portfolio-items-wrapper">
             {{ range .Site.Data.portfolio.item }}
-                <div class="col-6 col-md-4 padding-0 mix {{.category}}">
-                    <div class="portfolio-block">
-                        <img class="img-fluid lazy" src="/placeholder.svg" data-src="{{ .image | absURL }}" data-srcset="{{ .image | absURL }}" title="{{ .title }}">
-                        <div class="caption">
-                            <a class="search-icon" href="{{ .image | absURL }}" data-lightbox="image-1" title="{{ .title }} - {{.Site.Title}}">
-                                <i class="tf-ion-ios-search-strong"></i>
-                            </a>
-                            <h4>
-                                <a href="{{ .image | absURL }}" title="{{ .title }} - {{.Site.Title}}">{{ .title }} </a>
-                            </h4>
+                <div class="col-md-6">
+                    <div class="card mb-5 mt-5 shadow">                        
+                        <img class="card-img-top img-fluid lazy" src="/placeholder.svg" data-src="{{ .image | absURL }}" data-srcset="{{ .image | absURL }}" title="{{ .title }}">
+                        <div class="card-body">
+                        {{ .title | markdownify }}
                         </div>
                     </div>
                 </div>
@@ -48,5 +34,5 @@
     </div>
     <!-- end row -->
 </section>
-{{ "<!-- End section -->" | safeHTML }}
+<!-- End section -->
 {{ end }}

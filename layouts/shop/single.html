@@ -1,39 +1,17 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="{{- $.Page.Params.lang | default "ID" -}}">
 
 <head>
-<title>Jual {{ .Title }}</title>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">  
-<meta itemprop="name" content="{{ .Title }} - {{ .Site.Title }}">
-<meta name="description" content="{{ replaceRE "\n" "" (.Description | default .Summary | truncate 155) }}" />
-<meta name="news_keywords" content="{{ replaceRE "\n" "" ( .Summary | truncate 55) }}" />
-<meta name="original-source" content="{{ .Permalink }}" />
+<title>{{ .Title }}</title>
+<link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+{{ partial "meta/data" . }}
+
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
 
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}"/>
-<meta property="og:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}"/>
-<meta property="og:site_name" content="{{ .Site.Title }}"/>
-<meta property="og:description" content="{{ replaceRE "\n" "" (.Description | default .Summary | truncate 155) }}"/>
-<meta property="og:locale" content="{{ .Site.LanguageCode | default "id"}}">
-<!-- Twitter Card data -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="{{ with .Site.Params.contact.twitter }}{{ . }}{{end}}" />
-<meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}" />
-<meta name="twitter:description" content="{{ replaceRE "\n" "" (.Description | default .Summary | truncate 155) }}" />
-<meta name="twitter:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}" />
-{{ range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{ end -}}
-
-{{ "<!-- Favicon -->" | safeHTML }}
+<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="152x152" href="{{ "apple-touch-icon.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}">
@@ -42,19 +20,33 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-{{"<!-- Stylesheets -->" | safeHTML}}
-{{ "<!-- fisher Icon font -->" | safeHTML }}
-<link rel="stylesheet" href="{{ "plugins/fisher-font/style.min.css" | absURL }}">
-{{ "<!-- bootstrap.min css -->" | safeHTML}}
-<link rel="stylesheet" href="{{ "plugins/bootstrap/dist/css/bootstrap.min.css" | absURL }}">
-{{ "<!-- Main Stylesheet -->" | safeHTML }}
-<link rel="stylesheet" href="{{ "/css/main.min.css" | absURL }}">
-{{ "<!-- Lightbox.min css -->" | safeHTML }}
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/css/shop.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 
 <style>
-#portfolio {padding-bottom: 0px;}
+{{ replaceRE " +" " " (replaceRE "\n" "" (partial "custom-global.css" .)) | safeCSS }}
 
+
+.single-page-header {
+    background: #1f2532;
+    padding: 85px 0;
+    text-align: center;
+    color: #fff;
+    position: relative
+}
+
+.single-page-header .breadcrumb {
+    background: 0 0;
+    display: inline-block
+}
+
+.single-page-header .breadcrumb li a {
+    color: #159957
+}
+
+#portfolio {padding-bottom: 0px;}
 
 .blog-single img {
     margin: 30px 0 30px 0 !important;
@@ -108,20 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
      });
 </script>
 </head>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','{{ "/js/analytics.js" | absURL }}','ga');
-  ga('create', '{{ .Site.Params.google_analystics }}', 'auto');
-  
-  ga('send', 'pageview');
-}
-</script>
 
 
 
@@ -232,12 +210,14 @@ if (!doNotTrack) {
     <div class="card-block px-2 col-md-8">
         <h4 class="card-title">{{ .Title | truncate 31 }}</h4>
         <p class="card-text">{{ .Summary | truncate 150 }}</p>
-        <a href="{{ .RelPermalink }}" class="btn btn-success">Lihat Produk</a>
+        <a href="{{ .RelPermalink }}" class="btn btn-success mb-3">Lihat Produk</a>
     </div>
     <div class="w-100"></div>
     <div class="card-footer w-100 text-muted">
       {{ range .Params.categories }}
-        <span class="badge badge-success"><a class="text-white" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a> </span>
+        <span class="badge badge-success">
+          <a class="text-white" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a> 
+        </span>
       {{end}}
     </div>
 </div>
@@ -266,8 +246,9 @@ if (!doNotTrack) {
 
 {{ partial "meta/schema/ProductDetails.json" . }}
 
+{{ partial "js.html" . }}
 
-
+{{ partial "global_var.html" . }}
 
 </body>
 

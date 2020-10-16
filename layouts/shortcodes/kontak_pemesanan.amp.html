@@ -1,8 +1,7 @@
 <blockquote>
 <h3>Info Pemesanan</h3>
-<p>Bila Anda berminat dengan software ini silahkan hubungi kami :</p>
-
-<strong>CALL SEKARANG</strong> :  <a href="tel:+{{.Site.Params.contact.whatsapp }}"> {{ with .Site.Params.contact.phone }} {{.}} {{ end }} </a><br />
-<strong>WHATSAPP</strong> :  {{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=masukan_pesan_">{{ end }}{{ with .Site.Params.contact.phone }} {{.}} {{ end }}</a><br />
-<strong>BBM</strong> : <a href="bbmi://{{ with .Site.Params.contact.bbm }}{{ . }} {{ end }}">{{ with .Site.Params.contact.bbm }}{{ . }} {{ end }}</a><br />
+<p>Bila Anda berminat dengan software ini silahkan hubungi kami:</p>
+<p>
+<a href="/#hubungi" class="btn btn-success" title="Hubungi Kami"> Hubungi Kami</a>
+</p>
 </blockquote>

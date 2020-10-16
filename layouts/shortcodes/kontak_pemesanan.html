@@ -1,9 +1,7 @@
-<div class="sidebar-module sidebar-module-inset shadow">
+<div class="sidebar-module sidebar-module-inset shadow text-center">
 <h3>Info Pemesanan</h3>
 <p>Bila Anda berminat dengan software ini silahkan hubungi kami:</p>
-
-<p><a href="tel:{{- with .Site.Params.contact.phone -}}{{.}}{{- end -}}" class="btn btn-danger" title="WhatsApp Chat"> {{ with .Site.Params.contact.phone }} {{.}} {{ end }} (Telepon)</a></p>
-<p><a href="/#" class="btn btn-warning" title="WhatsApp Chat"> DOWNLOAD</a></p>
-{{ with .Site.Params.contact.whatsapp }}<a href="https://api.whatsapp.com/send?phone={{ . | safeHTML }}&text=Pantau%20anak-anak%2C%20pasangan%20dan%20karyawan%20Anda%20secara%20aman%20dengan%20solusi%20pemantauan%20ponsel%20pintar.%20dan%20dapatkan%20informasi%20semua%20kegiatan%20dari%20ponsel%20target%20Anda.%0A%0A**Ketentuan%20penggunaan%20berlaku%20selengkapnya...**%0A%0Ahttps%3A%2F%2Fwww.detektif.net%2Fdisclaimer" class="btn btn-success" title="WhatsApp Chat">
-<img src="/icon/whatsapp.svg" class="svg-inline--fa fa-folder fa-w-16" style="margin: 0px auto;">&nbsp;Kirim Pesan WhatsApp</a>{{ end }}
+<p>
+<a href="/#hubungi" class="btn btn-success" title="Hubungi Kami"> Hubungi Kami</a>
+</p>
 </div>
