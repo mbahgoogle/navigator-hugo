@@ -48,7 +48,7 @@ html {
 
 [class^="icon-"], [class*=" icon-"] {
    
-  font-family: 'icomoon' !important;
+  font-family: 'icomoon';
   speak: never;
   font-style: normal;
   font-weight: normal;
