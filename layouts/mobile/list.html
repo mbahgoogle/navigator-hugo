@@ -6,12 +6,12 @@
 
 {{ partial "page-title.html" . }}
 
-{{ "<!-- Blog Section Start -->" | safeHTML }}
+<!-- Blog Section Start -->
 <section class="blog section" id="blog">
     <div class="container">
         <div class="row">
             {{ range (.Paginator 12).Pages }}
-            {{ "<!-- single blog post -->" | safeHTML }}
+            <!-- single blog post -->
             <article class="col-12 col-md-4">
                 <div class="post-item">
                     <div class="post-thumb">
@@ -40,7 +40,7 @@
                   
                 </div>
             </article>
-            {{ "<!-- /single blog post -->" | safeHTML }}
+            <!-- /single blog post -->
             {{ end }}
             <div class="col-12 text-center">
                 {{ template "_internal/pagination.html" . }}
@@ -48,7 +48,7 @@
         </div>
     </div>
 </section>
-{{ "<!-- Blog Section End -->" | safeHTML }}
+<!-- Blog Section End -->
 
 {{ partial "footer.html" . }}
 

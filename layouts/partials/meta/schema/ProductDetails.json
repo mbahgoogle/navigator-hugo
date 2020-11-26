@@ -6,7 +6,7 @@
   "@type": "Product",
   "name": "{{.Title}}",
   "image": [
-    "https://ce880219c.cloudimg.io/width/2000/x/{{ if isset .Params "thumbnail" }}{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}{{ end }}"
+    "https://ce880219c.cloudimg.io/width/2000/x/{{ if isset .Params "thumbnail" }}{{ with .Params.thumbnail }}{{ . | default "/banner.jpg" | absURL }}{{ end }}{{ end }}"
    ],
   "description": "Jual {{.Title}}",
   "sku": "0446310786",

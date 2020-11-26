@@ -1,5 +1,5 @@
 {{ if .Site.Params.contact.enable }}
-{{ "<!-- Start Contact Us -->" | safeHTML }}
+<!-- Start Contact Us -->
 <section class="contact-us section bg-gray" id="contact">
     <div class="container">
         <div class="row">
@@ -14,13 +14,12 @@
                 </div>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="address-block contact-meta-block">
+                <div class="address-block contact-meta-block" id="sadap-call-wa">
                     <i class="icon-whatsapp"></i>
                     <p class="h4">WhatsApp</p>
-                    {{ with .Site.Params.contact.whatsapp }}<a href="https://wa.link/718rrn" class="btn btn-main-sm" title="WhatsApp Chat" rel="noopener">Click!</a>{{ end }}
+                    {{ with .Site.Params.contact.whatsapp }}<a href="https://wa.link/718rrn" class="btn btn-main-sm" title="WhatsApp Chat" rel="noopener">Kirim WA</a>{{ end }}
                 </div>
             </div>
             <div class="col-12 col-md-6">
@@ -30,10 +29,8 @@
                     {{ if .Site.Params.hero.button }}
                     <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" class="btn btn-main-sm" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>
                     {{ end }}
-                   
                 </div>
             </div>
-            
         </div>
     </div>
 </section>

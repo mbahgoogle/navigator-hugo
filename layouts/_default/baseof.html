@@ -1,10 +1,177 @@
+<!DOCTYPE html>
 <html lang="{{- $.Page.Params.lang | default "ID" -}}">
-    {{- partial "header.html" . -}}
-    <body>        
-        <div id="content">
-        {{- block "main" . }}{{- end }}
+
+<head>
+    <title>{{ .Title }}</title>
+    <link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+    {{ with .OutputFormats.Get "RSS" }}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ with .OutputFormats.Get "AMP" }}
+    <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ block "head" . }}
+    {{ end }}
+    {{ with .Site.Params.googlefonts }}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="{{ . }}" rel="stylesheet">
+    {{ else }}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    {{ end }}
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/css/blog.min.css">
+    <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: "Titillium Web", sans-serif;
+        font-display: swap;
+    }
+
+    a {
+        color: #542717;
+    }
+
+    a:hover {
+        color: #159957;
+        text-decoration: underline;
+    }
+
+    img {
+        -ms-interpolation-mode: bicubic;
+        display: inline-block;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    .btn-success {
+        color: #000;
+    }
+
+    .embed-responsive {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .embed-responsive::before {
+        display: block;
+        content: "";
+    }
+
+    .embed-responsive .embed-responsive-item,
+    .embed-responsive embed,
+    .embed-responsive iframe {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .embed-responsive-16by9::before {
+        padding-top: 56.25%;
+    }
+
+    .nav-link {
+        background-color: #287b45;
+        color: #FFF;
+    }
+
+
+    .blog-single img {
+        margin: 30px 0 30px 0 !important;
+    }
+
+    .blog-post-meta {
+        color: #542717;
+    }
+
+
+    svg:not(:root).svg-inline--fa {
+        overflow: visible;
+    }
+
+    .svg-inline--fa {
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+    }
+
+    li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .blog-main h2,
+    h3 {
+        margin-top: 100px;
+        font-weight: 600
+    }
+    </style>
+</head>
+
+<body>
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="nav blog-nav">
+                <a class="nav-link" href="/#nav">← {{.Site.Title}}</a>
+            </nav>
         </div>
-        {{- partial "footer.html" . -}}
-        {{ partial "global_var.html" . }}
-    </body>
+    </div>
+    <header class="blog-header">
+        <div class="container">
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            {{- block "main" . }}{{- end }}
+            <!-- /.blog-main -->
+            <aside class="col-md-4 ml-auto blog-sidebar">
+                <section class="sidebar-module sidebar-module-inset">
+                    <h4>Disclaimer</h4>
+                    <p dir="auto">Perangkat software di situs ini disediakan hanya untuk membantu pengguna sebagai solusi pemantauan dalam ruang lingkup domestik. Mohon dibaca dan mengikuti persyaratan & peraturan sebelum Anda memutuskan untuk menggunakan: </p>
+                    <a class="btn btn-success" href="https://www.detektif.net/disclaimer/" target="_blank">Selengkapnya →</a>
+                </section>
+                <section class="sidebar-module">
+                    <h4>Recent Posts</h4>
+                    {{ $section := "blog" }}
+                    {{ range first 5 (where .Site.RegularPages "Section" "blog" ) }}
+                    <a href="{{.Permalink}}">{{.Title}}</a>
+                    <hr>
+                    {{end}}
+                    </ol>
+                </section>
+            </aside>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    <footer class="blog-footer">
+        <p dir="auto">
+            Blog template created by <a href="https://www.detektif.net">DETEKTIF MOBILE</a>, Hosted on <a href='/'>Google Cloud Platform</a>,
+            <br />
+            Terms of Service <a href='/disclaimer/'>Disclaimer</a>.
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE=" crossorigin="anonymous"></script>
+    {{ partial "global_var.html" . }}
+</body>
+
 </html>

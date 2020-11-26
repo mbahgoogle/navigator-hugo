@@ -1,96 +1,85 @@
 <!DOCTYPE html>
 <html  ⚡ lang="{{ .Site.LanguageCode | default "id"}}">
+  <head>
+    {{ partial "meta/data" . }}
+    
+    {{ with .OutputFormats.Get "HTML" }}
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
 
-<head>
-
-{{ partial "meta/data" . }}
-
-{{- range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{- end -}}
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}">
-<link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
-
-
+    
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     <script async custom-element=amp-ad src=https://cdn.ampproject.org/v0/amp-ad-0.1.js></script>
     <script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
     <script async custom-element="amp-user-notification" src=https://cdn.ampproject.org/v0/amp-user-notification-0.1.js></script>
-    <script async 
-      custom-element="amp-auto-ads"
-      src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    <script async
+    custom-element="amp-auto-ads"
+    src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
     
     
     
-<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <title>{{ .Title }}</title>
-
-
     <style amp-custom>
-  {{ replaceRE " +" " " (replaceRE "\n" "" (partial "amp/wp-style.css" .)) | safeCSS }}
-      
+    {{ partial "amp/wp-style.css" . | safeCSS }}
+    
     </style>
-<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-     
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
   </head>
   
-<body>
-   
-   {{ partial "amp/auto-ads" . }}
-   
-   <header id="#top" class="amp-wp-header">
-      <div>
-         <a href="{{ .Site.BaseURL }}">
-         <amp-img src="{{ "images/favicon.png" | absURL }}?w=32" width="32" height="32" class="amp-wp-site-icon"></amp-img>
-         {{ .Site.Title }}</a>
-      </div>
-   </header>
-   <article class="amp-wp-article">
-      <header class="amp-wp-article-header">
-         <h1 class="amp-wp-title">{{ .Title }}</h1>
-         <div class="amp-wp-meta amp-wp-byline">
-            <amp-img src="{{ "images/favicon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
-            <span class="amp-wp-author author vcard">{{ .Params.author | default "Admin" }}</span>
-         </div>
-         <div class="amp-wp-meta amp-wp-posted-on">
-            <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time>
-         </div>
-      </header>
-      
-      <div class="amp-wp-article-content">
-         {{ .Content }}
-      </div>
-      <footer class="amp-wp-article-footer">
-         <div class="amp-wp-meta amp-wp-tax-category">
- Categories: 
- 
- {{ $params := .Params }}
-         {{ range $key, $value := $.Site.Taxonomies.categories }}
-   
-            <a href="/categories/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
-         
- {{ end }}
- 
- </div>
-      </footer>   
+  <body>
     
-   </article>
-   <footer class="amp-wp-footer">
+    {{ partial "amp/auto-ads" . }}
+    
+    <header id="#top" class="amp-wp-header">
       <div>
-         <h2>ID : {{ .WordCount }}</h2>
-         <p>
-            <a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
-         </p>
-         <a href="#top" class="back-to-top">Back to top</a>
-      </div>
-   </footer>
+        <a href="{{ .Site.BaseURL }}">
+        <amp-img src="{{ "images/favicon.png" | absURL }}?w=32" width="32" height="32" class="amp-wp-site-icon"></amp-img>
+      {{ .Site.Title }}</a>
+    </div>
+  </header>
+  <article class="amp-wp-article">
+    <header class="amp-wp-article-header">
+      <h1 class="amp-wp-title">{{ .Title }}</h1>
+      <div class="amp-wp-meta amp-wp-byline">
+      <amp-img src="{{ "images/favicon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
+      <span class="amp-wp-author author vcard">{{ .Params.author | default "Admin" }}</span>
+    </div>
+    <div class="amp-wp-meta amp-wp-posted-on">
+      <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time>
+    </div>
+  </header>
+  
+  <div class="amp-wp-article-content">
+    {{ .Content }}
+  </div>
+  <footer class="amp-wp-article-footer">
+    <div class="amp-wp-meta amp-wp-tax-category">
+      Categories:
+      
+      {{ $params := .Params }}
+      {{ range $key, $value := $.Site.Taxonomies.categories }}
+      
+      <a href="/categories/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
+      
+      {{ end }}
+      
+    </div>
+  </footer>
+  
+</article>
+<footer class="amp-wp-footer">
+  <div>
+    <h2>ID : {{ .WordCount }}</h2>
+    <p>
+      <a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+    </p>
+    <a href="#top" class="back-to-top">Back to top</a>
+  </div>
+</footer>
 </body>
-
 </html>

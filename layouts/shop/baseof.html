@@ -1,11 +1,86 @@
-<html>
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
+<!DOCTYPE html>
+<html lang="{{- $.Page.Params.lang | default "ID" -}}">
+
+<head>
+    <title>{{ .Title }}</title>
+    <link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+
+    {{ with .OutputFormats.Get "RSS" }}
+     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ with .OutputFormats.Get "AMP" }}
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/css/shop.css">
+    
+    {{ with .Site.Params.googlefonts }}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="{{ . }}" rel="stylesheet">
+    {{ else }}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    {{ end }}
+    
+    <style>
+    {{ partial "css/global.css" . | safeCSS }}
+
+    .single-page-header {
+        background: #1f2532;
+        padding: 85px 0;
+        text-align: center;
+        color: #fff;
+        position: relative
+    }
+
+    .single-page-header .breadcrumb {
+        background: 0 0;
+        display: inline-block
+    }
+
+    .single-page-header .breadcrumb li a {
+        color: #159957
+    }
+
+    #portfolio {
+        padding-bottom: 0px;
+    }
+
+    .blog-single img {
+        margin: 30px 0 30px 0 !important;
+    }
+
+    .ellipsis {
+        text-overflow: ellipsis;
+        /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    </style>
+
+
+    {{ block "head" . }}
+    {{ end }}
+</head>
+
+<body id="body">
+    {{ partial "navigation.html" . }}
+    {{ partial "page-title.html" . }}
+    <section class="blog-single section">
+        <div class="container">
+            <div class="row">
+
+            	{{ block "main" . }}
+            	{{ end }}
+
+            </div>
         </div>
-        {{- partial "footer.html" . -}}
-        {{ partial "global_var.html" . }}
-    </body>
+    </section>
+    {{ partial "footer.html" . }}
+    {{ partial "meta/schema/ProductDetails.json" . }}
+    {{ partial "js.html" . }}
+    {{ partial "global_var.html" . }}
+</body>
+
 </html>

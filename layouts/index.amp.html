@@ -1,346 +1,260 @@
-
 <!DOCTYPE html>
-<html amp>
+<html ⚡ lang="{{- $.Page.Params.lang | default "ID" -}}">
   <head>
-	 
-<title>{{ .Title }}</title>
-{{ partial "meta/data" . }}
-	
-{{- range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{- end -}}
-
     
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>{{ .Title }}</title>
 
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-	<script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
-	<script async custom-element=amp-user-notification src=https://cdn.ampproject.org/v0/amp-user-notification-0.1.js></script>
-
-	
-<style amp-custom>
-{{ replaceRE " +" " " (replaceRE "\n" "" (partial "amp/index-amp-min.css" .)) | safeCSS }}
-</style>
-	
-<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-     
-	{{ partial "meta/schema/WebSite.json" . }}
-
-	 
+    {{ partial "meta/data" . }}
+    
+    {{ with .OutputFormats.Get "HTML" }}
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
+   
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+    
+    <style amp-custom>
+      {{ partial "amp/index-amp.css" . | safeCSS }}
+    </style>
+    
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    
+    {{ partial "meta/schema/WebSite.json" . }}
+    
   </head>
-
-<body>
-<nav>
- <div class="countainer">
- <a href="/" class="brand" title="Penyadap HP - SMS - WhatsApp - FB - LINE - Panggilan : Detektif.net "></a>
-
- <ul>
-     
-     
-     <li><a class="sidebar-nav-item" href="/blog/">Blog</a></li>
-     
-     <li><a class="sidebar-nav-item" href="/pemesanan/">Pemesanan</a></li>
-     
-     <li><a class="sidebar-nav-item" href="/bantuan/">Support</a></li>
-     
-     <li><a class="sidebar-nav-item" href="/disclaimer/">Disclaimer</a></li>
-     
-     <li class=hamburger><button on=tap:sidebarNavigation.toggle>...</button></li>
- </ul>
-  </div>
-</nav>
-
-<amp-sidebar class="sidebarNavigation" id="sidebarNavigation" layout="nodisplay" side="right">
-
-<ul>
-
-
-<li><a class="" href="/blog/">Blog</a></li>
-
-<li><a class="" href="/pemesanan/">Pemesanan</a></li>
-
-<li><a class="" href="/bantuan/">Support</a></li>
-
-<li><a class="" href="/disclaimer/">Disclaimer</a></li>
-
-</ul>
-</amp-sidebar>
-
-	  <header class="hero">
-
-	  <h1 class="hero-name mb-5">Penyadap HP - SMS - WhatsApp - FB - LINE - Panggilan</h1>
-        
-		<amp-img src="/images/slider/penyadap-ponsel.webp" width="300" height="430" layout="responsive" alt="penyadap-pesan-imassages-iphone"></amp-img>
-        <br />
-        <h2 class="hero-tagline">Pantau semua kegiatan data rahasia melalui ponsel</h2>
-        {{ with .Site.Params.aboutSm.description }}
-          <p>{{ . | markdownify }}</p>
-        {{ end }}
-		
-        <a href="#" class="btn">IPHONE</a>
-        <a href="#" class="btn">ANDROID</a>
-        
-      </header>
-
-
-<article id="home">
-        
-<div class="main-block dtfu7">
-    <div class="container">
+  <body>
+    <nav>
+      <div class="countainer">
+        <a href="/" class="brand" title="{{.Title}}"></a>
+        <ul>
+          
+          
+          <li><a class="sidebar-nav-item" href="/blog/">Blog</a></li>
+          
+          <li><a class="sidebar-nav-item" href="/pemesanan/">Pemesanan</a></li>
+          
+          <li><a class="sidebar-nav-item" href="/bantuan/">Support</a></li>
+          
+          <li><a class="sidebar-nav-item" href="/disclaimer/">Disclaimer</a></li>
+          
+          <li class=hamburger><button on=tap:sidebarNavigation.toggle>...</button></li>
+        </ul>
+      </div>
+    </nav>
+    <amp-sidebar class="sidebarNavigation" id="sidebarNavigation" layout="nodisplay" side="right">
+      <ul>
+        <li><a class="" href="/blog/">Blog</a></li>
+        <li><a class="" href="/pemesanan/">Pemesanan</a></li>
+        <li><a class="" href="/bantuan/">Support</a></li>
+        <li><a class="" href="/disclaimer/">Disclaimer</a></li>
+      </ul>
+    </amp-sidebar>
+    <header class="hero">
+      <h1 class="hero-name mb-5">Penyadap HP - SMS - WhatsApp - FB - LINE - Panggilan</h1>
+      
+    <amp-img src="/images/slider/penyadap-ponsel.webp" width="300" height="430" layout="fixed" alt="penyadap-pesan-imassages-iphone"></amp-img>
+    <br />
+    <h2 class="hero-tagline">Pantau semua kegiatan data rahasia melalui ponsel</h2>
+    {{ with .Site.Params.aboutSm.description }}
+    <p>{{ . | markdownify }}</p>
+    {{ end }}
+    
+    <a href="/#hubung-kami" class="btn">IPHONE</a>
+    <a href="/#hubung-kami" class="btn">ANDROID</a>
+    
+  </header>
+  <article id="home">
+    
+    <div class="main-block dtfu7">
+      <div class="container">
         {{ with .Site.Data.feature.title }}
-          {{ . | markdownify }}
+        {{ . | markdownify }}
         {{end}}
         <div class="row">
-         {{ if .Site.Data.feature.enable }}
-
-            {{ range .Site.Data.feature.item }}
-            <div class="col-md-4 col-sm-6 col-xs-12 mt-5 mb-5">
-                <div class="card">
-                    <div class="card-body">
-                        {{ .title | markdownify }}
-                        <i class="{{ .icon }}"></i>
-                        <p>{{ .description }}</p>
-                    </div>
-                </div>
+          {{ if .Site.Data.feature.enable }}
+          {{ range .Site.Data.feature.item }}
+          <div class="col-md-4 col-sm-6 col-xs-12 mt-5 mb-5">
+            <div class="card">
+              <div class="card-body">
+                {{ .title | markdownify }}
+                <i class="{{ .icon }}"></i>
+                <p>{{ .description }}</p>
+              </div>
             </div>
-            {{end}}
-
-        {{end}}     
+          </div>
+          {{end}}
+          {{end}}
         </div>
+      </div>
     </div>
-</div> 
-
-<div class="main-block dtfu2">
-   <div class="container">
-      
-      {{ range .Site.Data.about.item }}
-            {{ if .positionRight }}
-                <div class="row mt-5 mb-5">
-                    <div class="col-md-5 col-md-5 col-sm-12 offset-md-1">
-                        <div class="content">
-                            {{ .title | markdownify }}
-                            <p>{{ .description | markdownify }}</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-5 col-sm-12 text-center">
-                        <amp-img src="{{ .image }}" width="300" height="200" layout="responsive" alt="{{ .title }}"></amp-img>
-                    </div>
-                </div>
-            {{ else }}
-                <div class="row mt-5 mb-5">
-                    <div class="col-md-5 col-sm-12 offset-md-1 text-center">
-                       <amp-img src="{{ .image }}" width="300" height="200" layout="responsive" alt="{{ .title }}"></amp-img>
-                    </div>
-                    <div class="col-md-5 col-sm-12">
-                        <div class="content">
-                            {{ .title | markdownify }}
-                            <p>{{ .description | markdownify }}</p>
-                        </div>
-                    </div>
-                </div>
-            {{ end }}
-        {{ end }}
-
-       
-   </div>
+    <div class="main-block dtfu2">
+      <div class="container">
+        
+        {{ range .Site.Data.about.item }}
+        {{ if .positionRight }}
+        <div class="row mt-5 mb-5">
+          <div class="col-md-5 col-md-5 col-sm-12 offset-md-1">
+            <div class="content">
+              {{ .title | markdownify }}
+              <p>{{ .description | markdownify }}</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-5 col-sm-12 text-center">
+          <amp-img src="{{ .image }}" width="300" height="200" layout="responsive" alt="{{ .title }}"></amp-img>
+        </div>
+      </div>
+      {{ else }}
+      <div class="row mt-5 mb-5">
+        <div class="col-md-5 col-sm-12 offset-md-1 text-center">
+        <amp-img src="{{ .image }}" width="300" height="200" layout="responsive" alt="{{ .title }}"></amp-img>
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <div class="content">
+          {{ .title | markdownify }}
+          <p>{{ .description | markdownify }}</p>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+    {{ end }}
+    
+  </div>
 </div>
-
 {{ if .Site.Data.content0393828.enable }}
 <div class="main-block dtfu7">
-   <div class="container">
-      
-                    {{ with .Site.Data.content0393828.title }}
-                        {{ . | markdownify }}
-                        <span class="border"></span>
-                    {{ end }}
-                    {{ with .Site.Data.content0393828.topTitle }}<p>{{ . }}</p>{{ end }}
-                    {{ with .Site.Data.content0393828.subtitle }}<p>{{ . }}</p>{{ end }}
-
-                    {{ with .Site.Data.content0393828.content }}
-                <!-- team member -->
-                <div class="col-12">
-                    <div class="content">
-                        {{ . | markdownify }}
-                    </div>
-                </div>
-                <!-- end team member -->
-                    {{ end }}
-
-
-      <div class="adsc">
-         <amp-ad type="adsense" 
-            width="320"
-            height="100"
-            data-ad-client="{{ .Site.Params.adsense}}"
-            data-ad-slot="7882244781"></amp-ad>
+  <div class="container">
+    
+    {{ with .Site.Data.content0393828.title }}
+    {{ . | markdownify }}
+    <span class="border"></span>
+    {{ end }}
+    {{ with .Site.Data.content0393828.topTitle }}<p>{{ . }}</p>{{ end }}
+    {{ with .Site.Data.content0393828.subtitle }}<p>{{ . }}</p>{{ end }}
+    {{ with .Site.Data.content0393828.content }}
+    <!-- team member -->
+    <div class="col-12">
+      <div class="content">
+        {{ . | markdownify }}
       </div>
-   </div>
+    </div>
+    <!-- end team member -->
+    {{ end }}
+    <div class="adsc">
+      <amp-ad type="adsense"
+        width="320"
+        height="100"
+        data-ad-client="{{ .Site.Params.adsense}}"
+      data-ad-slot="7882244781"></amp-ad>
+    </div>
+  </div>
 </div>
 {{end}}
-
-
-
 {{ if .Site.Data.portfolio.enable }}
 <div class="main-block dtfu2">
-   <div class="container">
-
-      <div class="col-md-6 col-centered">
-        {{ with .Site.Data.portfolio.title }}
-        {{ . | markdownify }}
-         <span class="border"></span>
-        {{ end }}
-        {{ with .Site.Data.portfolio.subtitle }}
-         <p>{{ . }}</p>
-        {{ end }}
-
-         {{ range .Site.Data.portfolio.item }}
-         {{ .title | markdownify }}
-         <amp-img src="{{ .image | absURL }}" width="400" height="300" layout="responsive" alt="{{ .title }}"></amp-img>
-         {{end}}
-      </div>
-   </div>
+  <div class="container">
+    <div class="col-md-6 col-centered">
+      {{ with .Site.Data.portfolio.title }}
+      {{ . | markdownify }}
+      <span class="border"></span>
+      {{ end }}
+      {{ with .Site.Data.portfolio.subtitle }}
+      <p>{{ . }}</p>
+      {{ end }}
+      {{ range .Site.Data.portfolio.item }}
+      {{ .title | markdownify }}
+    <amp-img src="{{ .image | absURL }}" width="400" height="300" layout="responsive" alt="{{ .title }}"></amp-img>
+    {{end}}
+  </div>
+</div>
 </div>
 {{end}}
-
-
-
-
 <div class="main-block dtfu7">
-   <div class="container">
-      <div class="col-md-6 col-centered">
-         <h3>Kenapa menggunakan software penyadap ?</h3>
-         <h4>Bagaimana kalau target mengetahui ?</h4>
-         <p>Mode siluman atau software tidak akan diketahui oleh terget 100%. bahwa handphonenya sedang Anda sadap</p>
-         <h4>Data komunikasi apa yang dapat disadap ?</h4>
-         <p>Fitur kami jamin terlengkap berbagai fitur canggih ada didalam software ini. 25 lebih fitur 
-            pengambil data komunikasi rahasia
-         </p>
-         <h4>Apabila kami tidak dapat memasang software ini ?</h4>
-         <p>Tim kami akan senantiasa membantu Anda, bila sewaktu waktu anda mengalami masalah.</p>
-         <h4>Siap melakukan penyadapan handphone hari ini ?</h4>
-         <p>Cari tahu kebeneran melalui data komunikasi rahasia target</p>
-         <p>Tanpa harus khawatir diketahui oleh target.</p>
-         <p>Siap mengawasi anak remaja Anda melalui penyadap handphone dia</p>
-      </div>
-   </div>
+<div class="container">
+  <div class="col-md-6 col-centered">
+    <h3>Kenapa menggunakan software penyadap ?</h3>
+    <h4>Bagaimana kalau target mengetahui ?</h4>
+    <p>Mode siluman atau software tidak akan diketahui oleh terget 100%. bahwa handphonenya sedang Anda sadap</p>
+    <h4>Data komunikasi apa yang dapat disadap ?</h4>
+    <p>Fitur kami jamin terlengkap berbagai fitur canggih ada didalam software ini. 25 lebih fitur
+      pengambil data komunikasi rahasia
+    </p>
+    <h4>Apabila kami tidak dapat memasang software ini ?</h4>
+    <p>Tim kami akan senantiasa membantu Anda, bila sewaktu waktu anda mengalami masalah.</p>
+    <h4>Siap melakukan penyadapan handphone hari ini ?</h4>
+    <p>Cari tahu kebeneran melalui data komunikasi rahasia target</p>
+    <p>Tanpa harus khawatir diketahui oleh target.</p>
+    <p>Siap mengawasi anak remaja Anda melalui penyadap handphone dia</p>
+  </div>
 </div>
-
-
+</div>
 <div class="main-block dtfu7">
-   <div class="container">
-      <div class="jumbotron">
-         <center>
-         <div>
-            <h3 id="segera-hubungi-kami-buktikan-melalui-ponselnya">Segera buktikan rahasia melalui <em>ponsel-nya</em></h3>
-            <p><a class="btn" href="/#contact" target="_blank" role="button">Hubungi Kami</a></p>
-            <!---
-            {{ with .Site.Params.contact.whatsapp }}
-            <p><a class="btn" href="https://wa.link/1w15gd" role="button">via (WhatsApp)</a></p>
-            {{end}}
-            --->
-            <p>Beberapa kontak yang dapat dihubungi untuk pemesanan</p>
-
-            <p><small>Telepon pada jam 09:00 / 21:00</small></p>
-            <p><span class="disclaimer"><a href="/disclaimer/" target="_blank" title="halaman pemesanan">PERATURAN PENGGUNAAN</a></span> 
-         </div>
-         <center>
-      </div>
-   </div>
+<div class="container">
+  <div class="jumbotron">
+    <center>
+    <div>
+      <h3 id="segera-hubungi-kami-buktikan-melalui-ponselnya">Segera buktikan rahasia melalui <em>ponsel-nya</em></h3>
+      <p><a class="btn" href="/#contact" target="_blank" role="button">Hubungi Kami</a></p>
+      <!---
+      {{ with .Site.Params.contact.whatsapp }}
+      <p><a class="btn" href="https://wa.link/1w15gd" role="button">via (WhatsApp)</a></p>
+      {{end}}
+      --->
+      <p>Beberapa kontak yang dapat dihubungi untuk pemesanan</p>
+      <p><small>Telepon pada jam 09:00 / 21:00</small></p>
+      <p><span class="disclaimer"><a href="/disclaimer/" target="_blank" title="halaman pemesanan">PERATURAN PENGGUNAAN</a></span>
+    </div>
+    <center>
+  </div>
 </div>
-
+</div>
 {{ if .Site.Data.testimonial.enable }}
 <div class="main-block dtfu2">
-   <div class="container">
-      <h2>TESTIMONIAL</h2>
-       {{ range .Site.Data.testimonial.item }}
-      <!-- testimonial single -->
-      <div class="col-md-6 col-centered">
-         <div class="card mb-5">
-          <div class="card-body">
-           <p>{{ .quote }}</p>
-           <p class="h4">{{ .clientName }}</p>
-           <span>{{ .clientDesignation }}</span>
-           </div>
-          </div>
+<div class="container">
+  <h2>TESTIMONIAL</h2>
+  {{ range .Site.Data.testimonial.item }}
+  <!-- testimonial single -->
+  <div class="col-md-6 col-centered">
+    <div class="card mb-5">
+      <div class="card-body">
+        <p>{{ .quote }}</p>
+        <p class="h4">{{ .clientName }}</p>
+        <span>{{ .clientDesignation }}</span>
       </div>
-      {{ end }}
-   </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
 </div>
 {{ end }}
-		
-		
 {{ if .Site.Data.content8120192.enable }}
 <div class="main-block dtfu7 core">
-   <div class="container">
-      <div class="col-md-6 col-centered">
-         
-         <details open>
-               <summary>
-                 Penjelasan Lengkap
-               </summary>
-                <p>Penjelasan beberapa aspek kenapa Anda menggunakan software sadap.</p>   
-                {{ with .Site.Data.content8120192.content }}
-                 {{ . | markdownify }}
-                {{ end }}
-         </details>
-
-      </div>
-   </div>
+<div class="container">
+  <div class="col-md-6 col-centered">
+    
+    <details open>
+    <summary>
+    Penjelasan Lengkap
+    </summary>
+    <p>Penjelasan beberapa aspek kenapa Anda menggunakan software sadap.</p>
+    {{ with .Site.Data.content8120192.content }}
+    {{ . | markdownify }}
+    {{ end }}
+    </details>
+  </div>
+</div>
 </div>
 {{ end }}
-		
-		
-<div class="main-block dtfu7">
-   <div class="container">
-      <div class="adsc">
-         <amp-ad 
-            type="adsense" 
-            width=300 
-            height=250
-            data-ad-client="{{ .Site.Params.adsense}}"
-            data-ad-slot="3021758207"></amp-ad>
-      </div>
-   </div>
-</div>
-
-		
 </article>
-     
 <footer class="footer">
-      <div class="container">
-        <span class="text-muted">Detektif.net &copy; {{ now.Format "2006"}}</span>
-      </div>
+<div class="container">
+<span class="text-muted">Detektif.net &copy; {{ now.Format "2006"}}</span>
+</div>
 </footer>
-
-
-
-	
-
-	 
-	  
-<amp-sticky-ad layout="nodisplay">
-    <amp-ad type="adsense"
-     width=320
-     height=50
-    data-ad-client="{{ .Site.Params.adsense}}"
-    data-ad-slot="1764516850">
-    </amp-ad>
-</amp-sticky-ad>
-	 
-	 
-<amp-analytics type="googleanalytics">
-    <script type="application/json">
-        {
-            "vars": {
-                "account": "{{ .Site.Params.google_analystics }}"
-            },
-            "triggers": {"trackEvent":{"on":"click","request":"event","selector":"body","vars":{"eventAction":"click","eventCategory":"body-click"}},"trackPageview":{"on":"visible","request":"pageview"}}
-        }
-    </script>
-</amp-analytics>
-
-  </body>
+{{ partial "amp/auto-ads" . }}
+{{ partial "amp/google-analytics" . }}
+</body>
 </html>

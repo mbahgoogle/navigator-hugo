@@ -1,6 +1,7 @@
 {{ if isset $.Site.Params "adsense" }}
 
 {{ with .Params }}
+<!--
     <center>
     <amp-ad type="adsense"
             {{ with .width }}width="{{ . }}"{{ end }}
@@ -10,6 +11,7 @@
     {{ with .slot }}data-ad-slot="{{ . }}"{{ end }}>
     </amp-ad>
     </center>
+-->
 {{ end }}
 
 {{ end }}

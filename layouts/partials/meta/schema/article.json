@@ -14,7 +14,7 @@
   "image" : {
       "@context": "http://schema.org",
       "@type": "ImageObject",
-      "url": "https://ce880219c.cloudimg.io/width/2000/x/{{ .Params.thumbnail | default "/banner-amp.PNG" | absURL }}",
+      "url": "https://ce880219c.cloudimg.io/width/2000/x/{{ .Params.thumbnail | default "/banner.jpg" | absURL }}",
       "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
       "name": "{{ .Title }}",
       "height" : 500,

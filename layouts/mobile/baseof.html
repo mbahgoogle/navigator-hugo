@@ -1,10 +1,10 @@
 <html>
-    {{- partial "header.html" . -}}
+    {{ partial "header.html" . }}
     <body>        
         <div id="content">
-        {{- block "main" . }}{{- end }}
+        {{ block "main" . }}{{ end }}
         </div>
-        {{- partial "footer.html" . -}}
+        {{ partial "footer.html" . }}
         {{ partial "global_var.html" . }}
     </body>
 </html>

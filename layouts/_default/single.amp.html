@@ -1,38 +1,34 @@
 <!DOCTYPE html>
-<html ⚡ lang="{{- $.Page.Params.lang | default "ID" -}}"> 
+<html ⚡ lang="{{- $.Page.Params.lang | default "ID" -}}">
    <head>
       {{ partial "meta/data" . }}
+      
+      {{ with .OutputFormats.Get "HTML" }}
+       <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+      {{ end }}
 
-      {{- range .AlternativeOutputFormats -}}
-      <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-      {{- end -}}
-
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
-      <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}">
-      <link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}">
-      <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
-      <meta name="theme-color" content="#ffffff">
-
+      
       <script async src="https://cdn.ampproject.org/v0.js"></script>
       <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
       <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-      <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-      <script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
-      <script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script>
       <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-
       <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
       
       <title>{{ .Title }}</title>
       <style amp-custom>
-         {{ replaceRE " +" " " (replaceRE "\n" "" (partial "amp/wp-style.css" .)) | safeCSS }}
-         .text-center {
-         text-align: center;
-         }
+      {{  partial "amp/wp-style.css" . | safeCSS }}
+      .text-center {
+      text-align: center;
+      }
+      .amp-wp-article h2, h3 {
+      margin-top: 100px;
+      font-weight: 600
+      }
+      
       </style>
       <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
       <noscript>
-         <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
+      <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
       </noscript>
       {{ partial "meta/schema/article.json" . }}
       {{ partial "meta/schema/breadcrumbs.json" . }}
@@ -42,71 +38,71 @@
          <div>
             <a href="{{ .Site.BaseURL }}">
             <amp-img src="{{ "/apple-touch-icon.png" | absURL }}?w=32" width="32" height="32" class="amp-wp-site-icon"></amp-img>
-            {{ .Site.Title }}</a>
-         </div>
-      </header>
-      <article class="amp-wp-article">
+         {{ .Site.Title }}</a>
+      </div>
+   </header>
+   <article class="amp-wp-article">
       <header class="amp-wp-article-header">
          <h1 class="amp-wp-title">{{ .Title }}</h1>
          <div class="amp-wp-meta amp-wp-byline">
-            <amp-img src="{{ "/apple-touch-icon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
-            <span class="amp-wp-author author vcard">{{ .Params.author | default "Site.Params.author" }}</span>
-         </div>
-         <div class="amp-wp-meta amp-wp-posted-on">
-            <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time>
-         </div>
-      </header>
-      <div class="amp-wp-article-content">
-         {{ .Content }}
+         <amp-img src="{{ "/apple-touch-icon.png" | absURL }}" width="24" height="24" layout="fixed"></amp-img>
+         <span class="amp-wp-author author vcard">{{ .Params.author | default "Site.Params.author" }}</span>
       </div>
-      <footer class="amp-wp-article-footer">
-         <div class="amp-wp-meta amp-wp-tax-category">
-            Categories: 
-            {{ $params := .Params }}
-            {{ range $key, $value := $.Site.Taxonomies.categories }}
-            <a href="/categories/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
-            {{ end }}
-         </div>
-         <div class="amp-wp-meta amp-wp-tax-category">
-            Tags: 
-            {{ $params := .Params }}
-            {{ range $key, $value := $.Site.Taxonomies.tags }}
-            <a href="/tags/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
-            {{ end }}
-         </div>
-         <div class="amp-wp-meta amp-wp-comments-link">
-            <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}#comments">Tinggalkan sebuah Komentar</a>
-         </div>
-      </footer>
-      <!-- single blog post -->
-      {{ $related := .Site.RegularPages.RelatedIndices . | first 10 }}
-      {{ with $related }}                  
-      {{ range . }}
-      <article class="amp-wp-article-content">
-         <div class="card shadow mb-5">
-            <div class="card-img-top">
-               <amp-img src="{{.Params.thumbnail}}" layout="responsive" width="343" height="193" alt="{{.Title}}"></amp-img>
-            </div>
-            <div class="card-body">
-               <h5 class="card-title">{{.Title}}</h5>
-               <p class="card-text">{{.Summary}}</p>
-               <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" class="btn btn-success">Baca selengkapnya...</a>
-            </div>
-         </div>
-      </article>
-      {{ end }}
-      {{ end }}
-      <!-- /single blog post -->
-      <footer class="amp-wp-footer">
-         <div>
-            <h2>ID : {{ .WordCount }}</h2>
-            <p>
-               <a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
-            </p>
-            <a href="#top" class="back-to-top">Back to top</a>
-         </div>
-      </footer>
-      {{ partial "amp/auto-ads" . }}
-      {{ partial "amp/amp_analytics" . }}
-   </body>
+      <div class="amp-wp-meta amp-wp-posted-on">
+         <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time>
+      </div>
+   </header>
+   <div class="amp-wp-article-content">
+      {{ .Content }}
+   </div>
+   <footer class="amp-wp-article-footer">
+      <div class="amp-wp-meta amp-wp-tax-category">
+         Categories:
+         {{ $params := .Params }}
+         {{ range $key, $value := $.Site.Taxonomies.categories }}
+         <a href="/categories/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
+         {{ end }}
+      </div>
+      <div class="amp-wp-meta amp-wp-tax-category">
+         Tags:
+         {{ $params := .Params }}
+         {{ range $key, $value := $.Site.Taxonomies.tags }}
+         <a href="/tags/{{ $key | urlize }}/" rel="category tag">{{ $key | upper }}</a>
+         {{ end }}
+      </div>
+      <div class="amp-wp-meta amp-wp-comments-link">
+         <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}#comments">Tinggalkan sebuah Komentar</a>
+      </div>
+   </footer>
+   <!-- single blog post -->
+   {{ $related := .Site.RegularPages.RelatedIndices . | first 10 }}
+   {{ with $related }}
+   {{ range . }}
+   <article class="amp-wp-article-content">
+      <div class="card shadow mb-5">
+         <div class="card-img-top">
+         <amp-img src="{{.Params.thumbnail}}" layout="responsive" width="343" height="193" alt="{{.Title}}"></amp-img>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title">{{.Title}}</h5>
+         <p class="card-text">{{.Summary}}</p>
+         <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" class="btn btn-success">Baca selengkapnya...</a>
+      </div>
+   </div>
+</article>
+{{ end }}
+{{ end }}
+<!-- /single blog post -->
+<footer class="amp-wp-footer">
+   <div>
+      <h2>ID : {{ .WordCount }}</h2>
+      <p>
+         <a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+      </p>
+      <a href="#top" class="back-to-top">Back to top</a>
+   </div>
+</footer>
+{{ partial "amp/auto-ads" . }}
+{{ partial "amp/google-analytics" . }}
+</body>
 </html>

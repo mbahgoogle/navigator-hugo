@@ -1,4 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{- $.Page.Params.lang | default "ID" -}}">
+
 {{ partial "index/header.html" . }}
+
+
+<body>
+
 
 {{ partial "navigation.html" . }}
 
@@ -24,7 +31,7 @@
 
 {{ partial "index/blog.html" . }}
 
-{{ partial "index/footer.html" . }}
+{{ partial "footer.html" . }}
 
 {{ partial "js.html" . }}
 

@@ -2,18 +2,16 @@
 <section class="testimonial section" id="testimonial">
     <div class="container">
         <div class="row">
-            
-                    {{ range .Site.Data.testimonial.item }}
-                    <!-- testimonial single -->
-                    <div class="col-12 col-md-6">
+            {{ range .Site.Data.testimonial.item }}
+            <!-- testimonial single -->
+            <div class="col-12 col-md-6">
                 <div class="shadow testimonial-meta-block">
-                            <p>{{ .quote }}</p>
-                        
-                            <p class="h4">{{ .clientName }}</p>
-                            <span>{{ .clientDesignation }}</span>
-                      </div>
-                  </div>
-                    {{ end }}
+                    <p>{{ .quote }}</p>                    
+                    <p class="h4">{{ .clientName }}</p>
+                    <span>{{ .clientDesignation }}</span>
+                </div>
+            </div>
+            {{ end }}
         </div>
     </div>
 </section>

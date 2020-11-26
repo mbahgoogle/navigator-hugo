@@ -2,26 +2,30 @@
 <html amp lang="{{- $.Page.Params.lang | default "ID" -}}">
    <head>
       <title>{{ .Title }}</title>
+      
       {{- partial "meta/data" . -}}
 
-      {{- range .AlternativeOutputFormats -}}
-      <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-      {{- end -}}
+      {{ with .OutputFormats.Get "HTML" }}
+       <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+      {{ end }}
 
 
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0.js" async></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async custom-element="amp-sidebar"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" async custom-element="amp-analytics"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async custom-element="amp-carousel"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async custom-element="amp-image-lightbox"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async custom-element="amp-accordion"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async custom-element="amp-selector"></script>
-      <script data-n-head="true" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async custom-element="amp-bind"></script>
+      <script src="https://cdn.ampproject.org/v0.js" async></script>
+      <script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async custom-element="amp-sidebar"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" async custom-element="amp-analytics"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async custom-element="amp-carousel"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async custom-element="amp-image-lightbox"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async custom-element="amp-accordion"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async custom-element="amp-selector"></script>
+      <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async custom-element="amp-bind"></script>
       <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
       {{ partial "meta/schema/ProductDetails.json" . }}
+
       <style amp-custom>
-         {{ replaceRE " +" " " (replaceRE "\n" "" (partial "amp/shop-style.css" .)) | safeCSS }}
+       {{ partial "amp/shop-style.css" . | safeCSS }}
       </style>
+
       <style amp-boilerplate="">
          body {
          -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -335,7 +339,7 @@
       </div>
       </div>
       {{ partial "amp/auto-ads" . }}
-      {{ partial "amp/amp_analytics" . }}
+      {{ partial "amp/google-analytics" . }}
 
 
    </body>

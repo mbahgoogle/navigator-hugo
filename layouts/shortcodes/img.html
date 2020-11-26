@@ -1,5 +1,5 @@
-<figure{{ if .Get "class" }} class="{{ .Get "class" }}"{{ end }}>
-  <img class="img-fluid rounded shadow lazyload mx-auto d-block " src="/placeholder.svg" data-src="{{ .Get "src" }}" alt="{{ .Get "caption" }}">
+<figure class="mb-5 mt-5">
+  <img class="img-fluid d-block mx-auto rounded shadow lazyload" src="/placeholder.svg" data-src="{{ .Get "src" }}" alt="{{ .Get "caption" }}" width="{{ .Get "w" }}" height="{{ .Get "h" }}"> 
   {{ if .Get "caption" }}
   <figcaption class="text-center">
     {{ if .Get "href" }}

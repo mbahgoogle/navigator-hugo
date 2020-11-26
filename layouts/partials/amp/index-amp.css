@@ -1,6 +1,3 @@
-
-
-    
 * {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -9,11 +6,15 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 .adsc {
     margin: 0 auto;
     text-align: center;
 }
 
+amp-ad {
+    margin: 30px auto;
+}
 
 
 
@@ -25,7 +26,7 @@ html {
     min-width: 240px;
     color: #48525c;
     font-size: 16px;
-    font-family: 'Noto Sans',sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,137 +36,172 @@ html {
 
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('/fonts/icomoon.eot?31laka');
-  src:  url('/fonts/icomoon.eot?31laka#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?31laka') format('truetype'),
-    url('/fonts/icomoon.woff?31laka') format('woff'),
-    url('/fonts/icomoon.svg?31laka#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'icomoon';
+    src: url('/fonts/icomoon.eot?31laka');
+    src: url('/fonts/icomoon.eot?31laka#iefix') format('embedded-opentype'),
+        url('/fonts/icomoon.ttf?31laka') format('truetype'),
+        url('/fonts/icomoon.woff?31laka') format('woff'),
+        url('/fonts/icomoon.svg?31laka#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-   
-  font-family: 'icomoon';
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+[class^="icon-"],
+[class*=" icon-"] {
 
-   
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'icomoon';
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
 .icon-hamburger:before {
-  content: "\e900";
+    content: "\e900";
 }
+
 .icon-camera:before {
-  content: "\e90f";
+    content: "\e90f";
 }
+
 .icon-mic:before {
-  content: "\e91e";
+    content: "\e91e";
 }
+
 .icon-book:before {
-  content: "\e91f";
+    content: "\e91f";
 }
+
 .icon-file-picture:before {
-  content: "\e927";
+    content: "\e927";
 }
+
 .icon-file-video:before {
-  content: "\e92a";
+    content: "\e92a";
 }
+
 .icon-folder-download:before {
-  content: "\e933";
+    content: "\e933";
 }
+
 .icon-credit-card:before {
-  content: "\e93f";
+    content: "\e93f";
 }
+
 .icon-lifebuoy:before {
-  content: "\e941";
+    content: "\e941";
 }
+
 .icon-phone:before {
-  content: "\e942";
+    content: "\e942";
 }
+
 .icon-address-book:before {
-  content: "\e944";
+    content: "\e944";
 }
+
 .icon-envelop:before {
-  content: "\e945";
+    content: "\e945";
 }
+
 .icon-location2:before {
-  content: "\e948";
+    content: "\e948";
 }
+
 .icon-clock:before {
-  content: "\e94e";
+    content: "\e94e";
 }
+
 .icon-display:before {
-  content: "\e956";
+    content: "\e956";
 }
+
 .icon-mobile:before {
-  content: "\e958";
+    content: "\e958";
 }
+
 .icon-redo2:before {
-  content: "\e968";
+    content: "\e968";
 }
+
 .icon-bubbles:before {
-  content: "\e96c";
+    content: "\e96c";
 }
+
 .icon-user-check:before {
-  content: "\e975";
+    content: "\e975";
 }
+
 .icon-hour-glass:before {
-  content: "\e979";
+    content: "\e979";
 }
+
 .icon-lock:before {
-  content: "\e98f";
+    content: "\e98f";
 }
+
 .icon-cloud-download:before {
-  content: "\e9c2";
+    content: "\e9c2";
 }
+
 .icon-download2:before {
-  content: "\e9c5";
+    content: "\e9c5";
 }
+
 .icon-sphere:before {
-  content: "\e9c9";
+    content: "\e9c9";
 }
+
 .icon-volume-medium:before {
-  content: "\ea27";
+    content: "\ea27";
 }
+
 .icon-hangouts:before {
-  content: "\ea8e";
+    content: "\ea8e";
 }
+
 .icon-facebook:before {
-  content: "\ea90";
+    content: "\ea90";
 }
+
 .icon-instagram:before {
-  content: "\ea92";
+    content: "\ea92";
 }
+
 .icon-whatsapp:before {
-  content: "\ea93";
+    content: "\ea93";
 }
+
 .icon-telegram:before {
-  content: "\ea95";
+    content: "\ea95";
 }
+
 .icon-twitter:before {
-  content: "\ea96";
+    content: "\ea96";
 }
+
 .icon-appleinc:before {
-  content: "\eabe";
+    content: "\eabe";
 }
+
 .icon-android:before {
-  content: "\eac0";
+    content: "\eac0";
 }
+
 .icon-windows8:before {
-  content: "\eac2";
+    content: "\eac2";
 }
+
 .icon-skype:before {
-  content: "\eac5";
+    content: "\eac5";
 }
 
 
@@ -500,6 +536,7 @@ html {
         float: left;
         width: 8.33333%;
     }
+
     .col-sm-2 {
         position: relative;
         min-height: 1px;
@@ -508,6 +545,7 @@ html {
         float: left;
         width: 16.66667%;
     }
+
     .col-sm-3 {
         position: relative;
         min-height: 1px;
@@ -516,6 +554,7 @@ html {
         float: left;
         width: 25%;
     }
+
     .col-sm-4 {
         position: relative;
         min-height: 1px;
@@ -524,6 +563,7 @@ html {
         float: left;
         width: 33.33333%;
     }
+
     .col-sm-5 {
         position: relative;
         min-height: 1px;
@@ -532,6 +572,7 @@ html {
         float: left;
         width: 41.66667%;
     }
+
     .col-sm-6 {
         position: relative;
         min-height: 1px;
@@ -540,6 +581,7 @@ html {
         float: left;
         width: 50%;
     }
+
     .col-sm-7 {
         position: relative;
         min-height: 1px;
@@ -548,6 +590,7 @@ html {
         float: left;
         width: 58.33333%;
     }
+
     .col-sm-8 {
         position: relative;
         min-height: 1px;
@@ -556,6 +599,7 @@ html {
         float: left;
         width: 66.66667%;
     }
+
     .col-sm-9 {
         position: relative;
         min-height: 1px;
@@ -564,6 +608,7 @@ html {
         float: left;
         width: 75%;
     }
+
     .col-sm-10 {
         position: relative;
         min-height: 1px;
@@ -572,6 +617,7 @@ html {
         float: left;
         width: 83.33333%;
     }
+
     .col-sm-11 {
         position: relative;
         min-height: 1px;
@@ -580,6 +626,7 @@ html {
         float: left;
         width: 91.66667%;
     }
+
     .col-sm-12 {
         position: relative;
         min-height: 1px;
@@ -588,117 +635,155 @@ html {
         float: left;
         width: 100%;
     }
+
     .pull-sm-0 {
         right: auto;
     }
+
     .pull-sm-1 {
         right: 8.33333%;
     }
+
     .pull-sm-2 {
         right: 16.66667%;
     }
+
     .pull-sm-3 {
         right: 25%;
     }
+
     .pull-sm-4 {
         right: 33.33333%;
     }
+
     .pull-sm-5 {
         right: 41.66667%;
     }
+
     .pull-sm-6 {
         right: 50%;
     }
+
     .pull-sm-7 {
         right: 58.33333%;
     }
+
     .pull-sm-8 {
         right: 66.66667%;
     }
+
     .pull-sm-9 {
         right: 75%;
     }
+
     .pull-sm-10 {
         right: 83.33333%;
     }
+
     .pull-sm-11 {
         right: 91.66667%;
     }
+
     .pull-sm-12 {
         right: 100%;
     }
+
     .push-sm-0 {
         left: auto;
     }
+
     .push-sm-1 {
         left: 8.33333%;
     }
+
     .push-sm-2 {
         left: 16.66667%;
     }
+
     .push-sm-3 {
         left: 25%;
     }
+
     .push-sm-4 {
         left: 33.33333%;
     }
+
     .push-sm-5 {
         left: 41.66667%;
     }
+
     .push-sm-6 {
         left: 50%;
     }
+
     .push-sm-7 {
         left: 58.33333%;
     }
+
     .push-sm-8 {
         left: 66.66667%;
     }
+
     .push-sm-9 {
         left: 75%;
     }
+
     .push-sm-10 {
         left: 83.33333%;
     }
+
     .push-sm-11 {
         left: 91.66667%;
     }
+
     .push-sm-12 {
         left: 100%;
     }
+
     .offset-sm-0 {
         margin-left: 0%;
     }
+
     .offset-sm-1 {
         margin-left: 8.33333%;
     }
+
     .offset-sm-2 {
         margin-left: 16.66667%;
     }
+
     .offset-sm-3 {
         margin-left: 25%;
     }
+
     .offset-sm-4 {
         margin-left: 33.33333%;
     }
+
     .offset-sm-5 {
         margin-left: 41.66667%;
     }
+
     .offset-sm-6 {
         margin-left: 50%;
     }
+
     .offset-sm-7 {
         margin-left: 58.33333%;
     }
+
     .offset-sm-8 {
         margin-left: 66.66667%;
     }
+
     .offset-sm-9 {
         margin-left: 75%;
     }
+
     .offset-sm-10 {
         margin-left: 83.33333%;
     }
+
     .offset-sm-11 {
         margin-left: 91.66667%;
     }
@@ -713,6 +798,7 @@ html {
         float: left;
         width: 8.33333%;
     }
+
     .col-md-2 {
         position: relative;
         min-height: 1px;
@@ -721,6 +807,7 @@ html {
         float: left;
         width: 16.66667%;
     }
+
     .col-md-3 {
         position: relative;
         min-height: 1px;
@@ -729,6 +816,7 @@ html {
         float: left;
         width: 25%;
     }
+
     .col-md-4 {
         position: relative;
         min-height: 1px;
@@ -737,6 +825,7 @@ html {
         float: left;
         width: 33.33333%;
     }
+
     .col-md-5 {
         position: relative;
         min-height: 1px;
@@ -745,6 +834,7 @@ html {
         float: left;
         width: 41.66667%;
     }
+
     .col-md-6 {
         position: relative;
         min-height: 1px;
@@ -753,6 +843,7 @@ html {
         float: left;
         width: 50%;
     }
+
     .col-md-7 {
         position: relative;
         min-height: 1px;
@@ -761,6 +852,7 @@ html {
         float: left;
         width: 58.33333%;
     }
+
     .col-md-8 {
         position: relative;
         min-height: 1px;
@@ -769,6 +861,7 @@ html {
         float: left;
         width: 66.66667%;
     }
+
     .col-md-9 {
         position: relative;
         min-height: 1px;
@@ -777,6 +870,7 @@ html {
         float: left;
         width: 75%;
     }
+
     .col-md-10 {
         position: relative;
         min-height: 1px;
@@ -785,6 +879,7 @@ html {
         float: left;
         width: 83.33333%;
     }
+
     .col-md-11 {
         position: relative;
         min-height: 1px;
@@ -793,6 +888,7 @@ html {
         float: left;
         width: 91.66667%;
     }
+
     .col-md-12 {
         position: relative;
         min-height: 1px;
@@ -801,117 +897,155 @@ html {
         float: left;
         width: 100%;
     }
+
     .pull-md-0 {
         right: auto;
     }
+
     .pull-md-1 {
         right: 8.33333%;
     }
+
     .pull-md-2 {
         right: 16.66667%;
     }
+
     .pull-md-3 {
         right: 25%;
     }
+
     .pull-md-4 {
         right: 33.33333%;
     }
+
     .pull-md-5 {
         right: 41.66667%;
     }
+
     .pull-md-6 {
         right: 50%;
     }
+
     .pull-md-7 {
         right: 58.33333%;
     }
+
     .pull-md-8 {
         right: 66.66667%;
     }
+
     .pull-md-9 {
         right: 75%;
     }
+
     .pull-md-10 {
         right: 83.33333%;
     }
+
     .pull-md-11 {
         right: 91.66667%;
     }
+
     .pull-md-12 {
         right: 100%;
     }
+
     .push-md-0 {
         left: auto;
     }
+
     .push-md-1 {
         left: 8.33333%;
     }
+
     .push-md-2 {
         left: 16.66667%;
     }
+
     .push-md-3 {
         left: 25%;
     }
+
     .push-md-4 {
         left: 33.33333%;
     }
+
     .push-md-5 {
         left: 41.66667%;
     }
+
     .push-md-6 {
         left: 50%;
     }
+
     .push-md-7 {
         left: 58.33333%;
     }
+
     .push-md-8 {
         left: 66.66667%;
     }
+
     .push-md-9 {
         left: 75%;
     }
+
     .push-md-10 {
         left: 83.33333%;
     }
+
     .push-md-11 {
         left: 91.66667%;
     }
+
     .push-md-12 {
         left: 100%;
     }
+
     .offset-md-0 {
         margin-left: 0%;
     }
+
     .offset-md-1 {
         margin-left: 8.33333%;
     }
+
     .offset-md-2 {
         margin-left: 16.66667%;
     }
+
     .offset-md-3 {
         margin-left: 25%;
     }
+
     .offset-md-4 {
         margin-left: 33.33333%;
     }
+
     .offset-md-5 {
         margin-left: 41.66667%;
     }
+
     .offset-md-6 {
         margin-left: 50%;
     }
+
     .offset-md-7 {
         margin-left: 58.33333%;
     }
+
     .offset-md-8 {
         margin-left: 66.66667%;
     }
+
     .offset-md-9 {
         margin-left: 75%;
     }
+
     .offset-md-10 {
         margin-left: 83.33333%;
     }
+
     .offset-md-11 {
         margin-left: 91.66667%;
     }
@@ -926,6 +1060,7 @@ html {
         float: left;
         width: 8.33333%;
     }
+
     .col-lg-2 {
         position: relative;
         min-height: 1px;
@@ -934,6 +1069,7 @@ html {
         float: left;
         width: 16.66667%;
     }
+
     .col-lg-3 {
         position: relative;
         min-height: 1px;
@@ -942,6 +1078,7 @@ html {
         float: left;
         width: 25%;
     }
+
     .col-lg-4 {
         position: relative;
         min-height: 1px;
@@ -950,6 +1087,7 @@ html {
         float: left;
         width: 33.33333%;
     }
+
     .col-lg-5 {
         position: relative;
         min-height: 1px;
@@ -958,6 +1096,7 @@ html {
         float: left;
         width: 41.66667%;
     }
+
     .col-lg-6 {
         position: relative;
         min-height: 1px;
@@ -966,6 +1105,7 @@ html {
         float: left;
         width: 50%;
     }
+
     .col-lg-7 {
         position: relative;
         min-height: 1px;
@@ -974,6 +1114,7 @@ html {
         float: left;
         width: 58.33333%;
     }
+
     .col-lg-8 {
         position: relative;
         min-height: 1px;
@@ -982,6 +1123,7 @@ html {
         float: left;
         width: 66.66667%;
     }
+
     .col-lg-9 {
         position: relative;
         min-height: 1px;
@@ -990,6 +1132,7 @@ html {
         float: left;
         width: 75%;
     }
+
     .col-lg-10 {
         position: relative;
         min-height: 1px;
@@ -998,6 +1141,7 @@ html {
         float: left;
         width: 83.33333%;
     }
+
     .col-lg-11 {
         position: relative;
         min-height: 1px;
@@ -1006,6 +1150,7 @@ html {
         float: left;
         width: 91.66667%;
     }
+
     .col-lg-12 {
         position: relative;
         min-height: 1px;
@@ -1014,117 +1159,155 @@ html {
         float: left;
         width: 100%;
     }
+
     .pull-lg-0 {
         right: auto;
     }
+
     .pull-lg-1 {
         right: 8.33333%;
     }
+
     .pull-lg-2 {
         right: 16.66667%;
     }
+
     .pull-lg-3 {
         right: 25%;
     }
+
     .pull-lg-4 {
         right: 33.33333%;
     }
+
     .pull-lg-5 {
         right: 41.66667%;
     }
+
     .pull-lg-6 {
         right: 50%;
     }
+
     .pull-lg-7 {
         right: 58.33333%;
     }
+
     .pull-lg-8 {
         right: 66.66667%;
     }
+
     .pull-lg-9 {
         right: 75%;
     }
+
     .pull-lg-10 {
         right: 83.33333%;
     }
+
     .pull-lg-11 {
         right: 91.66667%;
     }
+
     .pull-lg-12 {
         right: 100%;
     }
+
     .push-lg-0 {
         left: auto;
     }
+
     .push-lg-1 {
         left: 8.33333%;
     }
+
     .push-lg-2 {
         left: 16.66667%;
     }
+
     .push-lg-3 {
         left: 25%;
     }
+
     .push-lg-4 {
         left: 33.33333%;
     }
+
     .push-lg-5 {
         left: 41.66667%;
     }
+
     .push-lg-6 {
         left: 50%;
     }
+
     .push-lg-7 {
         left: 58.33333%;
     }
+
     .push-lg-8 {
         left: 66.66667%;
     }
+
     .push-lg-9 {
         left: 75%;
     }
+
     .push-lg-10 {
         left: 83.33333%;
     }
+
     .push-lg-11 {
         left: 91.66667%;
     }
+
     .push-lg-12 {
         left: 100%;
     }
+
     .offset-lg-0 {
         margin-left: 0%;
     }
+
     .offset-lg-1 {
         margin-left: 8.33333%;
     }
+
     .offset-lg-2 {
         margin-left: 16.66667%;
     }
+
     .offset-lg-3 {
         margin-left: 25%;
     }
+
     .offset-lg-4 {
         margin-left: 33.33333%;
     }
+
     .offset-lg-5 {
         margin-left: 41.66667%;
     }
+
     .offset-lg-6 {
         margin-left: 50%;
     }
+
     .offset-lg-7 {
         margin-left: 58.33333%;
     }
+
     .offset-lg-8 {
         margin-left: 66.66667%;
     }
+
     .offset-lg-9 {
         margin-left: 75%;
     }
+
     .offset-lg-10 {
         margin-left: 83.33333%;
     }
+
     .offset-lg-11 {
         margin-left: 91.66667%;
     }
@@ -1139,6 +1322,7 @@ html {
         float: left;
         width: 8.33333%;
     }
+
     .col-xl-2 {
         position: relative;
         min-height: 1px;
@@ -1147,6 +1331,7 @@ html {
         float: left;
         width: 16.66667%;
     }
+
     .col-xl-3 {
         position: relative;
         min-height: 1px;
@@ -1155,6 +1340,7 @@ html {
         float: left;
         width: 25%;
     }
+
     .col-xl-4 {
         position: relative;
         min-height: 1px;
@@ -1163,6 +1349,7 @@ html {
         float: left;
         width: 33.33333%;
     }
+
     .col-xl-5 {
         position: relative;
         min-height: 1px;
@@ -1171,6 +1358,7 @@ html {
         float: left;
         width: 41.66667%;
     }
+
     .col-xl-6 {
         position: relative;
         min-height: 1px;
@@ -1179,6 +1367,7 @@ html {
         float: left;
         width: 50%;
     }
+
     .col-xl-7 {
         position: relative;
         min-height: 1px;
@@ -1187,6 +1376,7 @@ html {
         float: left;
         width: 58.33333%;
     }
+
     .col-xl-8 {
         position: relative;
         min-height: 1px;
@@ -1195,6 +1385,7 @@ html {
         float: left;
         width: 66.66667%;
     }
+
     .col-xl-9 {
         position: relative;
         min-height: 1px;
@@ -1203,6 +1394,7 @@ html {
         float: left;
         width: 75%;
     }
+
     .col-xl-10 {
         position: relative;
         min-height: 1px;
@@ -1211,6 +1403,7 @@ html {
         float: left;
         width: 83.33333%;
     }
+
     .col-xl-11 {
         position: relative;
         min-height: 1px;
@@ -1219,6 +1412,7 @@ html {
         float: left;
         width: 91.66667%;
     }
+
     .col-xl-12 {
         position: relative;
         min-height: 1px;
@@ -1227,117 +1421,155 @@ html {
         float: left;
         width: 100%;
     }
+
     .pull-xl-0 {
         right: auto;
     }
+
     .pull-xl-1 {
         right: 8.33333%;
     }
+
     .pull-xl-2 {
         right: 16.66667%;
     }
+
     .pull-xl-3 {
         right: 25%;
     }
+
     .pull-xl-4 {
         right: 33.33333%;
     }
+
     .pull-xl-5 {
         right: 41.66667%;
     }
+
     .pull-xl-6 {
         right: 50%;
     }
+
     .pull-xl-7 {
         right: 58.33333%;
     }
+
     .pull-xl-8 {
         right: 66.66667%;
     }
+
     .pull-xl-9 {
         right: 75%;
     }
+
     .pull-xl-10 {
         right: 83.33333%;
     }
+
     .pull-xl-11 {
         right: 91.66667%;
     }
+
     .pull-xl-12 {
         right: 100%;
     }
+
     .push-xl-0 {
         left: auto;
     }
+
     .push-xl-1 {
         left: 8.33333%;
     }
+
     .push-xl-2 {
         left: 16.66667%;
     }
+
     .push-xl-3 {
         left: 25%;
     }
+
     .push-xl-4 {
         left: 33.33333%;
     }
+
     .push-xl-5 {
         left: 41.66667%;
     }
+
     .push-xl-6 {
         left: 50%;
     }
+
     .push-xl-7 {
         left: 58.33333%;
     }
+
     .push-xl-8 {
         left: 66.66667%;
     }
+
     .push-xl-9 {
         left: 75%;
     }
+
     .push-xl-10 {
         left: 83.33333%;
     }
+
     .push-xl-11 {
         left: 91.66667%;
     }
+
     .push-xl-12 {
         left: 100%;
     }
+
     .offset-xl-0 {
         margin-left: 0%;
     }
+
     .offset-xl-1 {
         margin-left: 8.33333%;
     }
+
     .offset-xl-2 {
         margin-left: 16.66667%;
     }
+
     .offset-xl-3 {
         margin-left: 25%;
     }
+
     .offset-xl-4 {
         margin-left: 33.33333%;
     }
+
     .offset-xl-5 {
         margin-left: 41.66667%;
     }
+
     .offset-xl-6 {
         margin-left: 50%;
     }
+
     .offset-xl-7 {
         margin-left: 58.33333%;
     }
+
     .offset-xl-8 {
         margin-left: 66.66667%;
     }
+
     .offset-xl-9 {
         margin-left: 75%;
     }
+
     .offset-xl-10 {
         margin-left: 83.33333%;
     }
+
     .offset-xl-11 {
         margin-left: 91.66667%;
     }
@@ -1480,8 +1712,8 @@ ol {
     padding: 10px 0;
 }
 
-article.sn > .article-header,
-article.sn > .article-body,
+article.sn>.article-header,
+article.sn>.article-body,
 article.sn .article-footer {
     padding: 2rem;
 }
@@ -1553,7 +1785,7 @@ input[type=submit]:hover {
     border-color: #000;
 }
 
-.btn + .btn {
+.btn+.btn {
     margin-left: 1rem;
 }
 
@@ -1653,8 +1885,8 @@ input[type=submit]:hover {
 .hero {
     color: #fff;
     text-align: center;
-    background-color:#1f2532;
-    background:;
+    background-color: #1f2532;
+    background: ;
 }
 
 .hero-name {
@@ -1854,6 +2086,7 @@ nav ul li.hamburger button {
     nav ul li {
         display: none;
     }
+
     nav ul li.hamburger {
         display: inline-block;
     }
@@ -1891,7 +2124,7 @@ nav ul li.hamburger button {
 .main-block h2 {
     font-size: 25px;
     text-transform: uppercase;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
@@ -1901,8 +2134,8 @@ nav ul li.hamburger button {
 }
 
 .dtfu2 {
-    background:#44ae79;
-    color:#2d2d2d;
+    background: #44ae79;
+    color: #2d2d2d;
 }
 
 
@@ -2064,15 +2297,19 @@ amp-accordion section {
     .btn {
         padding: 0.75rem 1rem;
     }
+
     .hero-tagline {
         font-size: 1.25rem;
     }
+
     .hero-name {
         font-size: 3.25rem;
     }
+
     .hero {
         padding: 5rem 6rem;
     }
+
     .main-block {
         padding: 60px 0px;
     }
@@ -2083,15 +2320,19 @@ amp-accordion section {
         padding: 0.6rem 0.9rem;
         font-size: 0.9rem;
     }
+
     .hero-tagline {
         font-size: 1.15rem;
     }
+
     .hero-name {
         font-size: 2.25rem;
     }
+
     .hero {
         padding: 3rem 4rem;
     }
+
     .main-block {
         padding: 60px 0px;
     }
@@ -2104,16 +2345,20 @@ amp-accordion section {
         padding: 0.75rem;
         font-size: 0.9rem;
     }
-    .btn + .btn {
+
+    .btn+.btn {
         margin-top: 1rem;
         margin-left: 0;
     }
+
     .hero-tagline {
         font-size: 1rem;
     }
+
     .hero-name {
         font-size: 1.75rem;
     }
+
     .hero {
         padding: 2rem 1rem;
     }
@@ -2127,7 +2372,7 @@ amp-accordion section {
 
 .h-logo {
     font-family: Lobster, cursive;
-}  
+}
 
 
 
@@ -2144,6 +2389,7 @@ amp-accordion section {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -2162,12 +2408,15 @@ amp-accordion section {
     -webkit-text-fill-color: transparent;
 }
 
-.card h2 {font-size: 17px}
+.card h2 {
+    font-size: 17px
+}
 
 
 .mt-5 {
     margin-top: 3rem;
 }
+
 .mb-5 {
     margin-bottom: 3rem;
 }

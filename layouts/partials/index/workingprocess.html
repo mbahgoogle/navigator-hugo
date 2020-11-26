@@ -6,42 +6,42 @@
             <div class="col">
                 <div class="title text-center">
                     {{ with .Site.Data.workingprocess.topTitle }}
-                        <p>{{ . }}</p>
+                    <p>{{ . }}</p>
                     {{ end }}
                     {{ with .Site.Data.workingprocess.title }}
-                        {{ . | markdownify }}
-                        <span class="border"></span>
+                    {{ . | markdownify }}
+                    <span class="border"></span>
                     {{ end }}
                     {{ with .Site.Data.workingprocess.subtitle }}
-                        <p>{{ . }}</p>
+                    <p>{{ . }}</p>
                     {{ end }}
                 </div>
             </div>
         </div>
         <div class="row justify-content-center">
             {{ range $index,  $element:= .Site.Data.workingprocess.item }}
-                <div class="col-md-4 col-sm-6 p-0">
-                    <div class="service-item text-center">
-                        {{ with .number }}
-                            <span class="count">{{ . }}.</span>
-                        {{ end }}
-                        {{ with .icon }}
-                            <i class="{{ . }}"></i>
-                        {{ end }}
-                        {{ with .title }}
-                            <h3>{{ . }}</h3>
-                        {{ end }}
-                        {{ with .description }}
-                            <p>{{ . }}</p>
-                        {{ end }}
-                    </div>
+            <div class="col-md-4 col-sm-6 p-0">
+                <div class="service-item text-center">
+                    {{ with .number }}
+                    <span class="count">{{ . }}.</span>
+                    {{ end }}
+                    {{ with .icon }}
+                    <i class="{{ . }}"></i>
+                    {{ end }}
+                    {{ with .title }}
+                    <h3>{{ . }}</h3>
+                    {{ end }}
+                    {{ with .description }}
+                    <p>{{ . }}</p>
+                    {{ end }}
                 </div>
-                {{ if eq (mod $index 2) 1 }}
-                    <div class="w-100"></div>
-                {{ end }}
+            </div>
+            {{ if eq (mod $index 2) 1 }}
+            <div class="w-100"></div>
+            {{ end }}
             {{ end }}
         </div>
     </div>
 </section>
-{{ "<!-- Work Process section end -->" | safeHTML }}
+<!-- Work Process section end -->
 {{ end }}
