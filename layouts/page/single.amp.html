@@ -4,7 +4,7 @@
     {{ partial "meta/data" . }}
     
     {{ with .OutputFormats.Get "HTML" }}
-     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+       <link rel="{{ .Rel }}" href="{{ .Permalink }}" />
     {{ end }}
 
     

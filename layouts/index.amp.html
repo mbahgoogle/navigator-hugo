@@ -7,11 +7,12 @@
     {{ partial "meta/data" . }}
     
     {{ with .OutputFormats.Get "HTML" }}
-     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}" />
     {{ end }}
    
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
