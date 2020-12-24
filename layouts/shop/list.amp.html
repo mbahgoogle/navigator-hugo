@@ -144,7 +144,7 @@
                                 <div class="product-grid">
                                     {{ range (.Paginator 99).Pages }}
                                     <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" role="listitem" data-vars-target-url="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" data-vars-product-id="jr7fbq" data-vars-section="" class="product-grid__item text-decoration-none product-item-wrapper product-bordered">
-                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" alt="PROMO LAPTOP HP "></amp-img>
+                                        <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" alt="{{.Title}}"></amp-img>
                                         <div class="product-info">
                                             <div class="product--name">{{ .Title | truncate 75 }}</div>
                                             <div class="price-wrapper">

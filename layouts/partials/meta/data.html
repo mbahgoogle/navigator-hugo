@@ -7,7 +7,7 @@
 <meta name="original-source" content="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
 <!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}">
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
 <meta property="og:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
