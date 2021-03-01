@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{- $.Page.Params.lang | default "ID" -}}">
+<html lang="{{- .Page.Params.lang | default "id" -}}">
 
 <head>
     <title>{{ .Title }}</title>
-    <link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+    
+    
+
+    {{ block "head" . }}
+    {{ end }}
+
+    
     {{ with .OutputFormats.Get "RSS" }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
     {{ end }}
     {{ with .OutputFormats.Get "AMP" }}
     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
     {{ end }}
-    {{ block "head" . }}
-    {{ end }}
+
     {{ with .Site.Params.googlefonts }}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="{{ . }}" rel="stylesheet">
@@ -19,8 +24,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     {{ end }}
+
     <!-- bootstrap.min css -->
     <link rel="stylesheet" href="/css/blog.min.css">
+
+
     <style>
     body,
     h1,
@@ -86,7 +94,7 @@
 
     .nav-link {
         background-color: #287b45;
-        color: #FFF;
+        color: #ffffff;
     }
 
 
@@ -122,6 +130,15 @@
         font-weight: 600
     }
     </style>
+    
+    {{ template "_internal/google_analytics_async.html" . }}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8751263644994394",
+        enable_page_level_ads: true
+    });
+    </script>
 </head>
 
 <body>
@@ -134,26 +151,48 @@
     </div>
     <header class="blog-header">
         <div class="container">
+        <!-- ads-banner-detektif-net -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8751263644994394"
+             data-ad-slot="1611735425"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         </div>
     </header>
     <div class="container">
         <div class="row">
-            {{- block "main" . }}{{- end }}
+            {{- block "main" . }}
+            {{- end }}
             <!-- /.blog-main -->
             <aside class="col-md-4 ml-auto blog-sidebar">
+                <section class="sidebar-module">
+                    <!-- ads-vertical-detektif-net -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8751263644994394"
+                         data-ad-slot="1822939679"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </section>
                 <section class="sidebar-module sidebar-module-inset">
-                    <h4>Disclaimer</h4>
-                    <p dir="auto">Perangkat software di situs ini disediakan hanya untuk membantu pengguna sebagai solusi pemantauan dalam ruang lingkup domestik. Mohon dibaca dan mengikuti persyaratan & peraturan sebelum Anda memutuskan untuk menggunakan: </p>
+                    <h2>Disclaimer</h2>
+                    <p>Perangkat software di situs ini disediakan hanya untuk membantu pengguna sebagai solusi pemantauan dalam ruang lingkup domestik. Mohon dibaca dan mengikuti persyaratan & peraturan sebelum Anda memutuskan untuk menggunakan: </p>
                     <a class="btn btn-success" href="https://www.detektif.net/disclaimer/" target="_blank">Selengkapnya →</a>
                 </section>
                 <section class="sidebar-module">
-                    <h4>Recent Posts</h4>
+                    <h2>Recent Posts</h2>
                     {{ $section := "blog" }}
                     {{ range first 5 (where .Site.RegularPages "Section" "blog" ) }}
                     <a href="{{.Permalink}}">{{.Title}}</a>
                     <hr>
                     {{end}}
-                    </ol>
                 </section>
             </aside>
         </div>
@@ -161,17 +200,17 @@
     </div>
     <!-- /.container -->
     <footer class="blog-footer">
-        <p dir="auto">
-            Blog template created by <a href="https://www.detektif.net">DETEKTIF MOBILE</a>, Hosted on <a href='/'>Google Cloud Platform</a>,
-            <br />
+        <p>
+            Blog template created by <a href="https://www.detektif.net/">DETEKTIF MOBILE</a>, Hosted on <a href='/'>Google Cloud Platform</a>,
             Terms of Service <a href='/disclaimer/'>Disclaimer</a>.
         </p>
         <p>
             <a href="#">Back to top</a>
         </p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE=" crossorigin="anonymous"></script>
     {{ partial "global_var.html" . }}
 </body>
+
+
 
 </html>

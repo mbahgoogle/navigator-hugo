@@ -5,8 +5,9 @@
     <div class="row">
       <div class="col">
         <div class="title text-center">
-          {{ with .Site.Params.blog.topTitle }}<h4>{{ . }}</h4>{{ end }}
-          {{ with .Site.Params.blog.title }}{{ . | markdownify }}<span class="border"></span>{{ end }}
+          {{ with .Site.Params.blog.topTitle }}<h2>{{ . }}</h2>{{ end }}
+          {{ with .Site.Params.blog.title }}{{ . | markdownify }}
+          <span class="border">{{ "<!---->" | safeHTML }}</span>{{ end }}
         </div>
       </div>
     </div>
@@ -17,12 +18,14 @@
           <article class="col-12 col-md-6">
             <div class="post-item">
               <div class="post-thumb">
-                <img class="img-fluid shadow rounded lazy" style="height:200px;width:340px" src="/placeholder.svg" data-src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}"  data-srcset="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
+              <a href="{{ .Permalink }}">
+                <img class="img-fluid shadow rounded" style="height:200px;width:340px" src="{{ with .Params.thumb }}{{ . | absURL }}{{ end }}" alt="{{ .Title }}" loading="lazy">
+              </a>
               </div>
               <div class="post-title">
-                <h3 class="mt-0 h4">
+                <h2 class="mt-0 h5">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </h3>
+                </h2>
               </div>
               <div class="post-meta">
                 <ul class="list-inline">

@@ -8,7 +8,7 @@
                     {{ with .Site.Params.contact.topTitle }}<p>{{.}}</p>{{ end }}
                     {{ with .Site.Params.contact.title }}
                     {{. | markdownify }}
-                    <span class="border"></span>
+                    <span class="border">&nbsp;</span>
                     {{ end }}
                     {{ with .Site.Params.contact.subtitle }}<p>{{.}}</p>{{ end }}
                 </div>
@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="address-block contact-meta-block" id="sadap-call-wa">
-                    <i class="icon-whatsapp"></i>
+                    <i class="icon-whatsapp">{{ "<!---->" | safeHTML }}</i>
                     <p class="h4">WhatsApp</p>
                     {{ with .Site.Params.contact.whatsapp }}<a href="/wa/" class="btn btn-main-sm" title="WhatsApp Chat" rel="noopener">Kirim WA</a>{{ end }}
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="phone-block contact-meta-block">
-                    <i class="icon-phone"></i>
+                    <i class="icon-phone">{{ "<!---->" | safeHTML }}</i>
                     <p class="h4">Call Us</p>
                     {{ if .Site.Params.hero.button }}
                     <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" class="btn btn-main-sm" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>

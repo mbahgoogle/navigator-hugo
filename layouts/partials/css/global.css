@@ -313,11 +313,11 @@ footer a {
     padding: 100px 0 80px
 }
 
-.top-footer h3 {
+.top-footer h2 {
     text-transform: uppercase
 }
 
-.top-footer h3 {
+.top-footer h2 {
     font-size: 16px;
     line-height: 1.5;
     color: #fff;
@@ -377,7 +377,7 @@ footer a {
 }
 
 .footer-bottom a {
-    color: #159957
+    color:#9e9e9e
 }
 
 .subscribe-form .form-control {

@@ -5,6 +5,8 @@
 <title>{{ .Title }}</title>
 <link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
 {{ partial "meta/data" . | safeHTML }}
+
+
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}

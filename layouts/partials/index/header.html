@@ -1,6 +1,6 @@
 <head>
     <title>{{ .Title }}</title>
-    <link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+
     {{ partial "meta/data" . | safeHTML }}
 
 
@@ -25,6 +25,10 @@
 
     <style>
     {{ partial "css/global.css" . | safeCSS }}
+
+    a {
+       color:#795548;
+    }
 
     ul {
         margin: 0
@@ -262,7 +266,7 @@
         position: absolute;
         top: 0;
         left: 20px;
-        color: #f3f1f1;
+        color:#795548;
         font-weight: 700
     }
 
@@ -314,32 +318,7 @@
         padding-bottom: 0px;
     }
     </style>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
-        if ('IntersectionObserver' in window) {
-            let lazyImageObserver = new IntersectionObserver(
-                function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-            lazyImages.forEach(function(lazyImage) {
-                lazyImageObserver.observe(lazyImage);
-            });
-        } else {
-            // For browsers that don't support IntersectionObserver yet,
-            // load all the images now:
-            lazyImages.forEach(function(lazyImage) {
-                lazyImage.src = lazyImage.dataset.src;
-            });
-        }
-    });
-    </script>
+    
     {{ template "_internal/google_analytics_async.html" . }}
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>

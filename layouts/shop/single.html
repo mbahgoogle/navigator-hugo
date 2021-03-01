@@ -1,131 +1,77 @@
 {{ define "head" }}
-{{ partial "meta/data" . | safeHTML }}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
-    if ('IntersectionObserver' in window) {
-        let lazyImageObserver = new IntersectionObserver(
-            function(entries, observer) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        let lazyImage = entry.target;
-                        lazyImage.src = lazyImage.dataset.src;
-                        lazyImageObserver.unobserve(lazyImage);
-                    }
-                });
-            });
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // For browsers that don't support IntersectionObserver yet,
-        // load all the images now:
-        lazyImages.forEach(function(lazyImage) {
-            lazyImage.src = lazyImage.dataset.src;
-        });
-    }
-});
-</script>
-{{ template "_internal/google_analytics_async.html" . }}
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8751263644994394",
-    enable_page_level_ads: true
-});
-</script>
 
 {{ partial "meta/schema/ProductDetails.json" . }}
-
 
 {{ end }}
 
 
+
 {{ define "main" }}
+
 <div class="col-md-8 mx-auto">
+
+
     {{ if isset .Params "thumbnail" }}
-    <img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="{{.Title}}">
+    <img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" class="w-100 mb-3" alt="{{.Title}}" loading="lazy">
     {{ end }}
+
     <h2 class="h4">{{ .Description }}</h2>
-    <h4>IDR.<strong>{{ $.Params.regular_price}}</strong></h4><br />
-    <hr>
-    <div class="btn-main"><a class="text-dark" href="https://api.whatsapp.com/send?phone={{.Site.Params.wa_no}}&text=%2AKode%20Produk%2A%20%20%3A%20{{$.Params.order_id}}%0D%0A%0D%0A%2AHarga%2A%20%3A%20%20Rp.{{$.Params.regular_price}}%0D%0A%0D%0A%2AKeterangan%20Produk%2A%20%3A%20%20{{.Title}}"><strong>Beli Sekarang</strong></a></div>
-    <hr>
-    <span>KODE PRODUK: <strong>{{$.Params.order_id}}</strong></span>
-    <hr>
-    <span>STATUS SELLER: <strong>{{.Params.status_seller}}</strong></span>
-    <hr>
-    <span>STOK BARANG: <strong>{{.Params.stock_barang}}</strong></span>
-    <hr>
-    <span>TERJUAL: <strong>{{.Params.selling_produk}}</strong></span>
-    <hr>
-    <span>KONDISI: <strong>{{.Params.kondisi_produk}}</strong></span>
-    <hr>
-    <span>BERAT BARANG: <strong>{{.Params.berat_barang}}</strong></span>
-    <hr>
-    <span>LOKASI BARANG: <strong>{{.Params.lokasi_barang}}</strong></span>
-    <hr>
+    <h3>IDR. {{ $.Params.regular_price}}</h3>
+    <div class="btn-main mb-5 mt-5">
+        <a class="text-dark" href="https://api.whatsapp.com/send?phone={{.Site.Params.wa_no}}&text=%2AKode%20Produk%2A%20%20%3A%20{{$.Params.order_id}}%0D%0A%0D%0A%2AHarga%2A%20%3A%20%20Rp.{{$.Params.regular_price}}%0D%0A%0D%0A%2AKeterangan%20Produk%2A%20%3A%20%20{{.Title}}"><strong>Beli Sekarang</strong></a>
+    </div>
+    <p>KODE PRODUK: <strong>{{$.Params.order_id}}</strong></p>
+    <p>STATUS SELLER: <strong>{{.Params.status_seller}}</strong></p>
+    <p>STOK BARANG: <strong>{{.Params.stock_barang}}</strong></p>
+    <p>TERJUAL: <strong>{{.Params.selling_produk}}</strong></p>
+    <p>KONDISI: <strong>{{.Params.kondisi_produk}}</strong></p>
+    <p>BERAT BARANG: <strong>{{.Params.berat_barang}}</strong></p>
+    <p>LOKASI BARANG: <strong>{{.Params.lokasi_barang}}</strong></p>
+     
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" href="#detail">Keterangan Produk</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="detail">{{ .Content | safeHTML }}</div>
+    <div class="mb-5 mt-5">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-8751263644994394"
+         data-ad-slot="2378022186"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     </div>
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" href="#ketentuan">Ketentuan</a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="ketentuan">{{ .Site.Data.ketentuan_shop.content | markdownify }}</div>
-    </div>
+    <h2>Keterangan Produk</h2>
+    {{ .Content | safeHTML }}
 
-    <ul id="tags-single">
-        Tags:
+    <h2>Ketentuan</h2>
+    {{ .Site.Data.ketentuan_shop.content | markdownify }}
+
+   
+    <p class="mt-5">Category:</p>
         {{ range .Params.categories }}
-        <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a> </li>
+         <a class="badge badge-light" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
         {{ end }}
-    </ul>
-    <ul id="tags-single">
-        Tags:
+  
+   
+    <p class="mt-5">Tag:</p>
         {{ range .Params.tags }}
-        <li class="badge badge-light"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a> </li>
+         <a class="badge badge-light" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
         {{ end }}
-    </ul>
-    <br />
-    <hr><br />
-    <div class="sharethis-inline-share-buttons"></div>
-    
-    <br />
-    <hr><br />
-
-    <nav aria-label="breadcrumb mx-auto" role="navigation">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ .Site.BaseURL }}">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="{{.Site.BaseURL}}{{.Section}}">{{.Section}}</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
-        </ol>
-    </nav>
 
 
     <!-- Related Product -->
     {{ $related := .Site.RegularPages.Related . | first 35 }}
     {{ with $related }}
     {{ range . }}
-    <div class="card flex-row flex-wrap mb-5">
+    <div class="card flex-row flex-wrap mb-5 mt-5">
         <div class="card-header border-0 col-md-4 text-center">
-            <img class="lazy img-fluid" src="/placeholder.png" data-src="{{.Params.thumbnail}}" alt="">
+            <a href="{{ .RelPermalink }}">
+                <img class="lazy img-fluid" src="{{.Params.thumbnail}}" alt="{{ .Title }}" loading="lazy">
+            </a>
         </div>
         <div class="card-block px-2 col-md-8">
-            <h4 class="card-title">{{ .Title | truncate 31 }}</h4>
+            <h2 class="h3 card-title"><a href="{{ .RelPermalink }}">{{ .Title | truncate 31 }}</a></h2>
             <p class="card-text">{{ .Summary | truncate 150 }}</p>
             <a href="{{ .RelPermalink }}" class="btn btn-success mb-3">Lihat Produk</a>
         </div>
@@ -133,13 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="card-footer w-100 text-muted">
             {{ range .Params.categories }}
             <span class="badge badge-success">
-                <a class="text-white" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
+                <a class="text-black" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
             </span>
             {{end}}
         </div>
     </div>
     {{ end }}
     {{ end }}
-
 </div>
 {{ end }}

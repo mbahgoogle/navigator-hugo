@@ -1,6 +1,6 @@
 {{ if .Site.Data.content8120192.enable }}
-<!-- Team Section Start -->
-<section class="section" id="team">
+<!-- Section Start -->
+<section class="section" id="penjelasan-penyadap">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -8,7 +8,7 @@
                     {{ with .Site.Data.content8120192.topTitle }}<p>{{ . }}</p>{{ end }}
                     {{ with .Site.Data.content8120192.title }}
                     {{ . | markdownify }}
-                    <span class="border"></span>
+                    <span class="border">&nbsp;</span>
                     {{ end }}
                     {{ with .Site.Data.content8120192.subtitle }}<p>{{ . }}</p>{{ end }}
                 </div>
@@ -16,23 +16,12 @@
         </div>
         <div class="row justify-content-center">
             {{ with .Site.Data.content8120192.content }}
-            <!-- team member -->
             <div class="col-12">
                 <div class="content">
                     {{ . | markdownify }}
                 </div>
             </div>
-            <!-- end team member -->
             {{ end }}
-            <!-- ads_slot_detektif_net_213_ad_sticky 
-            <ins class="adsbygoogle"
-            style="display:inline-block;width:320px;height:100px"
-            data-ad-client="ca-pub-8751263644994394"
-            data-ad-slot="1764516850"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            -->
         </div>
     </div>
 </section>

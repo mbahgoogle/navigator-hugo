@@ -10,7 +10,7 @@
                     {{ end }}
                     {{ with .Site.Data.portfolio.title }}
                             {{ . | markdownify }}
-                        <span class="border"></span>
+                        <span class="border">&nbsp;</span>
                     {{ end }}
                     {{ with .Site.Data.portfolio.subtitle }}
                         <p>{{ . }}</p>
@@ -23,7 +23,7 @@
             {{ range .Site.Data.portfolio.item }}
                 <div class="col-md-6">
                     <div class="card mb-5 mt-5 shadow">                        
-                        <img class="card-img-top img-fluid lazy" height="100%" width="100%" src="/placeholder.svg" data-src="{{ .image | absURL }}" data-srcset="{{ .image | absURL }}" title="{{ .title }}">
+                        <img class="card-img-top img-fluid" height="100%" width="100%" src="{{ .image | absURL }}" alt="{{ .title }}" loading="lazy">
                         <div class="card-body">
                         {{ .title | markdownify }}
                         </div>

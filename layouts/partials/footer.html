@@ -3,51 +3,30 @@
     <div class="top-footer">
         <div class="container">
             <div class="row">
+
+
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3>About</h3>
+                    <h2>About</h2>
                     {{ with .Site.Params.footerDescription }}<p>{{ . }}</p>{{ end }}
                 </div>
+
+
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3>Kompatibilitas</h3>
-                    <p>
-                        Perangkat Apple yang didukung:
-                        <a href="https://www.apple.com/lae/iphone-x/" title="iPhone X" target="_blank" rel="noopener">iPhone X,</a>
-                        <a href="https://www.gsmarena.com/apple_iphone_8-8573.php" title="iPhone 8 " target="_blank" rel="noopener">iPhone 8, </a>
-                        <a href="https://www.theiphonewiki.com/wiki/IPhone_8_Plus" title="iPhone 8 Plus" target="_blank" rel="noopener">8 Plus,
-                            <a href="https://www.apple.com/lae/iphone-7/specs/" title="iPhone 7" target="_blank" rel="noopener">iPhone 7, </a>
-                            <a href="https://id.wikipedia.org/wiki/IPhone_7" title="iPhone 7 Plus" target="_blank" rel="noopener">7 Plus, </a>
-                            <a href="https://id.wikipedia.org/wiki/IPhone_6" title="iPhone 6" target="_blank" rel="noopener">iPhone 6, </a>
-                            <a href="https://gadgets.ndtv.com/apple-iphone-6-plus-1974" title="iPhone 6 Plus" target="_blank" rel="noopener">6 Plus, </a>
-                            <a href="https://en.wikipedia.org/wiki/IPhone_5" title="iPhone 5" target="_blank" rel="noopener">5, </a>
-                            <a href="https://www.gadgetsnow.com/mobile-phones/Apple-iPhone-5s" title="iPhone 5s" target="_blank" rel="noopener">5s, </a>
-                            <a href="https://www.lifewire.com/iphone-5c-specs-features-2000693" title="iPhone 5c" target="_blank" rel="noopener">5c, </a>
-                            <a href="https://igotoffer.com/apple/iphone-4s/" title="iPhone 4s" target="_blank" rel="noopener">4s, </a>
-                            <a href="https://en.wikipedia.org/wiki/IPhone_4" title="iPhone 4" target="_blank" rel="noopener">4, </a>
-                            <a href="https://www.cnet.com/news/iphone-3g-details-dimensions-weight-3g-chip-specs/" title="iPhone 3g" target="_blank" rel="noopener">3g. </a>
-                            <a href="https://www.apple.com/lae/ipad/" title="iPad" target="_blank" rel="noopener">iPad </a>
-                            <a href="https://www.theiphonewiki.com/wiki/N841AP" title="iPhone XR" target="_blank" rel="noopener">iPhone XR, </a>
-                            <a href="https://www.theiphonewiki.com/wiki/D321AP" title="iPhone XS" target="_blank" rel="noopener">iPhone XS, </a>
-                            <a href="https://www.theiphonewiki.com/wiki/IPhone_XS_Max" title="iPhone XS Max" target="_blank" rel="noopener">iPhone XS Max , </a>
-                            <a href="https://ibox.co.id/" title="iPhone 11" target="_blank" rel="noopener">iPhone 11</a>
-                            <a href="https://www.apple.com/id/iphone-12-pro/specs/" title="iPhone 11 Pro" target="_blank" rel="noopener">iPhone 12</a>
-                    </p>
-                    <p>
-                        Perangkat monitoring smartphone kompatibel
-                        dengan versi
+                    <h2>Kompatibilitas</h2>                   
+                        <p>Perangkat Apple kompatibeltas:</p>
+                        <a href="https://www.apple.com/lae/iphone-x/" title="iPhone X" target="_blank" rel="noopener">iPhone, </a> 
+
+                        <a href="https://www.apple.com/id/iphone-12-pro/specs/" title="iPhone 11 Pro" target="_blank" rel="noopener">iPhone 12</a>
+
+                        <p>Perangkat Android kompatibeltas: </p>
                         <a href="https://id.wikipedia.org/wiki/Daftar_versi_Android" target="_blank" title="OS Android" rel="noopener">OS Android. </a>
-                        <a href="https://en.wikipedia.org/wiki/Android_Jelly_Bean" target="_blank" title="OS Android. Jelly Bean" rel="noopener">Jelly Bean, </a>
                         <a href="https://www.android.com/versions/kit-kat-4-4/" target="_blank" title="OS Android. KitKat" rel="noopener">KitKat, </a>
-                        <a href="https://id.wikipedia.org/wiki/Android_Lollipop" target="_blank" title="OS Android. Lollipop" rel="noopener">Lollipop, </a>
-                        <a href="https://www.android.com/versions/marshmallow-6-0/" target="_blank" title="OS Android. Marshmallow" rel="noopener">Marshmallow, </a>
-                        <a href="https://en.wikipedia.org/wiki/Android_Nougat" target="_blank" title="OS Android. Nougat" rel="noopener">Nougat, </a>
-                        <a href="https://en.wikipedia.org/wiki/Android_Oreo" target="_blank" title="OS Android. Oreo" rel="noopener">Oreo, </a>
-                        <a href="https://www.android.com/versions/pie-9-0/" target="_blank" title="OS Android. Pie" rel="noopener">Pie, </a>
-                        <a href="https://en.wikipedia.org/wiki/Android_10" target="_blank" title="OS Android 10" rel="noopener">Android 10, </a>
                         <a href="https://en.wikipedia.org/wiki/Android_11" target="_blank" title="OS Android 11" rel="noopener">Android 11</a>
-                    </p>
                 </div>
+
+
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    <h3>Halaman</h3>
+                    <h2>Halaman</h2>
                     <ul>
                         {{ range .Site.Menus.quicklink }}
                         <li class="mb-3">
@@ -56,53 +35,54 @@
                         {{ end }}
                     </ul>
                 </div>
+
+
                 <div class="col-sm-3 col-md-3 col-lg-3">
-                    
-                    <form class="subscribe-form">
-                        <div class="form-group">
-                        <label>
-                            <h3>Subscribe Now</h3>
-                            <input type="email" id="promo" class="form-control" placeholder="Input email" disabled="">
-                        </label>
-                        </div>
-                        <button type="submit" class="btn btn-main-sm mb-5" disabled="">Subscribe</button>
-                    </form>
+                    <h2>Ikuti Kami</h2>
                     <div class="list-inline social-icon">
+
                         {{ with .Site.Params.contact.facebook }}
                         <a class="list-inline-item" href="{{.}}" rel="noopener" aria-label="facebook">
-                            <i class="icon-facebook"></i>
+                            <i class="icon-facebook">&nbsp;</i>
                         </a>
                         {{ end }}
+
+
                         {{ with .Site.Params.contact.twitter_uri }}
                         <a class="list-inline-item" href="{{.}}" rel="noopener" aria-label="Twitter">
-                            <i class="icon-twitter"></i>
+                            <i class="icon-twitter">&nbsp;</i>
                         </a>
                         {{ end }}
+
+
                         {{ with .Site.Params.contact.linkedin }}
                         <a class="list-inline-item" href="{{.}}" rel="noopener" aria-label="linkedin">
-                            <i class="tf-ion-social-linkedin"></i>
+                            <i class="tf-ion-social-linkedin">&nbsp;</i>
                         </a>
                         {{ end }}
+
+
                         {{ with .Site.Params.contact.dribbble }}
                         <a class="list-inline-item" href="{{.}}" rel="noopener" aria-label="dribbble">
-                            <i class="tf-ion-social-dribbble"></i>
+                            <i class="tf-ion-social-dribbble">&nbsp;</i>
                         </a>
-                        </li>
+
                         {{ end }}
                         {{ with .Site.Params.contact.instagram }}
                         <a class="list-inline-item" href="{{.}}" rel="noopener" aria-label="instagram">
-                            <i class="icon-instagram"></i>
+                            <i class="icon-instagram">&nbsp;</i>
                         </a>
                         {{ end }}
                     </div>
                 </div>
+
+                
             </div>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>Copyright {{ now.Format "2006"}}. All rights reserved.</p>
-        <p>Design and Developed by <a href="{{ .Site.BaseURL }}" target="_blank" title="{{ .Title }}">{{ .Site.Title }}</a>
-        </p>
+       <p>Copyright {{ now.Format "2006"}}. All rights reserved.</p>
+       <p>Design and Developed by <a href="{{ .Site.BaseURL }}" target="_blank" title="{{ .Title }}">{{ .Site.Title }}</a></p>
     </div>
 </footer>
 <!-- end footer -->

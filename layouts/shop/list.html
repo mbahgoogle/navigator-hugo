@@ -1,40 +1,12 @@
 {{ define "head" }}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
-    if ('IntersectionObserver' in window) {
-        let lazyImageObserver = new IntersectionObserver(
-            function(entries, observer) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        let lazyImage = entry.target;
-                        lazyImage.src = lazyImage.dataset.src;
-                        lazyImageObserver.unobserve(lazyImage);
-                    }
-                });
-            });
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        // For browsers that don't support IntersectionObserver yet,
-        // load all the images now:
-        lazyImages.forEach(function(lazyImage) {
-            lazyImage.src = lazyImage.dataset.src;
-        });
-    }
-});
-</script>
-{{ template "_internal/google_analytics_async.html" . }}
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-8751263644994394",
-    enable_page_level_ads: true
-});
-</script>
+
+
 {{ end }}
+
+
 {{ define "main" }}
+
+
 {{ range (.Paginator 99).Pages }}
 <!-- single blog post -->
 <article class="col-12 col-md-4">
@@ -43,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <img class="img-fluid shadow rounded" src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" title="{{ .Title }}">
         </div>
         <div class="post-title">
-            <h3 class="mt-0">
+            <h2 class="h3 mt-0">
                 <a href="{{ .Permalink }}">{{ .Title | truncate 75 }}</a>
-            </h3>
+            </h2>
             {{ if $.Params.regular_price}}
-            <h4 class="h5 mt-0">
+            <h3 class="h5 mt-0">
                 RP.<strong>{{ . }}</strong>
-            </h4>
+            </h3>
             {{end}}
         </div>
         <div class="post-meta">
@@ -72,7 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </article>
 <!-- /single blog post -->
 {{ end }}
+
 <div class="col-12 text-center">
     {{ template "_internal/pagination.html" . }}
 </div>
+
+
 {{ end }}

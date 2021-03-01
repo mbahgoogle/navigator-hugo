@@ -7,7 +7,7 @@
                 <div class="title text-center">
                     {{ with .Site.Data.feature.title }}
                             {{ . | markdownify }}
-                        <span class="border"></span>
+                        <span class="border">&nbsp;</span>
                     {{ end }}
                     {{ with .Site.Data.feature.subtitle }}
                         <p>{{ . }}</p>
@@ -21,7 +21,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="service-block color-bg text-center">
                         <div class="service-icon text-center">
-                            <i class="{{ .icon }}"></i>
+                            <i class="{{ .icon }}">&nbsp;</i>
                         </div>
                         {{ .title | markdownify }}
                         <p>{{ .description }}</p>

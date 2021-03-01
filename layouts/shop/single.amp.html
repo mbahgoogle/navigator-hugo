@@ -1,347 +1,380 @@
 <!DOCTYPE html>
-<html amp lang="{{- $.Page.Params.lang | default "ID" -}}">
-   <head>
-      <title>{{ .Title }}</title>
-      
-      {{- partial "meta/data" . -}}
+<html amp lang="{{- $.Page.Params.lang | default "id" -}}">
 
-      {{ with .OutputFormats.Get "HTML" }}
-       <link rel="{{ .Rel }}" href="{{ .Permalink }}" />
-      {{ end }}
+<head>
+    <title>{{ .Title }}</title>
 
+    {{- partial "meta/data" . -}}
+    
+    <script src="https://cdn.ampproject.org/v0.js" async></script>
+    <script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async custom-element="amp-sidebar"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" async custom-element="amp-analytics"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async custom-element="amp-image-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async custom-element="amp-bind"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 
-      <script src="https://cdn.ampproject.org/v0.js" async></script>
-      <script src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async custom-element="amp-sidebar"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" async custom-element="amp-analytics"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async custom-element="amp-carousel"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js" async custom-element="amp-image-lightbox"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async custom-element="amp-accordion"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async custom-element="amp-selector"></script>
-      <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async custom-element="amp-bind"></script>
-      <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-
-      {{ partial "meta/schema/ProductDetails.json" . }}
-
-      <style amp-custom>
+    <style amp-custom>
        {{ partial "amp/shop-style.css" . | safeCSS }}
-      </style>
+    </style>
 
-      <style amp-boilerplate="">
-         body {
-         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-         -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-         -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-         animation: -amp-start 8s steps(1, end) 0s 1 normal both
-         }
-         @-webkit-keyframes -amp-start {
-         from {
-         visibility: hidden
-         }
-         to {
-         visibility: visible
-         }
-         }
-         @-moz-keyframes -amp-start {
-         from {
-         visibility: hidden
-         }
-         to {
-         visibility: visible
-         }
-         }
-         @-ms-keyframes -amp-start {
-         from {
-         visibility: hidden
-         }
-         to {
-         visibility: visible
-         }
-         }
-         @-o-keyframes -amp-start {
-         from {
-         visibility: hidden
-         }
-         to {
-         visibility: visible
-         }
-         }
-         @keyframes -amp-start {
-         from {
-         visibility: hidden
-         }
-         to {
-         visibility: visible
-         }
-         }
-      </style>
+      <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
       <noscript>
-         <style amp-boilerplate>
-            body {
-            -webkit-animation: none;
-            -moz-animation: none;
-            -ms-animation: none;
-            animation: none
-            }
-         </style>
+      <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
       </noscript>
-   </head>
-   <body>
-      <amp-sidebar id="sidebar" layout="nodisplay" side="left">
-       <a href="" on="tap:sidebar.close" role="button" tabindex="0" class="sidebar-list"><span class="m-icon close"></span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-         <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-         </svg>
-      </a>
-         <ul>
-            <li class="list-item"><a href="https://detektif.net" class="sidebar-list"><span class="sprite-icon sprite-icon--home"></span>
-               Home
-               </a>
-            </li>
-         </ul>
-      </amp-sidebar>
-      <div data-server-rendered="true" id="__nuxt">
-         <div id="__layout">
-            <div id="wrapper">
-               <div class="c-header">
-                  <div on="tap:sidebar.toggle" role="button" tabindex="0" class="c-header__menu"><span class="m-icon menu"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                   <path fill-rule="evenodd" d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                  </svg></span></div>
-                  <a href="/" title="{{.Description}}" class="c-header__logo">
-                  Detektif.net
-                  </a><a href="/?toggle-search=on" class="toggle-search"><span class="m-icon search"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                  </svg></span></a>
-               </div>
-               <div class="content-wrapper">
-                  <div>
-                  </div>
-                  <div class="panel">
-                     <div class="panel-content--breadcrumb">
-                        <div class="c-breadcrumb">
-                           <ol itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList" class="c-breadcrumb__list">
-                              <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
-                                 <a target="_blank" href="/" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
-                                    <!---->
-                                    <span itemprop="name">Home</span>
-                                    <meta content="1" itemprop="position">
-                                 </a>
-                              </li>
-                              <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
-                                 <a target="_blank" href="/{{.Section}}" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
-                                    <!---->
-                                    <span itemprop="name">{{.Section}}</span>
-                                    <meta content="2" itemprop="position">
-                                 </a>
-                              </li>
-                              <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
-                                 <a target="_blank" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
-                                    <!---->
-                                    <span itemprop="name">{{.Title}}</span>
-                                    <meta content="3" itemprop="position">
-                                 </a>
-                              </li>
-                           </ol>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="panel border border--bottom">
-                     <div class="panel-content panel-content--bleed border border--bottom">
-                        <amp-carousel width="320" height="320" type="slides" layout="responsive" controls="controls">
-                           <amp-img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" width="320" height="320" layout="responsive"></amp-img>
-                        </amp-carousel>
-                     </div>
-                     <div id="mainPanel" class="panel-content border border--bottom">
-                        <!---->
-                        <h1>{{.Title}}</h1>
-                        <div id="priceContainer">
-                           <span class="price price--reduced text-bold">Rp{{.Params.regular_price}}</span>
-                           <!---->
-                        </div>
-                        <div class="product-acc">
-                           <!---->
-                           <!---->
-                        </div>
-                        <div class="panel-narrow border border--top clearfix">
-                           <div class="row">
-                              <div class="col col-1of2"><span class="availability-text">tersedia</span></div>
-                              <div class="col col-1of2"><span class="stock-text">
-                                 49 stok barang
-                                 </span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="panel-narrow border border--top clearfix">
-                           <ul class="row">
-                              <li class="col col-1of3"><span class="stat-key text-gray text-small">Terjual</span><span class="stat-value text-bold">1</span></li>
-                              <li class="col col-1of3 align-center"><span class="stat-key text-gray text-small">Dilihat</span><span class="stat-value text-bold">{{$.Params.id_number}}</span></li>
-                              <li class="col col-1of3 align-right"><span class="stat-key text-gray text-small">Difavorit</span><span class="stat-value text-bold">{{$.Params.id_number}}</span></li>
-                           </ul>
-                        </div>
-                        <div class="clearfix"></div>
-                     </div>
-                  </div>
-                  <div class="panel border border--top border--bottom">
-                     <div class="panel-content row">
-                        <h2 class="heading">Pelapak</h2>
-                        <div id="sellerInfo" class="col col-1of2">
-                           <p id="sellerName">
-                              {{- if isset .Params "author" -}}{{- .Params.author -}}{{- else -}}Admin{{- end -}}
-                           </p>
-                           <div id="sellerLocation" class="text-small"><span class="m-icon m-icon--small m-icon--location"></span> Jakarta
-                           </div>
-                        </div>
-                        <div class="feedback-wrapper col col-1of2">
-                           <div class="text-small"><span class="text-green feedback-percentage">96%</span> Feedback Positif
-                           </div>
-                           <p class="text-small text-gray">Dari 962 Transaksi</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="panel border border--top border--bottom">
-                     <amp-selector role="tablist" layout="container" class="amp-tab-container border border--bottom">
-                        <div role="tab" selected="selected" option="a" class="tab-button"><span class="tab-title">Detil</span></div>
-                        <div role="tabpanel panel-content" class="tab-content">
-                           <h2 class="show-more panel-title heading">Spesifikasi</h2>
-                           <div class="spesification-box border border--bottom">
-                              <dl>
-                                 <dt>Kategori</dt>
-                                 <dd>{{.Params.Categories}}</dd>
-                                 <dt>Berat</dt>
-                                 <dd>150 gram</dd>
-                                 <dt>Brand</dt>
-                                 <dd>Lainnya</dd>
-                                 <dt>Screen_size</dt>
-                                 <dd>&gt;16</dd>
-                              </dl>
-                           </div>
-                           <div class="secondary-panel border border--bottom">
-                              <a href="https://api.whatsapp.com/send?phone={{.Site.Params.wa_no}}&text=%2AKode%20Produk%2A%20%20%3A%20{{$.Params.order_id}}%0D%0A%0D%0A%2AHarga%2A%20%3A%20%20Rp.{{$.Params.regular_price}}%0D%0A%0D%0A%2AKeterangan%20Produk%2A%20%3A%20%20{{.Title}}" class="btn btn--red">
-                              Hubungi Penjual
-                              </a>
-                           </div>
-                           <div class="secondary-panel border border--bottom">
-                              <amp-accordion disable-session-states="">
-                                 <section expanded="">
-                                    <h2 class="accordion-title"><span class="show-more panel-title heading">Deskripsi</span>
-                                       <span class="show-less panel-title heading">Deskripsi</span>
-                                       <span class="m-icon down float-right show-more"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="black" xmlns="http://www.w3.org/2000/svg">
-                                       <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                       </svg></span>
-                                       <span class="m-icon up float-right show-less"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="black" xmlns="http://www.w3.org/2000/svg">
-                                       <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                       </svg></span></h2>
-                                    <div class="accordion-content">
-                                       {{.Content}}
-                                    </div>
-                                 </section>
-                              </amp-accordion>
-                           </div>
-                           <div class="secondary-panel last-child">
-                              <amp-accordion disable-session-states="">
-                                 <section>
-                                    <h2 class="accordion-title"><span class="show-more panel-title heading">Catatan Pelapak</span><span class="show-less panel-title heading">Catatan Pelapak</span>
 
-                                       <span class="m-icon down float-right show-more"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="black" xmlns="http://www.w3.org/2000/svg">
-                                       <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                       </svg></span>
-                                       <span class="m-icon up float-right show-less"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="black" xmlns="http://www.w3.org/2000/svg">
-                                       <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                       </svg></span></h2>
-                                    <div class="accordion-content">
-                                       <div></div>
-                                       <p>Catatan Pelapak tetap tunduk terhadap
-                                          <a href="https://detektif.net/">Aturan penggunaan Detektif.net.</a>
-                                       </p>
-                                    </div>
-                                 </section>
-                              </amp-accordion>
-                           </div>
-                           <div class="clearfix"></div>
-                        </div>
-                        <div role="tab" option="b" class="tab-button"><span class="tab-title">Ketentuan</span></div>
-                        <div role="tabpanel panel-content" class="tab-content">
-                           {{ .Site.Data.ketentuan_shop.content | markdownify }}
-                        </div>
-                     </amp-selector>
-                  </div>
-                  <div class="panel border border--top border--bottom">
-                     <div class="panel-content panel-content--bleed-hor">
-                        <div class="panel-content__heading">
-                           <h2 class="heading">Rekomendasi untuk Kamu</h2>
-                        </div>
-                        <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
-                           {{ range where .Site.RegularPages "Section" "blog" }}
-                           <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" role="listitem" data-vars-target-url="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" data-vars-product-id="1e5k2mr" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
-                              <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumb | default "/placeholder.png" }}{{ . | absURL }}{{ end }}" alt="{{.Title}}"></amp-img>
-                              <div class="product-info">
-                                 <div class="product--name">{{.Title}} </div>
-                                 
-                                 <div class="pull-left product--rating">
-                                    <!---->
-                                    <div class="rating">
-                                       <div class="rating-bg">
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                       </div>
-                                       <div class="rating-fg rating-fg--5">
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                          <span class="rating-star">&#x2605;</span>
-                                       </div>
-                                    </div>
-                                    <span class="pull-right text-gray text-normal text-small">
-                                       {{.WordCount}} <!---->
-                                    </span>
-                                 </div>
-                              </div>
-                              <!---->                                   
-                           </a>
-                           {{end}}
-                        </amp-carousel>
-                     </div>
-                  </div>
-                  <div class="panel border border--top border--bottom u-pad-bottom--8">
-                     <div class="panel-content panel-content--bleed-hor">
-                        <div class="panel-content__heading">
-                           <h2 class="heading pull-left">Barang Terkait</h2>
-                           <a href="https://detektif.net/shop" class="pull-right text-normal">Selengkapnya</a>
-                           <div class="clearfix"></div>
-                        </div>
-                        <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
-                           {{ $related := .Site.RegularPages.Related . | first 55 }}
-                           {{ with $related }}
-                           {{ range . }}
-                           <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" role="listitem" data-vars-target-url="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" data-vars-product-id="2c72tv8" data-vars-section="" class="product-scroll-item text-decoration-none product-item-wrapper">
-                              <amp-img width="128" height="128" layout="responsive" src="{{.Params.thumbnail}}" alt="{{ .Title }}"></amp-img>
-                              <div class="product-info">
-                                 <div class="product--name">{{ .Title }}</div>
-                                 <div class="price-wrapper">
-                                    <span class="price--normal">Rp{{.Params.price}}</span>
-                                    <!---->
-                                 </div>
-                                 <!---->
-                              </div>
+    {{ partial "meta/schema/ProductDetails.json" . }}
+
+</head>
+
+
+<body>
+
+<amp-sidebar id="sidebar" layout="nodisplay" side="left">
+    <a href="" on="tap:sidebar.close" role="button" tabindex="0" class="sidebar-list">
+      <span class="m-icon close">&nbsp;</span>
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+      </svg>
+    </a>
+    <ul>
+        <li class="list-item">
+         <a href="/" class="sidebar-list">
+          <span class="sprite-icon sprite-icon--home"></span>
+            HomePage
+         </a>
+        </li>
+    </ul>
+</amp-sidebar>
+
+<div id="wrapper">
+
+   <div class="c-header">
+       <div on="tap:sidebar.toggle" role="button" tabindex="0" class="c-header__menu">
+           <span class="m-icon menu"> 
+               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                   <path fill-rule="evenodd" d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+               </svg>
+           </span>
+       </div>
+       <a href="/" title="{{.Description}}" class="c-header__logo">
+           Detektif.net
+       </a>
+   </div>
+
+
+   <div class="content-wrapper">
+
+      <div class="panel">
+          <div class="panel-content--breadcrumb">
+              <div class="c-breadcrumb">
+                  <ol itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList" class="c-breadcrumb__list">
+                      <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
+                          <a target="_blank" href="/" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
                               <!---->
-                           </a>
-                           {{end}}
-                           {{end}}
-                        </amp-carousel>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                              <span itemprop="name">Home</span>
+                              <meta content="1" itemprop="position">
+                          </a>
+                      </li>
+                      <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
+                          <a target="_blank" href="/{{.Section}}" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
+                              <!---->
+                              <span itemprop="name">{{.Section}}</span>
+                              <meta content="2" itemprop="position">
+                          </a>
+                      </li>
+                      <li itemtype="http://schema.org/ListItem" itemscope="itemscope" itemprop="itemListElement" class="c-breadcrumb__item">
+                          <a target="_blank" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" itemtype="http://schema.org/Thing" itemprop="item" class="c-breadcrumb__link">
+                              <!---->
+                              <span itemprop="name">{{.Title}}</span>
+                              <meta content="3" itemprop="position">
+                          </a>
+                      </li>
+                  </ol>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="panel border border--top border--bottom">
+         <div class="panel-content row">
+            <amp-ad width="100vw" height="320"
+                 type="adsense"
+                 data-ad-client="ca-pub-8751263644994394"
+                 data-ad-slot="1611735425"
+                 data-auto-format="rspv"
+                 data-full-width="">
+              <div overflow=""></div>
+            </amp-ad>
          </div>
       </div>
+
+      <div class="panel border border--bottom">
+          <div class="panel-content panel-content--bleed border border--bottom">
+              <amp-carousel width="320" height="320" type="slides" layout="responsive" controls="controls">
+                  <amp-img src="{{ with .Params.thumbnail }}{{ . | absURL }}{{ end }}" width="320" height="320" layout="responsive"></amp-img>
+              </amp-carousel>
+          </div>
+          <div id="mainPanel" class="panel-content border border--bottom">
+              <!---->
+              <h1>{{.Title}}</h1>
+              <div id="priceContainer">
+                  <span class="price price--reduced text-bold">Rp {{.Params.regular_price}}</span>
+                  <!---->
+              </div>
+            
+              <div class="panel-narrow border border--top clearfix">
+                  <div class="row">
+                      <div class="col col-1of2">
+                        <span class="availability-text">
+                         tersedia
+                        </span>
+                      </div>
+                      <div class="col col-1of2">
+                        <span class="stock-text">
+                         49 stok barang
+                        </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="panel-narrow border border--top clearfix">
+                  <ul class="row">
+                      <li class="col col-1of3">
+                          <span class="stat-key text-gray text-small">Terjual</span>
+                          <span class="stat-value text-bold">1</span>
+                      </li>
+                      <li class="col col-1of3 align-center">
+                          <span class="stat-key text-gray text-small">Dilihat</span>
+                          <span class="stat-value text-bold">{{$.Params.id_number}}</span>
+                      </li>
+                      <li class="col col-1of3 align-right">
+                          <span class="stat-key text-gray text-small">Difavorit</span>
+                          <span class="stat-value text-bold">{{$.Params.id_number}}</span>
+                      </li>
+                  </ul>
+              </div>
+              <div class="clearfix"></div>
+          </div>
       </div>
-      {{ partial "amp/auto-ads" . }}
-      {{ partial "amp/google-analytics" . }}
+
+      <div class="panel border border--top border--bottom">
+         <div class="panel-content row">
+         <amp-ad width="100vw" height="320"
+              type="adsense"
+              data-ad-client="ca-pub-8751263644994394"
+              data-ad-slot="6669632749"
+              data-auto-format="rspv"
+              data-full-width="">
+           <div overflow=""></div>
+         </amp-ad>
+         </div>
+      </div>
 
 
-   </body>
+      <div class="panel border border--top border--bottom">
+          <div class="panel-content row">
+              <h2 class="heading">Pelapak</h2>
+              <div id="sellerInfo" class="col col-1of2">
+                  <p id="sellerName">
+                      {{- if isset .Params "author" -}}{{- .Params.author -}}{{- else -}}Admin{{- end -}}
+                  </p>
+                  <div id="sellerLocation" class="text-small">
+                     Jakarta
+                  </div>
+              </div>
+              <div class="feedback-wrapper col col-1of2">
+                  <div class="text-small">
+                     <span class="text-green feedback-percentage">
+                        96%
+                     </span> 
+                     Feedback Positif
+                  </div>
+                  <p class="text-small text-gray">Dari 962 Transaksi</p>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="panel border border--top border--bottom">
+         <amp-selector role="tablist" layout="container" class="amp-tab-container border border--bottom">
+            <div role="tab" selected="selected" option="a" class="tab-button">
+               <span class="tab-title">
+                Detil
+               </span>
+            </div>
+            <div role="tabpanel panel-content" class="tab-content">
+               <h2 class="show-more panel-title heading">Spesifikasi</h2>
+               <div class="spesification-box border border--bottom">
+                  <dl>
+                     <dt>Kategori</dt>
+                     <dd>{{.Params.Categories}}</dd>
+                     <dt>Berat</dt>
+                     <dd>150 gram</dd>
+                     <dt>Brand</dt>
+                     <dd>Lainnya</dd>
+                     <dt>Screen_size</dt>
+                     <dd>&gt;16</dd>
+                  </dl>
+               </div>
+               <div class="secondary-panel border border--bottom">
+                  <a href="https://api.whatsapp.com/send?phone={{.Site.Params.wa_no}}&text=%2AKode%20Produk%2A%20%20%3A%20{{$.Params.order_id}}%0D%0A%0D%0A%2AHarga%2A%20%3A%20%20Rp.{{$.Params.regular_price}}%0D%0A%0D%0A%2AKeterangan%20Produk%2A%20%3A%20%20{{.Title}}" class="btn btn--red">
+                   Hubungi Penjual
+                  </a>
+               </div>
+               <div class="secondary-panel border border--bottom">
+                  <amp-accordion>
+                     <section>
+                        <h2 class="accordion-title">
+                           <span class="show-more panel-title heading">Deskripsi</span>
+                           <span class="show-less panel-title heading">Deskripsi</span>
+                           <span class="m-icon down float-right show-more">
+                              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="black"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                              </svg>
+                           </span>
+                           <span class="m-icon up float-right show-less">
+                              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="black"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                              </svg>
+                           </span>
+                        </h2>
+                        <div class="accordion-content">
+                         {{.Content}}
+                        </div>
+                     </section>
+                  </amp-accordion>
+               </div>
+               <div class="secondary-panel last-child">
+                  <amp-accordion>
+                     <section>
+                        <h2 class="accordion-title">
+                           <span class="show-more panel-title heading">Catatan Pelapak</span>
+                           <span class="show-less panel-title heading">Catatan Pelapak</span>
+                           <span class="m-icon down float-right show-more">
+                              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="black"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                              </svg>
+                           </span>
+                           <span class="m-icon up float-right show-less">
+                              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="black"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                              </svg>
+                           </span>
+                        </h2>
+                        <div class="accordion-content">
+                           <p>Catatan Pelapak tetap tunduk terhadap                                      
+                              <a href="https://detektif.net/">Aturan penggunaan Detektif.net.</a>
+                           </p>
+                        </div>
+                     </section>
+                  </amp-accordion>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+            <div role="tab" option="b" class="tab-button">
+               <span class="tab-title">Ketentuan</span>
+            </div>
+            <div role="tabpanel panel-content" class="tab-content">
+                  {{ .Site.Data.ketentuan_shop.content | markdownify }}
+            </div>
+         </amp-selector>
+      </div>
+
+
+      <div class="panel border border--top border--bottom">
+         <div class="panel-content panel-content--bleed-hor">
+            <div class="panel-content__heading">
+               <h2 class="heading">Rekomendasi untuk Kamu</h2>
+            </div>
+            <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
+
+               {{ range where .Site.RegularPages "Section" "blog" }}
+               <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" role="listitem" class="product-scroll-item text-decoration-none product-item-wrapper">
+                  <amp-img width="128" height="128" layout="responsive" src="{{ with .Params.thumb | default "/placeholder.png" }}{{ . | absURL }}{{ end }}" alt="{{.Title}}">               
+                  </amp-img>
+                  <div class="product-info">
+                     <div class="product--name">{{.Title}} </div>
+                     <div class="pull-left product--rating">
+                        <!---->
+                        <div class="rating">
+                           <div class="rating-bg">
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                           </div>
+                           <div class="rating-fg rating-fg--5">
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                              <span class="rating-star">&#x2605;</span>
+                           </div>
+                        </div>
+                        <span class="pull-right text-gray text-normal text-small">
+                           {{.WordCount}}
+                           <!---->
+                        </span>
+                     </div>
+                  </div>
+                  <!---->
+               </a>
+               {{end}}
+                      
+            </amp-carousel>
+         </div>
+      </div>
+
+
+      <div class="panel border border--top border--bottom u-pad-bottom--8">
+          <div class="panel-content panel-content--bleed-hor">
+              <div class="panel-content__heading">
+                  <h2 class="heading pull-left">Barang Terkait</h2>
+                  <a href="https://detektif.net/shop" class="pull-right text-normal">Selengkapnya</a>
+                  <div class="clearfix"></div>
+              </div>
+              <amp-carousel width="auto" height="220" layout="fixed-height" type="carousel">
+                          
+                  {{ $related := .Site.RegularPages.Related . | first 55 }}
+                  {{ with $related }}
+                  {{ range . }}                    
+                  <a href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" role="listitem" class="product-scroll-item text-decoration-none product-item-wrapper">
+                      <amp-img width="128" height="128" layout="responsive" src="{{.Params.thumbnail}}" alt="{{ .Title }}"></amp-img>
+                      <div class="product-info">
+                          <div class="product--name">{{ .Title }}</div>
+                          <div class="price-wrapper">
+                              <span class="price--normal">Rp{{.Params.price}}</span>
+                              <!---->
+                          </div>
+                          <!---->
+                      </div>
+                      <!---->
+                  </a>
+                  {{end}}
+                  {{end}}
+                      
+              </amp-carousel>
+          </div>
+      </div>
+
+   <!-- end content wrapper -->
+   </div>
+
+<!-- end wrapper -->
+</div>
+
+{{ partial "amp/auto-ads" . }}
+{{ partial "amp/google-analytics" . }}
+
+</body>
+
 
 </html>

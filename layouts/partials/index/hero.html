@@ -17,7 +17,7 @@
                     {{ if .Site.Params.hero.button }}
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" target="_blank" class="btn btn-main" target="_blank" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>
+                                <a href="{{ with .Site.Params.hero.btnURL }}{{.}}{{ end }}" class="btn btn-main" target="_blank" title="{{ with .Site.Params.hero.btnText }}{{.}}{{ end }} - {{ .Site.Title }}">{{ with .Site.Params.hero.btnText }}{{.}}{{ end }}</a>
                             </li>
                         </ul>
                     {{ end }}
