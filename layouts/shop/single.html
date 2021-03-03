@@ -58,7 +58,30 @@
         {{ range .Params.tags }}
          <a class="badge badge-light" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
         {{ end }}
-
+    
+    <!-- Recommend Posts -->
+    {{ range first 3 .Site.Taxonomies.categories.penyadap }}
+        <div class="card flex-row flex-wrap mb-5 mt-5">
+            <div class="card-header border-0 col-md-4 text-center">
+                <a href="{{ .RelPermalink }}">
+                    <img class="lazy img-fluid" src="{{.Params.thumbnail}}" alt="{{ .Title }}" loading="lazy">
+                </a>
+            </div>
+            <div class="card-block px-2 col-md-8">
+                <h2 class="h3 card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                <p class="card-text">{{ .Summary | truncate 200 }}</p>
+                <a href="{{ .RelPermalink }}" class="btn btn-success mb-3">Lihat Selengkapnya</a>
+            </div>
+            <div class="w-100"></div>
+            <div class="card-footer w-100 text-muted">
+                {{ range .Params.categories }}
+                <span class="badge badge-success">
+                    <a class="text-black" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}">{{ . }}</a>
+                </span>
+                {{end}}
+            </div>
+        </div>
+    {{end}}
 
     <!-- Related Product -->
     {{ $related := .Site.RegularPages.Related . | first 35 }}
